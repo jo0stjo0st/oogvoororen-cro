@@ -1,92 +1,52 @@
 import Link from "next/link";
 import Image from "next/image";
 import { LabBar } from "@/components/lab-bar";
-import { variants, product, euro } from "@/features/products/data";
+import { product } from "@/features/products/data";
+
+const experiments = [
+  ["01", "Producthero en primaire CTA", "Een dominante proefafspraak in plaats van twee gelijkwaardige acties."],
+  ["02", "Prijs en eigen opleg", "Heldere toestelprijs, indicatieve tegemoetkoming en inbegrepen service."],
+  ["03", "Direct zichtbare voordelen", "Proefperiode, audicien aan huis en garantie bij de prijs."],
+  ["04", "Waarom Oogvoororen?", "Persoonlijke dienstverlening direct onder het productblok."],
+  ["05", "Eenvoudiger prijsberekening", "Leeftijd, aantal toestellen en eigen opleg zonder verwarring."],
+  ["06", "Keuzehulp en vergelijking", "Een begrijpelijke modelkeuze vóór de technische specificaties."],
+  ["07", "Accessoires ordenen", "Inbegrepen, optioneel en onderhoud apart presenteren."],
+  ["08", "Reviews en vertrouwen", "Relevante productervaringen en Belgische bedrijfsreviews."],
+  ["09", "Mobiele afspraakbalk", "Een subtiele sticky CTA als afzonderlijk experiment."],
+  ["10", "Productspecifieke afspraak", "Het gekozen toestel automatisch meenemen naar de aanvraag."],
+];
 export default function HomePage() {
   return (
     <>
       <LabBar />
       <main id="main-content" className="wide lab-home">
-        <Image
-          src="/assets/logo.svg"
-          width={226}
-          height={52}
-          alt="Oogvoororen.be"
-          priority
-        />
         <div className="lab-intro">
-          <p className="eyebrow">Een betere afspraak begint hier</p>
-          <h1>Oogvoororen CRO Lab</h1>
-          <p>
-            De huidige productpagina en twee rustige alternatieven. Vergelijk
-            wat een bezoeker ziet, begrijpt en nodig heeft om een afspraak aan
-            te vragen.
-          </p>
-        </div>
-        <div className="lab-cards">
-          {variants.map((v, i) => (
-            <article className="lab-card" key={v.id}>
-              <div className={`card-preview preview-${v.id}`}>
-                <span>
-                  {i === 0 ? "Referentie" : `Variant ${i === 1 ? "A" : "B"}`}
-                </span>
-                <Image
-                  src={product.image}
-                  width={240}
-                  height={240}
-                  alt="Phonak Audéo Infinio Ultra I90"
-                />
-                <div>
-                  <strong>Phonak Infinio Ultra I90</strong>
-                  <p>{euro(product.price)}</p>
-                </div>
-              </div>
-              <div className="card-content">
-                <p className="eyebrow">
-                  {i === 0
-                    ? "Huidige presentatie"
-                    : i === 1
-                      ? "Vertrouwd en overzichtelijk"
-                      : "Van twijfel naar uitproberen"}
-                </p>
-                <h2>{v.name}</h2>
-                <p>{v.description}</p>
-                <Link className="button primary" href={`/${v.id}`}>
-                  Bekijk{" "}
-                  {i === 0 ? "de referentie" : `variant ${i === 1 ? "A" : "B"}`}{" "}
-                  →
-                </Link>
-              </div>
-            </article>
-          ))}
-        </div>
-        <div className="lab-next">
-          <div>
-            <h2>Zelf naast elkaar beoordelen</h2>
-            <p>
-              Bekijk de versies op desktop of in een mobiele weergave van 390
-              pixels.
-            </p>
-          </div>
-          <Link className="button secondary" href="/compare">
-            Open de vergelijking →
-          </Link>
+          <p className="eyebrow">Oogvoororen · CRO-werkplaats</p>
+          <h1>Verbeter de bestaande productpagina, onderdeel voor onderdeel.</h1>
+          <p>Geen redesign. Eerst een betrouwbare reproductie van de huidige productpagina. Daarna beoordelen we losse wijzigingen, zonder dat de rest van de pagina verandert.</p>
         </div>
         <section className="section">
-          <h2>Wat testen we?</h2>
-          <p>
-            Een duidelijkere prijs, grotere tekst, zichtbare begeleiding en een
-            kortere afspraakflow. Dit zijn CRO-hypothesen, geen bewezen
-            conversiewinst.
-          </p>
-          <p>
-            De primaire uitkomst is een gekwalificeerde afspraak. Klikken en
-            formulierstarts zijn ondersteunende signalen; kwaliteit en
-            uiteindelijke verkopen horen bij een latere praktijktest.
-          </p>
-          <Link href="/informatie" className="text-link">
-            Bronnen, voorwaarden en beperkingen
-          </Link>
+          <h2>Stap 1: de originele productpagina</h2>
+          <p>Referentie: <a href={product.source} target="_blank" rel="noreferrer">{product.name}</a>. De lokale reproductie is nog in ontwikkeling en mag pas als baseline worden gebruikt nadat de desktop- en mobiele weergave zijn gecontroleerd.</p>
+          <Link className="button primary" href="/original">Bekijk de huidige reproductie →</Link>
+        </section>
+        <section className="section">
+          <h2>Stap 2: losse CRO-onderdelen</h2>
+          <p>Dit is de backlog van afzonderlijke voorstellen. Per onderdeel maken we straks een visuele vergelijking: bestaand versus voorgesteld. Pas na goedkeuring combineren we wijzigingen.</p>
+          <div className="cro-experiment-list">
+            {experiments.map(([id, title, detail]) => (
+              <article className="cro-experiment" key={id}>
+                <span className="cro-experiment-number">{id}</span>
+                <div><h3>{title}</h3><p>{detail}</p></div>
+                <span className="cro-experiment-status">Nog te beoordelen</span>
+              </article>
+            ))}
+          </div>
+        </section>
+        <section className="section">
+          <h2>Uitgangspunt</h2>
+          <p>De productpagina moet meteen antwoord geven op drie vragen: wat kost het mij, kan ik vrijblijvend proberen en waarom kiezen voor Oogvoororen? Met behoud van alle bestaande productinformatie verderop.</p>
+          <Image src={product.image} alt={product.name} width={160} height={160} />
         </section>
       </main>
     </>
