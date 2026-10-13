@@ -2268,3 +2268,25 @@ td {
 .cro-sticky-context{display:flex;flex-direction:column;gap:2px}
 .cro-sticky-context strong{font-size:16px}.cro-sticky-context span{font-size:13px;color:#586b60}
 @media(max-width:650px){.cro-sticky-page{padding-bottom:110px}.cro-sticky-hero{padding:25px;min-height:390px}.cro-sticky-content{min-height:310px;padding:38px 10px}.cro-sticky-bar{padding:10px 14px calc(10px + env(safe-area-inset-bottom))}.cro-sticky-context{display:none}.cro-sticky-bar-inner,.cro-sticky-bar .cro-sticky-button{width:100%}.cro-sticky-bar .cro-sticky-button{font-size:15px}}
+
+/* Product-context appointment experiment */
+.cro-booking-page{padding:34px 0 70px}.cro-booking-page>p{max-width:920px}
+.cro-booking-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:34px;align-items:start;margin:32px 0 45px}
+.cro-booking-explainer{padding:30px;background:#f4f8f5;border-radius:12px}
+.cro-booking-explainer h2{font-size:29px;margin-bottom:15px}
+.cro-booking-explainer>p{font-size:17px;line-height:1.6}
+.cro-booking-product{display:flex;align-items:center;gap:16px;padding:17px;background:#fff;border:1px solid #dbe8de;border-radius:10px;margin:26px 0}
+.cro-booking-product img{object-fit:contain;flex-shrink:0}
+.cro-booking-product span{display:block;font-size:13px;color:#597063;margin-bottom:4px}
+.cro-booking-product strong{display:block;font-size:17px;line-height:1.35}
+.cro-booking-product p{font-size:14px;line-height:1.5;margin:8px 0 0}
+.cro-booking-explainer h3{font-size:21px}
+.cro-booking-steps{padding-left:25px;margin:12px 0 25px}
+.cro-booking-steps li{padding-left:5px;margin:12px 0;font-size:16px;line-height:1.5}
+.cro-booking-assurance{border-top:1px solid #d7e5db;padding-top:18px}
+.cro-booking-assurance p{font-size:15px;margin:7px 0 0}
+.cro-booking-form{padding:28px;border:1px solid #dce6df;border-radius:12px}
+.cro-booking-form>h2{font-size:26px;margin-bottom:20px}
+.cro-booking-form .appointment-form{max-width:none}
+@media(max-width:850px){.cro-booking-layout{grid-template-columns:1fr}.cro-booking-explainer,.cro-booking-form{padding:22px}}
+@media(max-width:550px){.cro-booking-product{align-items:flex-start}.cro-booking-product img{width:70px;height:70px}.cro-booking-explainer h2{font-size:25px}}
