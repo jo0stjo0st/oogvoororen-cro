@@ -2403,3 +2403,16 @@ td {
 .cro-site-quicklinks a{font-size:13px;color:#4b5a52;font-weight:500}
 @media(max-width:800px){.cro-site-proof>span:last-child{display:none}.cro-site-quicklinks{gap:9px}.cro-site-top-actions{gap:12px}}
 @media(max-width:600px){.cro-site-top>.wide>div.cro-site-proof{display:flex}.cro-site-top .cro-site-quicklinks{display:none}.cro-site-top-actions{gap:12px}.cro-site-top .cro-site-top-cta{padding:7px 10px;font-size:12px}.cro-site-top a[href^="tel:"]{font-size:12px}}
+
+/* Header utility icons: large hit targets and compact responsive layout */
+.cro-site-utilities{display:flex;align-items:center;gap:5px;padding-left:8px;border-left:1px solid #dfe7e2}
+.cro-site-icon-button{display:grid;place-items:center;width:40px;height:40px;min-width:40px;color:#415b4d!important;background:transparent;border:0;border-radius:8px;text-decoration:none!important}
+.cro-site-icon-button:hover,.cro-site-icon-button:focus-visible{background:#eaf3ed}
+.cro-site-search{background:#f4f8f5;border-bottom:1px solid #dce9df;padding:17px 0}
+.cro-site-search .wide{display:flex;align-items:center;gap:22px}
+.cro-site-search label{white-space:nowrap;font-size:15px}
+.cro-site-search form{display:flex;gap:9px;flex:1}
+.cro-site-search input{min-height:46px;font-size:16px}
+.cro-site-search button{background:#007d60;color:#fff;border-radius:7px;padding:8px 17px;font-size:15px;font-weight:700}
+@media(max-width:850px){.cro-site-top-actions{gap:10px}.cro-site-utilities{gap:0;padding-left:4px}.cro-site-icon-button{width:39px;min-width:39px;height:42px}.cro-site-search .wide{display:block}.cro-site-search label{display:block;margin-bottom:8px}}
+@media(max-width:600px){.cro-site-top>.wide{width:calc(100% - 24px);justify-content:space-between;gap:4px}.cro-site-top-actions{gap:5px}.cro-site-top-actions>a[href^="tel:"]{display:none}.cro-site-utilities{padding-left:2px;border:0}.cro-site-icon-button{width:36px;min-width:36px;height:42px}.cro-site-icon-button svg{width:20px;height:20px}.cro-site-proof-stars{font-size:14px;letter-spacing:0}.cro-site-top .cro-site-top-cta{padding:7px 9px;white-space:nowrap}.cro-site-search form{flex-direction:column}}
