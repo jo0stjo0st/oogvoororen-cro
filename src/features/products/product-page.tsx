@@ -41,7 +41,7 @@ export function AppointmentCTA({
 }
 export function BenefitList() {
   return (
-    <ul className="benefits">
+    <ul className="benefits" aria-label="Voordelen van Oogvoororen">
       <li>
         <LocationHint />
       </li>
@@ -483,13 +483,13 @@ export function ProductPage({ variant }: { variant: Variant }) {
               <>
                 <Service />
                 <div className="product-more">
-                  <details className="product-disclosure" id="prijsberekening">
+                  <details className="product-disclosure" id="prijsberekening" open>
                     <summary>
                       <h2>Wat kost het mij?</h2>
                     </summary>
                     <p>
-                      Pas uw leeftijd en aantal toestellen aan. De eigen opleg
-                      bovenaan verandert mee.
+                      Bereken eenvoudig de indicatieve prijs voor uw situatie.
+                      De definitieve vergoeding hangt af van de voorwaarden van uw mutualiteit.
                     </p>
                     <PriceCalculator />
                   </details>
