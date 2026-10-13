@@ -2059,3 +2059,13 @@ td {
 .cro-why-footer p{margin:0;max-width:420px;font-size:16px}
 .cro-why-button{background:#f9ac3c!important;color:#202826!important;white-space:nowrap;text-decoration:none!important}
 @media(max-width:800px){.cro-why-head{padding:30px 20px 18px}.cro-why-head h2{font-size:27px}.cro-why-content{grid-template-columns:1fr;margin:0 16px}.cro-why-visual{min-height:230px;padding:24px}.cro-why-visual strong{font-size:25px}.cro-why-steps{padding:14px 24px}.cro-why-footer{padding:22px 20px 28px;flex-direction:column;align-items:stretch}.cro-why-button{text-align:center;white-space:normal}}
+
+/* Authentic photography for the Chapter 4 service story. */
+.cro-why-real-photo{position:relative;min-height:440px;padding:0;background:#e7eeea;display:block;overflow:hidden}
+.cro-why-real-photo>img{width:100%;height:100%;min-height:440px;object-fit:cover;object-position:45% center;display:block}
+.cro-why-photo-caption{position:absolute;left:0;right:0;bottom:0;padding:55px 28px 24px;background:linear-gradient(transparent,rgba(14,44,35,.85));color:#fff;display:flex;flex-direction:column;gap:3px}
+.cro-why-photo-caption strong{font-size:24px;margin:0;max-width:none}
+.cro-why-photo-caption span{font-size:16px;text-transform:none;letter-spacing:0;font-weight:500}
+.cro-why-consultation-photo{margin-bottom:8px;border-radius:8px;overflow:hidden;max-height:150px}
+.cro-why-consultation-photo img{display:block;width:100%;height:150px;object-fit:cover;object-position:center 55%}
+@media(max-width:800px){.cro-why-real-photo,.cro-why-real-photo>img{min-height:260px}.cro-why-real-photo>img{height:260px}.cro-why-consultation-photo img{height:135px}}
