@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { LabBar } from "@/components/lab-bar";
 import { appointmentUrl } from "@/features/products/data";
 
@@ -20,12 +21,12 @@ export default function WhyPage() {
         <p>U hoeft nog niet te weten welk toestel het beste bij u past. Wij helpen u de juiste keuze te maken, met een hoortest en persoonlijke begeleiding.</p>
       </div>
       <div className="cro-why-content">
-        <div className="cro-why-visual">
-          <span>Persoonlijke aandacht</span>
-          <strong>Bij u thuis of in een hoorcentrum</strong>
-          <p>Voor de definitieve versie gebruiken we bij voorkeur een eigen foto van een audicien en klant.</p>
+        <div className="cro-why-visual cro-why-real-photo">
+          <Image unoptimized src="https://cdn.oogvoororen.nl/MFFSwTgW7xbsf2gcxH0UokxMywsFI72s4Mx9KKSB-800.webp" alt="Audicien voert een ooronderzoek uit bij een klant" width={800} height={450} />
+          <div className="cro-why-photo-caption"><strong>Persoonlijk onderzocht.</strong><span>Deskundig geadviseerd.</span></div>
         </div>
         <div className="cro-why-steps">
+          <div className="cro-why-consultation-photo"><Image unoptimized src="https://cdn.oogvoororen.nl/zwc6SyOfQ8Y3rFcEaKuecJavYmIQafQ7grpVrHb5-800.webp" alt="Audicien bespreekt de uitslag van een hoortest met een klant" width={800} height={450} /></div>
           {steps.map(step => <div className="cro-why-step" key={step.number}>
             <span>{step.number}</span>
             <div><h3>{step.title}</h3><p>{step.body}</p></div>
@@ -39,7 +40,7 @@ export default function WhyPage() {
     </section>
     <section className="section">
       <h2>Ontwerpgedachte</h2>
-      <p>Een rustige introductie, één groot beeldvlak en drie opeenvolgende stappen. Geen herhaling van de losse voordelen uit het productblok. De belangrijkste boodschap is dat Oogvoororen de keuze begeleidt.</p>
+      <p>Een rustige introductie, een echte Oogvoororen-foto van het onderzoek, een tweede foto van het adviesgesprek en drie opeenvolgende stappen. Geen herhaling van de losse voordelen uit het productblok. De belangrijkste boodschap is dat Oogvoororen de keuze begeleidt.</p>
     </section>
   </main></>;
 }
