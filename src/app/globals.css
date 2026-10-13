@@ -2127,3 +2127,18 @@ td {
 .cro-info-compare-more{padding:18px 36px 26px;border-top:1px solid #e0e8e2}
 .cro-info-compare-more summary{font-weight:700;cursor:pointer}.cro-info-compare-more p{max-width:760px;line-height:1.6}
 @media(max-width:760px){.cro-info-heading{padding:24px 20px 20px}.cro-info-heading h2{font-size:25px}.cro-info-highlights{grid-template-columns:1fr;padding:0 20px 20px}.cro-info-highlights>div{min-height:0;padding:14px 17px}.cro-info-accordions summary{padding:19px 20px;font-size:17px}.cro-info-summary-hint{display:none}.cro-info-details{padding:0 20px 20px;font-size:15px}.cro-info-compare>.cro-info-table-wrap{margin:0 16px 20px}.cro-info-table-wrap table{font-size:14px}.cro-info-table-wrap th,.cro-info-table-wrap td{padding:12px 10px}.cro-info-compare-more{padding:18px 20px 22px}}
+
+/* Chapter 6: performance-level comparison with the premium tier emphasized. */
+.cro-info-compare-table{margin:0 28px 20px;overflow-x:auto}
+.cro-info-compare-table table{width:100%;min-width:780px;border-collapse:separate;border-spacing:0;font-size:15px}
+.cro-info-compare-table th,.cro-info-compare-table td{padding:17px 13px;border-bottom:1px solid #e1e9e3;text-align:left;vertical-align:middle}
+.cro-info-compare-table thead th{background:#f0f6f2;font-size:17px}
+.cro-info-compare-table thead th:first-child{min-width:190px}
+.cro-info-compare-table thead small{display:block;font-weight:400;font-size:13px;margin-top:3px}
+.cro-info-compare-table tbody th{font-size:15px;max-width:230px}
+.cro-info-compare-table .cro-info-best{background:#e2f2e9;border-left:1px solid #b6d8c6;border-right:1px solid #b6d8c6;font-weight:700}
+.cro-info-table-note{font-size:13px;color:#52625e;line-height:1.55;padding:0 36px;margin-bottom:24px}
+.cro-info-explain{margin:0 36px 28px;background:#f2f8f4;border-radius:10px;padding:22px 26px}
+.cro-info-explain h3{font-size:22px;margin:0 0 10px}
+.cro-info-explain p{line-height:1.6;margin:8px 0}
+@media(max-width:760px){.cro-info-compare-table{margin:0 12px 18px}.cro-info-table-note{padding:0 20px}.cro-info-explain{margin:0 16px 20px;padding:18px}}
