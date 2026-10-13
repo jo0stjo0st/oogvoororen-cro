@@ -103,7 +103,7 @@ function Description() {
           </details>
         </div>
         <div>
-          <h3>Plus- en minpunten</h3>
+          <h3>Belangrijkste eigenschappen</h3>
           <ul className="plain-list">
             <li>
               Ondersteuning bij gesprekken, ook in rumoerige situaties.
@@ -313,18 +313,18 @@ function Downloads() {
       <h2>Brochures en handleidingen</h2>
       <div className="download-links">
         <a
-          href="https://cdn.oogvoororen.nl/9239-twwe7ArkKQ1TxNrosOoaGIIgZRRwVNdncSmHiACR.pdf"
+          href="https://oogvoororen.be/hoorapparaat/bernafon-encanta-400-pro-minirite-oplaadbaar#downloads"
           target="_blank"
           rel="noreferrer"
         >
-          Handleiding Phonak Audéo Infinio (PDF) ↗
+          Bekijk de handleiding op de bronwebsite ↗
         </a>
         <a
-          href="https://cdn.oogvoororen.nl/9239-K3P6vKprvHHphTuP9iaTwt2lOaWngGTIbvQzavKW.pdf"
+          href="https://oogvoororen.be/hoorapparaat/bernafon-encanta-400-pro-minirite-oplaadbaar#downloads"
           target="_blank"
           rel="noreferrer"
         >
-          Datablad Phonak Audéo Infinio (PDF) ↗
+          Bekijk het datablad op de bronwebsite ↗
         </a>
       </div>
     </section>
@@ -404,7 +404,7 @@ export function ProductPage({ variant }: { variant: Variant }) {
               {original ? (
                 <p className="source-rating">
                   <span className="stars">★★★★★</span>{" "}
-                  <a href="#reviews">Lees alle 1 reviews</a>
+                  <a href="#reviews">Lees alle 4 reviews</a>
                 </p>
               ) : (
                 <p className="eyebrow desktop-title">Bernafon · oplaadbaar</p>
