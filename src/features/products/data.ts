@@ -52,37 +52,19 @@ export const product = {
     ["Technologie", "Smart Sensor"],
   ],
   comparisons: [
-    { name: "Encanta 400 Pro miniRITE", price: 2195, channels: 20 },
+    { name: "Encanta 400 Pro miniRITE", price: 2395, channels: 24 },
     { name: "Encanta 300 Engage miniRITE", price: 2195, channels: 20 },
     { name: "Encanta 200 Go miniRITE", price: 1695, channels: 18 },
     { name: "Encanta 100 Connect miniRITE", price: 1495, channels: 14 },
   ],
   accessories: [
-    {
-      name: "TV Connector 2.0",
-      price: 194.5,
-      note: "Geluid van uw televisie naar uw hoorapparaten.",
-    },
-    {
-      name: "PartnerMic",
-      price: 445,
-      note: "Een externe microfoon voor uw gesprekspartner.",
-    },
-    {
-      name: "RemoteControl",
-      price: 134.95,
-      note: "Een losse afstandsbediening.",
-    },
-    {
-      name: "Charger RIC Infinio",
-      price: 195,
-      note: "De standaardlader is inbegrepen bij dit toestel.",
-    },
-    {
-      name: "ChargerGo RIC Infinio",
-      price: 335,
-      note: "Optionele oplader voor onderweg.",
-    },
+    { name: "TV-A Adapter", price: 132, note: "Voor televisie-audio op compatibele toestellen." },
+    { name: "SoundClip-A", price: 120, note: "Accessoire voor communicatie en telefonie." },
+    { name: "RC-A Remote Control", price: 97.5, note: "Afstandsbediening." },
+    { name: "Desk Charger", price: 225, note: "Standaardlader inbegrepen bij het toestel." },
+    { name: "Charger Plus miniRITE", price: 285, note: "Alternatieve oplader." },
+    { name: "Easy LE Adapter", price: 119.95, note: "Adapter voor compatibele apparaten." },
+  
   ],
 };
 export const euro = (n: number) =>
