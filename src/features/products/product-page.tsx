@@ -19,23 +19,13 @@ export function AppointmentCTA({
   return (
     <div className="appointment-cta" id={hero ? "hero-appointment" : undefined}>
       <Link className={`button primary ${variant === "variant-a" ? "cro-cta-focus" : ""}`} href={appointmentUrl(variant)}>
-        {variant === "variant-b"
-          ? "Probeer dit hoorapparaat vrijblijvend"
-          : variant === "original"
-            ? "Ik wil een afspraak maken"
-            : "Maak een vrijblijvende afspraak"}
+        {"Ik wil een afspraak maken"}
         <span aria-hidden="true"> →</span>
       </Link>
       <p className="small">
-        {variant === "variant-b"
-          ? "Onze audicien bekijkt samen met u of dit toestel bij uw gehoor past."
-          : "Persoonlijk advies, zonder aankoopverplichting."}
+        {"Persoonlijk advies, zonder aankoopverplichting."}
       </p>
-      {variant !== "original" && (
-        <a className="phone-link" href="tel:+3214480179">
-          Liever bellen? 014 48 01 79
-        </a>
-      )}
+      
     </div>
   );
 }
@@ -542,7 +532,7 @@ export function ProductPage({ variant }: { variant: Variant }) {
           </div>
         </main>
         <Footer />
-        {variant !== "original" && <StickyCTA variant={variant} />}
+        
       </div>
     </PriceProvider>
   );
