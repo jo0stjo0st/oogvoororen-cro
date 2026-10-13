@@ -5,7 +5,7 @@ import { appointmentUrl } from "@/features/products/data";
 
 const steps = [
   { number: "01", title: "We beginnen met uw gehoor", body: "Tijdens een hoortest en adviesgesprek bespreken we uw gehoor, wensen en dagelijkse situaties." },
-  { number: "02", title: "Samen kiezen we een oplossing", body: "U kunt online toestellen vergelijken. Onze audicien adviseert welke mogelijkheden werkelijk bij uw gehoor passen." },
+  { number: "02", title: "Samen kiezen we een oplossing", body: "Samen met de audicien bespreekt u welke hooroplossingen bij uw gehoor, wensen en dagelijkse situaties passen." },
   { number: "03", title: "U krijgt persoonlijke begeleiding", body: "Als u een toestel gaat proberen, helpen we bij de afstelling, het gebruik en de nazorg." },
 ];
 export default function WhyPage() {
@@ -26,7 +26,6 @@ export default function WhyPage() {
           <div className="cro-why-photo-caption"><strong>Persoonlijk onderzocht.</strong><span>Deskundig geadviseerd.</span></div>
         </div>
         <div className="cro-why-steps">
-          <div className="cro-why-consultation-photo"><Image unoptimized src="https://cdn.oogvoororen.nl/zwc6SyOfQ8Y3rFcEaKuecJavYmIQafQ7grpVrHb5-800.webp" alt="Audicien bespreekt de uitslag van een hoortest met een klant" width={800} height={450} /></div>
           {steps.map(step => <div className="cro-why-step" key={step.number}>
             <span>{step.number}</span>
             <div><h3>{step.title}</h3><p>{step.body}</p></div>
