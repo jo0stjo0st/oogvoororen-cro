@@ -2734,3 +2734,48 @@ td {
 .cro-cat-guided-copy>small{font-size:12px;color:#526b5b;margin-top:13px}
 @media(max-width:1000px){.cro-cat-featured-grid{grid-template-columns:1fr 1fr}.cro-cat-brand-grid{grid-template-columns:repeat(4,1fr)}.cro-cat-brand-grid button{flex-direction:column;align-items:flex-start}.cro-cat-guided{grid-template-columns:1fr 1.4fr}}
 @media(max-width:700px){.cro-cat-brand-grid{grid-template-columns:repeat(2,1fr)}.cro-cat-featured-grid{grid-template-columns:1fr}.cro-cat-featured-grid article{grid-template-columns:110px 1fr}.cro-cat-guided{grid-template-columns:1fr}.cro-cat-guided-art{min-height:180px}.cro-cat-guided-person{height:160px;width:130px;font-size:48px;padding-top:30px}.cro-cat-guided-copy{padding:23px}.cro-cat-guided-copy h2{font-size:24px}.cro-cat-landing-section-title h2{font-size:21px}.cro-cat-brand-grid strong{font-size:19px}}
+
+/* Compact image-led category gateway, appointment-first */
+.cro-cat-landing-head{padding-top:15px;padding-bottom:3px}
+.cro-cat-landing-head h1{font-size:30px}
+.cro-cat-landing-head+.cro-cat-shortcuts{padding-top:10px;padding-bottom:15px}
+.cro-cat-landing-head+.cro-cat-shortcuts .cro-cat-toplists button{min-height:146px;padding:0;overflow:hidden;display:block}
+.cro-cat-shortcut-photo{display:block;width:100%;height:94px;background-position:center;background-size:cover;border-radius:9px 9px 0 0}
+.cro-cat-landing-head+.cro-cat-shortcuts .cro-cat-toplists strong{display:block;font-size:15px;margin:10px 12px 0}
+.cro-cat-landing-head+.cro-cat-shortcuts .cro-cat-toplists small{display:block;margin:2px 12px 10px;font-size:12px}
+.cro-cat-landing-head+.cro-cat-shortcuts .cro-cat-toplists .cro-cat-shortcut-arrow{bottom:13px;right:12px}
+.cro-cat-landing-brands,.cro-cat-featured{padding:9px 0 22px}
+.cro-cat-brand-grid button{padding:12px 13px;min-height:66px}
+.cro-cat-brand-logo{display:flex;align-items:center;gap:10px;min-width:0}
+.cro-cat-brand-logo img{width:25px;height:25px;object-fit:contain}
+.cro-cat-brand-grid strong{font-size:18px}
+.cro-cat-featured-grid article{padding:10px}
+.cro-cat-featured-visual{min-height:105px}
+.cro-cat-featured-visual img{width:100%;height:105px;object-fit:cover;border-radius:8px}
+.cro-cat-guided{grid-template-columns:.9fr 1.1fr;min-height:240px;margin-top:7px;margin-bottom:26px}
+.cro-cat-guided-art{min-height:240px;background:#c5ddce url(https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=900&q=85) center/cover no-repeat}
+.cro-cat-guided-copy{padding:25px 33px}
+.cro-cat-guided-copy h2{font-size:27px}
+.cro-cat-guided-actions .cro-cat-guided-phone,.cro-cat-all-button,.cro-cat-landing-bottom>button{background:#ec781b;color:#fff}
+.cro-cat-guided-actions .cro-cat-guided-phone:hover,.cro-cat-all-button:hover,.cro-cat-landing-bottom>button:hover{background:#d9680c;color:#fff}
+.cro-cat-guided-actions span{font-size:13px}
+.cro-cat-guided-actions span a{font-size:13px;text-decoration:underline}
+.cro-cat-guidance{padding:8px 0 23px}
+.cro-cat-guidance-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.cro-cat-guidance-grid>a{display:flex;flex-direction:column;border:1px solid #dbe8df;border-radius:11px;overflow:hidden;text-decoration:none;color:inherit}
+.cro-cat-guidance-photo{height:115px;background-size:cover;background-position:center}
+.cro-cat-guidance-grid strong{font-size:16px;padding:12px 15px 5px}
+.cro-cat-guidance-grid>a>span:last-child{font-size:13px;color:#007d60;padding:0 15px 15px}
+.cro-cat-landing-faq{padding:7px 0 29px}
+.cro-cat-landing-faq .cro-house-faq{max-width:none;display:grid;grid-template-columns:1fr 1fr;gap:0 28px}
+.cro-cat-landing-faq .cro-house-faq-item button{font-size:16px;padding:13px 0}
+.cro-cat-landing-faq .cro-house-faq-item p{font-size:14px;line-height:1.6}
+.cro-cat-appointment{background:#eef7f0;padding:35px 0}
+.cro-cat-appointment-grid{display:grid;grid-template-columns:1fr 1fr;gap:38px;align-items:center}
+.cro-cat-appointment-grid h2{font-size:29px}
+.cro-cat-appointment-grid p{font-size:16px}
+.cro-cat-appointment .cro-house-form{box-shadow:none}
+.cro-cat-appointment .cro-compact-form button[type=submit]{background:#ec781b}
+.cro-cat-landing-bottom{margin-top:24px;margin-bottom:26px;padding:18px 23px}
+@media(max-width:800px){.cro-cat-guided{grid-template-columns:1fr 1.3fr}.cro-cat-guidance-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:650px){.cro-cat-landing-head h1{font-size:27px}.cro-cat-landing-head+.cro-cat-shortcuts .cro-cat-toplists button{min-height:143px}.cro-cat-shortcut-photo{height:83px}.cro-cat-brand-grid button{min-height:61px}.cro-cat-brand-grid strong{font-size:16px}.cro-cat-brand-grid span:last-child{font-size:11px}.cro-cat-guided{grid-template-columns:1fr}.cro-cat-guided-art{min-height:165px}.cro-cat-guidance-grid{grid-template-columns:1fr}.cro-cat-guidance-grid>a{display:grid;grid-template-columns:115px 1fr;grid-template-rows:auto auto}.cro-cat-guidance-photo{height:100%;min-height:105px;grid-row:1/3}.cro-cat-guidance-grid strong{padding:13px 12px 4px}.cro-cat-guidance-grid>a>span:last-child{padding:0 12px 12px}.cro-cat-landing-faq .cro-house-faq{grid-template-columns:1fr}.cro-cat-appointment-grid{grid-template-columns:1fr;gap:20px}}
