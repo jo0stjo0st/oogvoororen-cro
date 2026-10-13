@@ -1996,3 +1996,34 @@ td {
 .cro-proposal-benefits li{padding:5px 0 5px 28px;position:relative}
 .cro-proposal-benefits li:before{content:"✓";position:absolute;left:0;color:var(--green);font-weight:700}
 @media(max-width:760px){.cro-proposal{padding:18px}.cro-proposal-grid{grid-template-columns:1fr;gap:12px}.cro-proposal h2{font-size:22px}.cro-proposal-grid h3{font-size:23px}.cro-product-visual img{max-height:260px}}
+
+/* Chapter 1 refinement: focused hierarchy, not a page-wide redesign */
+.cro-proposal-refined{border-color:#cfded7}
+.cro-proposal-refined .cro-proposal-grid{grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:36px}
+.cro-packshot-image{background:#fafbfa;border-radius:12px;min-height:350px;display:grid;place-items:center;overflow:hidden}
+.cro-packshot-image img{width:100%;max-width:480px;height:auto;object-fit:contain}
+.cro-image-choices{display:flex;justify-content:center;gap:8px;margin:16px 0 10px;flex-wrap:wrap}
+.cro-image-choices span{border:1px solid var(--line);border-radius:6px;padding:5px 10px;font-size:13px}
+.cro-image-choices .cro-image-choice-active{border-color:var(--green);font-weight:700;color:var(--green)}
+.cro-refined-info .cro-review-line{display:flex;gap:10px;align-items:center;font-size:15px;margin-bottom:14px;flex-wrap:wrap}
+.cro-review-line span{color:#b8790e;letter-spacing:1px}
+.cro-refined-info h3{font-size:27px;line-height:1.3;margin-bottom:12px}
+.cro-refined-info .cro-intro{font-size:17px;line-height:1.55;margin-bottom:20px}
+.cro-price-panel{background:#f1f7f3;border:1px solid #e0eae4;border-radius:10px;padding:19px 20px;margin:0 0 19px}
+.cro-price-panel p{margin:0}
+.cro-price-panel .cro-price-caption{font-size:14px;color:#42574d;line-height:1.5}
+.cro-price-panel .cro-proposal-price{font-size:39px;margin:5px 0 11px;letter-spacing:-.025em}
+.cro-own-contribution{font-size:17px}
+.cro-price-panel .cro-price-fine{font-size:13px;color:#52625e;line-height:1.55;margin:7px 0}
+.cro-price-link{font-size:15px;font-weight:700}
+.cro-benefit-list{list-style:none;margin:0 0 19px;padding:0;display:grid;gap:13px}
+.cro-benefit-list li{display:flex;gap:12px;align-items:flex-start}
+.cro-benefit-icon{width:36px;height:36px;flex:0 0 36px;border:1px solid #b8d9cc;border-radius:50%;display:grid;place-items:center;color:#007d60;font-size:16px;font-weight:750;line-height:1}
+.cro-benefit-list strong{display:block;font-size:16px;line-height:1.4}
+.cro-benefit-list small{display:block;font-size:13px;line-height:1.45;color:#52625e;margin-top:2px}
+.cro-proposal .cro-orange-cta{background:#bd5b0b;color:#fff;border-radius:8px;min-height:60px;display:flex;align-items:center;justify-content:center;font-weight:750;font-size:17px;line-height:1.4;padding:12px 18px;text-decoration:none;margin:16px 0 7px}
+.cro-proposal .cro-orange-cta:hover{background:#984600;color:#fff;text-decoration:none}
+.cro-cta-assurance{text-align:center;color:#52625e;font-size:13px;margin:0 0 13px}
+.cro-call{text-align:center;font-size:15px;margin:0 0 9px}
+.cro-product-disclaimer{font-size:13px;color:#52625e;text-align:center;line-height:1.5}
+@media(max-width:760px){.cro-proposal-refined .cro-proposal-grid{grid-template-columns:1fr;gap:18px}.cro-packshot-image{min-height:260px}.cro-refined-info h3{font-size:24px}.cro-price-panel .cro-proposal-price{font-size:35px}.cro-proposal .cro-orange-cta{font-size:16px}}
