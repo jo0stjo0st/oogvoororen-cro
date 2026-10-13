@@ -1,0 +1,51 @@
+"use client";
+import Link from "next/link";
+import Image from "next/image";
+import {useEffect,useState} from "react";
+import {product,euro,appointmentUrl} from "@/features/products/data";
+import {calculatePrice,type Age} from "@/features/products/pricing";
+import {CompactAppointmentForm} from "@/features/appointments/compact-form";
+
+const highlights=[
+ {title:"Verstaan bij achtergrondgeluid",body:"De geluidsverwerking van de Encanta 400 Pro is gericht op situaties waarin spraak en andere geluiden tegelijk aanwezig zijn. Hoeveel voordeel u merkt, hangt af van uw gehoor en de aanpassing."},
+ {title:"Aanpassing aan luistersituaties",body:"Het toestel verwerkt geluid afhankelijk van de omgeving. De precieze werking van de functies wordt voor publicatie getoetst aan de documentatie van Bernafon."},
+ {title:"Oplaadbaar en verbonden",body:"De miniRITE is oplaadbaar en ondersteunt verbinding met compatibele apparaten. Uw audicien controleert welke verbindingen voor uw telefoon mogelijk zijn."}
+];
+const comparison=product.comparisons.slice().reverse();
+const accessoryGroups=[
+ {title:"Televisie en verbinding",items:product.accessories.filter(a=>["TV-A Adapter","SoundClip-A","Easy LE Adapter"].includes(a.name))},
+ {title:"Bediening en opladen",items:product.accessories.filter(a=>["RC-A Remote Control","Charger Plus miniRITE"].includes(a.name))}
+];
+export default function CompleteProductPage(){
+ const [age,setAge]=useState<Age>("senior");
+ const [count,setCount]=useState(1);
+ const [eligible,setEligible]=useState(true);
+ const [showSticky,setShowSticky]=useState(false);
+ const [reviewsOpen,setReviewsOpen]=useState(false);
+ const result=calculatePrice(age,count,eligible?"standard":"own");
+ useEffect(()=>{
+  const update=()=>{const el=document.getElementById("complete-hero");setShowSticky(Boolean(el&&el.getBoundingClientRect().bottom<90))};
+  update();window.addEventListener("scroll",update,{passive:true});return()=>window.removeEventListener("scroll",update);
+ },[]);
+ useEffect(()=>{document.body.style.overflow=reviewsOpen?"hidden":"";return()=>{document.body.style.overflow=""}},[reviewsOpen]);
+ return <main className="wide cro-complete-page" id="top">
+  <p className="cro-complete-back"><Link href="/">← Terug naar de CRO-werkplaats</Link> <span>Samengestelde conceptpagina · niet gepubliceerd</span></p>
+  <section id="complete-hero" className="cro-complete-hero">
+   <div className="cro-complete-image"><Image src={product.image} alt={product.name} width={460} height={460}/><small>Productafbeelding</small></div>
+   <div className="cro-complete-hero-copy"><p className="eyebrow">Bernafon · Encanta</p><h1>Bernafon Encanta 400 Pro miniRITE</h1><p>Oplaadbaar hoortoestel met het hoogste technologieniveau binnen de Encanta-serie.</p>
+    <div className="cro-complete-price"><span>Prijs per hoorapparaat</span><strong>{euro(product.price)}</strong><p>Indicatieve eigen opleg voor 65+: <b>€ 1.535,41</b></p><a href="#prijs">Bereken uw persoonlijke prijs ↓</a></div>
+    <ul className="cro-complete-benefits"><li>Persoonlijk hooradvies en hoortest</li><li>Vrijblijvend proberen na het advies</li><li>5 jaar service en garantie volgens de voorwaarden</li></ul>
+    <a className="cro-complete-cta" href="#afspraak">Maak een afspraak voor persoonlijk hooradvies</a><p className="cro-complete-assurance">Persoonlijk advies · Geen aankoopverplichting</p>
+   </div>
+  </section>
+  <section className="cro-complete-section" id="technologie"><p className="eyebrow">Over dit toestel</p><h2>Wat maakt de Encanta 400 Pro bijzonder?</h2><p className="cro-complete-lead">De belangrijkste eigenschappen in begrijpelijke taal. De audicien helpt u beoordelen of dit toestel bij uw gehoor en dagelijks leven past.</p><div className="cro-complete-cards">{highlights.map(x=><article key={x.title}><h3>{x.title}</h3><p>{x.body}</p></article>)}</div></section>
+  <section className="cro-complete-section cro-complete-service"><div><p className="eyebrow">Waarom Oogvoororen?</p><h2>Een goed hoorapparaat begint met goed advies</h2><p>We verkopen toestellen van verschillende fabrikanten. Daarom kijken we eerst naar uw gehoor, wensen en dagelijkse situaties.</p><ol><li>We beginnen met een hoortest en advies.</li><li>We bespreken samen passende toestellen.</li><li>Bij een volgende afspraak kunt u een toestel vrijblijvend proberen.</li></ol><a href="#afspraak" className="cro-complete-textlink">Vraag persoonlijk hooradvies aan →</a></div><Image unoptimized src="https://cdn.oogvoororen.nl/MFFSwTgW7xbsf2gcxH0UokxMywsFI72s4Mx9KKSB-800.webp" alt="Audicien onderzoekt het oor van een klant" width={520} height={340}/></section>
+  <section className="cro-complete-section" id="prijs"><p className="eyebrow">Prijs en tegemoetkoming</p><h2>Wat betaalt u zelf?</h2><p className="cro-complete-lead">Kies uw situatie voor een indicatieve berekening. U hoeft geen persoonsgegevens in te vullen.</p><div className="cro-complete-calc"><div className="cro-complete-calc-controls"><fieldset><legend>Uw leeftijd</legend>{[{v:"senior",t:"65 jaar of ouder"},{v:"adult",t:"18 tot 64 jaar"},{v:"child",t:"Jonger dan 18 jaar"}].map(x=><button key={x.v} aria-pressed={age===x.v} onClick={()=>setAge(x.v as Age)}>{x.t}</button>)}</fieldset><fieldset><legend>Aantal hoorapparaten</legend>{[1,2].map(n=><button key={n} aria-pressed={count===n} onClick={()=>setCount(n)}>{n===1?"Eén":"Twee"}</button>)}</fieldset><fieldset><legend>Tegemoetkoming mutualiteit</legend><button aria-pressed={eligible} onClick={()=>setEligible(true)}>Toon indicatie</button><button aria-pressed={!eligible} onClick={()=>setEligible(false)}>Zelf betalen</button></fieldset></div><div className="cro-complete-calc-result" aria-live="polite"><span>Prijs {count===1?"hoorapparaat":"hoorapparaten"}</span><strong>{euro(result.total)}</strong><span>Indicatieve tegemoetkoming: - {euro(result.compensation??0)}</span><div><span>Indicatieve eigen opleg</span><b>{euro(result.net??result.total)}</b></div><small>Geen definitieve prijs of toezegging van vergoeding. De audicien controleert uw aanspraak en de geldende voorwaarden.</small></div></div></section>
+  <section className="cro-complete-section" id="specificaties"><p className="eyebrow">Vergelijking en specificaties</p><h2>Welke Encanta past bij u?</h2><p className="cro-complete-lead">De vier technologieniveaus en hun toestelprijzen. Een hoger niveau betekent niet automatisch dat het voor iedereen de beste keuze is.</p><div className="cro-complete-table"><table><thead><tr><th>Model</th><th>Kanalen</th><th>Prijs per toestel</th></tr></thead><tbody>{comparison.map(x=><tr key={x.name}><th>{x.name}</th><td>{x.channels}</td><td>{euro(x.price)}</td></tr>)}</tbody></table></div><p className="cro-complete-small">Aantal kanalen is een technische eigenschap, geen betrouwbare maat voor de hoorervaring. Productspecificaties en prijzen controleren vóór publicatie.</p><details><summary>Bekijk alle technische specificaties</summary><div className="cro-complete-table"><table><tbody>{product.specs.map(([k,v])=><tr key={k}><th>{k}</th><td>{v}</td></tr>)}</tbody></table></div></details><details><summary>Handleidingen en productdocumenten</summary><p>Hier komen de bestaande brochure, gebruikershandleiding en onderhoudsinstructies als documenten binnen de productpagina. In deze demo zijn de bestanden nog niet gekoppeld.</p></details></section>
+  <section className="cro-complete-section" id="accessoires"><p className="eyebrow">Accessoires</p><h2>Wat is inbegrepen en wat is optioneel?</h2><div className="cro-complete-included"><strong>Standaardoplader inbegrepen</strong><p>De Desk Charger staat in de huidige CRO-productgegevens als inbegrepen. Pakketinhoud nog controleren vóór publicatie.</p></div>{accessoryGroups.map(g=><div className="cro-complete-accessory-group" key={g.title}><h3>{g.title}</h3><div className="cro-complete-accessories">{g.items.map(a=><article key={a.name}><h4>{a.name}</h4><p>{a.note}</p><strong>{euro(a.price)}</strong></article>)}</div></div>)}<details><summary>Onderhoud en vervangende onderdelen</summary><p>Filters, domes en andere onderdelen hangen af van de uitvoering. Uw audicien adviseert welke u nodig hebt.</p></details></section>
+  <section className="cro-complete-section" id="reviews"><p className="eyebrow">Klantervaringen</p><h2>Wat vinden gebruikers van dit toestel?</h2><div className="cro-complete-review-demo"><strong>Reviews komen hier uit de bestaande productpagina</strong><p>Voor de samengestelde pagina tonen we nog geen fictieve beoordeling of AI-samenvatting als echt klantbewijs. De module met 80 testreviews is apart te bekijken.</p><button onClick={()=>setReviewsOpen(true)}>Bekijk de reviewmodule →</button></div></section>
+  <section className="cro-complete-section cro-complete-appointment" id="afspraak"><div><p className="eyebrow">Persoonlijk hooradvies</p><h2>Bespreek uw gehoor met een audicien</h2><p>U hoeft nog geen hoorapparaat te kiezen. We bellen u om uw wensen en de afspraak te bespreken.</p><p>Met uw postcode koppelen we u aan een geschikte audicien of vestiging. De locatie bespreken we telefonisch.</p><p className="cro-complete-assurance">Geen aankoopverplichting</p></div><div className="cro-complete-form"><h3>Vraag uw afspraak aan</h3><CompactAppointmentForm interest={product.slug}/></div></section>
+  {showSticky&&<aside className="cro-complete-sticky"><div><strong>Bernafon Encanta 400 Pro</strong><a href="#afspraak" className="cro-complete-cta">Maak een afspraak voor persoonlijk hooradvies</a></div></aside>}
+  {reviewsOpen&&<div className="cro-complete-modal-backdrop" onClick={()=>setReviewsOpen(false)}><div role="dialog" aria-modal="true" aria-label="Reviewmodule" className="cro-complete-modal" onClick={e=>e.stopPropagation()}><button onClick={()=>setReviewsOpen(false)} aria-label="Sluiten">×</button><h2>Productreviews</h2><p>De interactieve demo met 80 testreviews staat in het afzonderlijke hoofdstuk. In de definitieve productpagina openen de echte reviews hier, zonder navigatie naar een andere pagina.</p><Link href="/experimenten/reviews">Bekijk de interactieve demo →</Link></div></div>}
+ </main>;
+}
