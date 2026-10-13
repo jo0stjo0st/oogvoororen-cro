@@ -5,9 +5,7 @@ import { ProductGallery } from "./gallery";
 import { PriceCalculator } from "./price-calculator";
 import { product, euro, appointmentUrl, type Variant } from "./data";
 import { OriginalPrice } from "./reference-interactions";
-import { HeroPrice } from "./hero-price";
 import { PriceProvider } from "./price-model";
-import { StickyCTA } from "./sticky-cta";
 import { LocationHint } from "@/features/locations/location-hint";
 export function AppointmentCTA({
   variant,
