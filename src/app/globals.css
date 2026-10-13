@@ -2656,3 +2656,24 @@ td {
 @media(max-width:1050px){.cro-cat-products{grid-template-columns:1fr}.cro-cat-toplists{grid-template-columns:repeat(4,1fr)}}
 @media(max-width:800px){.cro-cat-layout{grid-template-columns:1fr}.cro-cat-sidebar{display:none}.cro-cat-sidebar.mobile-open{display:block}.cro-cat-filter-mobile{display:block;border:1px solid #bdcfc2;padding:9px 14px;border-radius:8px;font-size:15px}.cro-cat-catalog-heading{flex-wrap:wrap}.cro-cat-toplists{grid-template-columns:repeat(2,1fr)}.cro-cat-products{grid-template-columns:repeat(2,1fr)}.cro-cat-advice-grid{grid-template-columns:1fr;gap:25px}}
 @media(max-width:600px){.cro-cat-intro h1{font-size:33px}.cro-cat-intro{padding:35px 0}.cro-cat-intro>.wide>p:not(.eyebrow){font-size:16px}.cro-cat-search input{font-size:15px;min-width:0}.cro-cat-shortcuts{padding:36px 0}.cro-cat-shortcuts-head{display:block}.cro-cat-shortcuts-head>button{margin-top:5px}.cro-cat-toplists{gap:9px}.cro-cat-toplists button{padding:13px;min-height:115px}.cro-cat-toplists strong{font-size:14px}.cro-cat-products{grid-template-columns:1fr}.cro-cat-sort{width:100%;justify-content:space-between}.cro-cat-sort select{min-width:0;max-width:200px}.cro-cat-product{grid-template-columns:110px 1fr;padding:14px}.cro-cat-product-image{min-height:130px}.cro-cat-comparebar>.wide:first-child{gap:8px;flex-wrap:wrap}.cro-cat-comparebar button{font-size:12px}.cro-cat-compare-table{grid-template-columns:1fr;max-height:38vh;overflow:auto}.cro-cat-advice{padding:45px 0}}
+
+/* Catalog iteration: situation-first navigation and human help */
+.cro-cat-intro{padding:31px 0 27px}
+.cro-cat-intro h1{font-size:37px}
+.cro-cat-shortcut-icon{display:grid;place-items:center;width:47px;height:47px;border-radius:13px;background:#e3f3e9;color:#007c5e;font-size:29px;line-height:1;margin-bottom:12px}
+.cro-cat-toplists button{min-height:160px;padding:20px 21px}
+.cro-cat-toplists button strong{font-size:17px;line-height:1.35}
+.cro-cat-toplists button small{font-size:14px;line-height:1.5;margin-top:5px}
+.cro-cat-toplists button.selected .cro-cat-shortcut-icon{background:#007d60;color:#fff}
+.cro-cat-inline-search{display:flex;align-items:center;gap:9px;border:1px solid #d4e3d8;border-radius:8px;background:white;padding:3px 10px;margin-top:15px;max-width:300px}
+.cro-cat-inline-search span{font-size:23px;color:#718576}
+.cro-cat-inline-search input{border:0;outline:0;min-height:36px;min-width:0;width:100%;font-size:14px;background:transparent}
+.cro-cat-inline-search button{color:#007d60;font-size:18px}
+.cro-cat-result-wrap{min-width:0;display:contents}
+.cro-cat-consult-banner{grid-column:1/-1;display:flex;align-items:center;gap:18px;padding:22px 25px;background:#eaf5ee;border:1px solid #cde5d4;border-radius:12px}
+.cro-cat-consult-icon{display:grid;place-items:center;flex-shrink:0;width:54px;height:54px;border-radius:50%;background:#fff;color:#007d60;font-size:28px}
+.cro-cat-consult-banner>div:nth-child(2){flex:1}
+.cro-cat-consult-banner strong{font-size:18px}
+.cro-cat-consult-banner p{font-size:15px;color:#52675b;margin:5px 0 0}
+.cro-cat-consult-banner a{display:inline-block;white-space:nowrap;background:#007d60;color:#fff;text-decoration:none;border-radius:8px;padding:12px 17px;font-size:15px;font-weight:750}
+@media(max-width:600px){.cro-cat-intro h1{font-size:32px}.cro-cat-toplists button{min-height:155px;padding:15px}.cro-cat-shortcut-icon{width:42px;height:42px;font-size:25px}.cro-cat-toplists button strong{font-size:15px}.cro-cat-toplists button small{font-size:13px}.cro-cat-consult-banner{flex-wrap:wrap;padding:18px;gap:12px}.cro-cat-consult-banner a{width:100%;text-align:center}.cro-cat-consult-banner strong{font-size:16px}}
