@@ -1,12 +1,13 @@
 import Link from "next/link";
 import { product, euro } from "@/features/products/data";
 
-const levels = [
-  {name:"Encanta 100",sub:"Connect",price:1495,environment:"Rustige situaties",speech:"Gesprekken met één persoon",noise:"Basis",group:"Beperkt",sensor:"Nee",reduction:"Tot 6 dB"},
-  {name:"Encanta 200",sub:"Go",price:1695,environment:"Drukkere situaties",speech:"Eén-op-één in rumoer",noise:"Meer ondersteuning",group:"Basis",sensor:"Nee",reduction:"Tot 8 dB"},
-  {name:"Encanta 300",sub:"Engage",price:2195,environment:"Groepsgesprekken",speech:"Meerdere sprekers",noise:"Geavanceerd",group:"Geavanceerd",sensor:"Ja",reduction:"Tot 10 dB"},
-  {name:"Encanta 400",sub:"Pro",price:2395,environment:"Ook zeer complex",speech:"Maximale ondersteuning",noise:"Hoogste niveau",group:"Hoogste niveau",sensor:"Ja",reduction:"Tot 12 dB"},
+const comparisons = [
+  {name:"Encanta 100 Connect",price:1495,levels:["Basis","Basis","Basis","Basis"]},
+  {name:"Encanta 200 Go",price:1695,levels:["Verbeterd","Verbeterd","Basis","Verbeterd"]},
+  {name:"Encanta 300 Engage",price:2195,levels:["Geavanceerd","Geavanceerd","Smart Sensor","Uitgebreid"]},
+  {name:"Encanta 400 Pro",price:2395,levels:["Meest uitgebreid","Meest uitgebreid","Smart Sensor + extra verfijning","Meest uitgebreid"]},
 ];
+const audioRows = ["Spraak in rumoer","Groepsgesprekken","Automatische aanpassing","Geluidsdetails"];
 export default function ProductInfoChapter() {
   return <main className="wide cro-info-page">
     <p><Link href="/">Terug naar de CRO-werkplaats</Link></p>
@@ -39,17 +40,3 @@ export default function ProductInfoChapter() {
     </section>
     <section className="section"><h2>Wat verandert er ten opzichte van nu?</h2><p>De belangrijkste audiologische verschillen tussen de vier technologieniveaus staan direct zichtbaar in één vergelijking. De volledige technische gegevens, connectiviteit en documenten blijven uitklapbaar. Aantal banden gebruiken we niet als koopargument.</p><p>De vergelijkingsniveaus zijn een begrijpelijke interpretatie en moeten voor publicatie per model aan de officiële Bernafon-specificaties worden getoetst.</p></section>
   </main>;
-      <div className="cro-info-compare-table" style={{overflowX:"auto"}}>
-        <table>
-          <thead><tr><th scope="col">Luistersituatie en technologie</th>{levels.map((l,i)=><th scope="col" key={l.name} className={i===3?"cro-info-best":""}>{l.name}<small>{l.sub}</small></th>)}</tr></thead>
-          <tbody>
-            <tr><th scope="row">Gesprekken in rumoer</th>{levels.map((l,i)=><td key={l.name} className={i===3?"cro-info-best":""}>{l.speech}</td>)}</tr>
-            <tr><th scope="row">Luistercomfort bij lawaai</th>{levels.map((l,i)=><td key={l.name} className={i===3?"cro-info-best":""}>{l.noise}</td>)}</tr>
-            <tr><th scope="row">Groepsgesprekken</th>{levels.map((l,i)=><td key={l.name} className={i===3?"cro-info-best":""}>{l.group}</td>)}</tr>
-            <tr><th scope="row">Smart Sensor</th>{levels.map((l,i)=><td key={l.name} className={i===3?"cro-info-best":""}>{l.sensor}</td>)}</tr>
-            <tr><th scope="row">Smart Noise Reduction</th>{levels.map((l,i)=><td key={l.name} className={i===3?"cro-info-best":""}>{l.reduction}</td>)}</tr>
-            <tr><th scope="row">Prijs per toestel</th>{levels.map((l,i)=><td key={l.name} className={i===3?"cro-info-best":""}><strong>{euro(l.price)}</strong></td>)}</tr>
-          </tbody>
-        </table>
-      </div>
-}
