@@ -2393,3 +2393,13 @@ td {
 .cro-site-footer-bottom a{margin-left:auto}
 @media(max-width:900px){.cro-site-menu-button{display:flex;gap:10px;align-items:center}.cro-site-brand-inner{position:relative}.cro-site-nav{display:none;position:absolute;top:100%;left:0;right:0;background:#008f6d;flex-direction:column;align-items:stretch;gap:0;padding:10px 24px;box-shadow:0 12px 20px #143c2b25}.cro-site-nav.open{display:flex}.cro-site-nav a{padding:13px 0;border-bottom:1px solid #ffffff35}.cro-site-footer-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:600px){.cro-site-top>.wide>span{display:none}.cro-site-top>.wide{justify-content:flex-end}.cro-site-brand-inner{min-height:73px}.cro-site-brand-inner img{max-width:170px}.cro-site-footer-grid{grid-template-columns:1fr;gap:27px}.cro-site-breadcrumb>.wide{gap:7px;font-size:12px}}
+
+.cro-complete-reviews-section{margin:26px 0;scroll-margin-top:30px}
+.cro-complete-reviews-section>.cro-reviews-card{margin:0;border-radius:15px;box-shadow:0 6px 24px rgba(21,52,34,.035)}
+.cro-site-proof{display:flex;align-items:center;gap:8px;font-size:13px;color:#4c5a52}
+.cro-site-proof-stars{color:#d49420;letter-spacing:2px;font-size:17px}
+.cro-site-top-actions{display:flex;align-items:center;gap:21px}
+.cro-site-quicklinks{display:flex;gap:17px;align-items:center}
+.cro-site-quicklinks a{font-size:13px;color:#4b5a52;font-weight:500}
+@media(max-width:800px){.cro-site-proof>span:last-child{display:none}.cro-site-quicklinks{gap:9px}.cro-site-top-actions{gap:12px}}
+@media(max-width:600px){.cro-site-top>.wide>div.cro-site-proof{display:flex}.cro-site-top .cro-site-quicklinks{display:none}.cro-site-top-actions{gap:12px}.cro-site-top .cro-site-top-cta{padding:7px 10px;font-size:12px}.cro-site-top a[href^="tel:"]{font-size:12px}}
