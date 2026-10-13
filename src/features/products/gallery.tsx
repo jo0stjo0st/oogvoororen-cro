@@ -18,7 +18,7 @@ export function ProductGallery({ original = false }: { original?: boolean }) {
             src={product.image}
             width={800}
             height={800}
-            alt={product.name + " in Graphite Gray"}
+            alt={product.name + " in de getoonde kleur"}
             priority
             className={zoom ? "product-image zoom" : "product-image"}
             sizes="(max-width: 760px) 90vw, 50vw"
@@ -35,7 +35,7 @@ export function ProductGallery({ original = false }: { original?: boolean }) {
             <Image src={product.image} alt="" width={48} height={48} />
           </button>
           <span>
-            {original ? "Graphite Gray" : "Oplaadbaar · Graphite Gray"}
+            {original ? "de getoonde kleur" : "Oplaadbaar · de getoonde kleur"}
             <br />
             <span className="small">Klik op de foto om te vergroten</span>
           </span>
