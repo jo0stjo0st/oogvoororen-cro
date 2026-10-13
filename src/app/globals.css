@@ -2537,3 +2537,32 @@ td {
 .cro-house-form{background:white;border-radius:14px;padding:30px;box-shadow:0 9px 25px #123f2512}
 @media(max-width:900px){.cro-house-hero-grid,.cro-house-split,.cro-house-reassurance,.cro-house-review,.cro-house-appointment{grid-template-columns:1fr;gap:28px}.cro-house-steps{grid-template-columns:repeat(2,1fr)}.cro-house-hero-grid{padding:40px 0}.cro-house-hero-visual img{height:320px}}
 @media(max-width:650px){.cro-house-hero h1{font-size:34px}.cro-house-lead{font-size:17px}.cro-house-hero-visual img{height:250px}.cro-house-service-cards,.cro-house-steps{grid-template-columns:1fr}.cro-house-split h2,.cro-house-reassurance h2,.cro-house-review h2,.cro-house-appointment h2{font-size:28px}.cro-house-appointment{padding:47px 0}.cro-house-reassurance-points{grid-template-columns:1fr}.cro-house-reassurance-points p:first-child{grid-column:auto}}
+
+/* Location landing page: Antwerp Berchem */
+.cro-local-hero{background:#f1f8f3}
+.cro-local-hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:45px;align-items:center;padding:55px 0}
+.cro-local-hero h1{font-size:46px;margin-bottom:20px}
+.cro-local-lead{font-size:20px;color:#425d4c;line-height:1.65}
+.cro-local-location-card{background:#fff;border:1px solid #d8e7dc;border-radius:15px;overflow:hidden;box-shadow:0 10px 30px #133b1b15}
+.cro-local-map,.cro-local-map-large{background:linear-gradient(145deg,#e1ede3,#cddfd3);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:6px;min-height:190px;color:#365844}
+.cro-local-map-pin{display:grid;place-items:center;background:#fff;border-radius:50%;width:52px;height:52px;font-size:30px;color:#007d60;box-shadow:0 4px 13px #10371c20}
+.cro-local-map span,.cro-local-map-large span{font-size:14px}
+.cro-local-location-details{padding:26px 30px}
+.cro-local-location-details h2{font-size:24px;margin:0 0 14px}
+.cro-local-location-details address{font-style:normal;font-size:17px;margin-bottom:13px}
+.cro-local-location-details p{font-size:15px;margin:8px 0}
+.cro-local-location-details>a{display:block;font-size:15px;font-weight:700;margin-top:12px}
+.cro-local-two{display:grid;grid-template-columns:1fr 1fr;gap:65px;align-items:center}
+.cro-local-two h2{font-size:34px}
+.cro-local-two p{color:#52685b}
+.cro-local-two a{font-weight:700}
+.cro-local-benefit-list{background:#fff;border-radius:13px;padding:18px 30px;border:1px solid #deeadf}
+.cro-local-benefit-list>div{padding:20px 0;border-bottom:1px solid #e0eae2}
+.cro-local-benefit-list>div:last-child{border:0}
+.cro-local-benefit-list strong{font-size:18px}
+.cro-local-benefit-list p{font-size:16px;margin:7px 0 0}
+.cro-local-map-large{min-height:370px;border-radius:15px;padding:25px}
+.cro-local-map-large strong{font-size:23px}
+.cro-local-map-large a{margin-top:17px;font-size:16px}
+@media(max-width:900px){.cro-local-hero-grid,.cro-local-two{grid-template-columns:1fr;gap:30px}.cro-local-hero-grid{padding:37px 0}.cro-local-location-card{max-width:650px}}
+@media(max-width:600px){.cro-local-hero h1{font-size:34px}.cro-local-lead{font-size:17px}.cro-local-two h2{font-size:28px}.cro-local-map-large{min-height:270px}}
