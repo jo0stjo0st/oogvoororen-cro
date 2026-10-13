@@ -5,6 +5,7 @@ import {useEffect,useState} from "react";
 import {product,euro} from "@/features/products/data";
 import {calculatePrice,type Age} from "@/features/products/pricing";
 import {CompactAppointmentForm} from "@/features/appointments/compact-form";
+import {ProductSiteHeader,ProductSiteFooter} from "@/components/product-site-shell";
 import {ProductReviews} from "@/features/reviews/product-reviews";
 
 const highlights=[
@@ -22,7 +23,7 @@ export default function FrenchProductPage(){
  const [age,setAge]=useState<Age>("senior"),[count,setCount]=useState(1),[eligible,setEligible]=useState(true),[sticky,setSticky]=useState(false);
  const result=calculatePrice(age,count,eligible?"standard":"own");
  useEffect(()=>{const fn=()=>{const el=document.getElementById("complete-hero");setSticky(Boolean(el&&el.getBoundingClientRect().bottom<90))};fn();window.addEventListener("scroll",fn,{passive:true});return()=>window.removeEventListener("scroll",fn)},[]);
- return <main className="wide cro-complete-page" lang="fr-BE">
+ return <><ProductSiteHeader locale="fr"/><main className="wide cro-complete-page" lang="fr-BE">
   <p className="cro-complete-back"><Link href="/experimenten/complete-productpagina">← Version néerlandaise</Link><span>Maquette pour la Belgique francophone · non publiée</span></p>
   <section className="cro-complete-hero" id="complete-hero"><div className="cro-complete-image"><div className="cro-complete-packshot"><Image unoptimized src="https://claso.net/image/catalog/productes-bernafon/bernafon-encanta-landing.png" alt="Bernafon Encanta miniRITE avec chargeur, image illustrative" width={560} height={560}/></div><div className="cro-complete-image-choices"><span className="cro-complete-choice-active">Appareil + chargeur</span><span>Appareil</span><span>Détail</span></div><small>Visuel provisoire · droits à vérifier</small></div><div className="cro-complete-hero-copy"><p className="eyebrow">Bernafon · Encanta</p><h1>Bernafon Encanta 400 Pro miniRITE</h1><p>Appareil auditif rechargeable, doté du niveau technologique le plus élevé de la gamme Encanta.</p><div className="cro-complete-price"><span>Prix par appareil auditif</span><strong>{euro(product.price)}</strong><p>Reste à charge indicatif dès 65 ans : <b>1 535,41 €</b></p><a href="#prix">Calculez votre prix indicatif ↓</a></div><ul className="cro-complete-benefits"><li><span aria-hidden="true">✓</span>Test auditif et conseils personnalisés</li><li><span aria-hidden="true">✓</span>Essai sans engagement après le bilan</li><li><span aria-hidden="true">✓</span>5 ans de service et de garantie selon les conditions</li></ul><a className="cro-complete-cta" href="#rendezvous">Demander un rendez-vous de conseil auditif</a><p className="cro-complete-assurance">Conseils personnalisés · Sans obligation d'achat</p></div></section>
   <section className="cro-complete-section" id="technologie"><p className="eyebrow">À propos de cet appareil</p><h2>Qu'est-ce qui distingue l'Encanta 400 Pro ?</h2><p className="cro-complete-lead">Les caractéristiques essentielles, expliquées simplement. Votre audiologue vous aidera à déterminer si cet appareil correspond à vos besoins.</p><div className="cro-complete-cards">{highlights.map((x,i)=><article key={x.title}><span className="cro-complete-feature-mark">{String(i+1).padStart(2,"0")}</span><h3>{x.title}</h3><p>{x.body}</p></article>)}</div><div className="cro-complete-early-reviews"><ProductReviews locale="fr" compact/></div></section>
@@ -33,5 +34,5 @@ export default function FrenchProductPage(){
   <section className="cro-complete-section" id="avis"><p className="eyebrow">Avis des utilisateurs</p><ProductReviews locale="fr"/></section>
   <section className="cro-complete-section cro-complete-appointment" id="rendezvous"><div><p className="eyebrow">Conseil auditif personnalisé</p><h2>Parlez de votre audition avec un audiologue</h2><p>Vous n'avez pas besoin de choisir un appareil dès maintenant. Nous vous appellerons pour discuter de vos besoins.</p><p>Votre code postal nous permet d'identifier un audiologue ou un centre adapté. Le lieu du rendez-vous sera convenu par téléphone.</p><p className="cro-complete-assurance">Sans obligation d'achat</p></div><div className="cro-complete-form"><h3>Demandez votre rendez-vous</h3><CompactAppointmentForm interest={product.slug} locale="fr"/></div></section>
   {sticky&&<aside className="cro-complete-sticky"><div><strong>Bernafon Encanta 400 Pro</strong><a className="cro-complete-cta" href="#rendezvous">Demander un rendez-vous de conseil auditif</a></div></aside>}
- </main>;
+ </main><ProductSiteFooter locale="fr"/></>;
 }
