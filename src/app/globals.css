@@ -2324,3 +2324,35 @@ td {
 .cro-complete-modal-backdrop{position:fixed;inset:0;z-index:999;background:#14251ab3;display:grid;place-items:center;padding:18px}.cro-complete-modal{position:relative;max-width:660px;background:white;border-radius:12px;padding:35px}.cro-complete-modal>button{position:absolute;right:15px;top:10px;border:0;background:transparent;font-size:30px}
 @media(max-width:850px){.cro-complete-hero,.cro-complete-service,.cro-complete-calc,.cro-complete-appointment{grid-template-columns:1fr;gap:25px}.cro-complete-cards{grid-template-columns:1fr}.cro-complete-hero{padding-top:10px}.cro-complete-image{min-height:250px}.cro-complete-image img{max-width:310px}.cro-complete-section{padding:45px 0}.cro-complete-accessories{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:550px){.cro-complete-back{display:block}.cro-complete-back span{display:block}.cro-complete-hero h1{font-size:29px}.cro-complete-section h2{font-size:26px}.cro-complete-accessories{grid-template-columns:1fr}.cro-complete-accessories p{min-height:0}.cro-complete-sticky{padding:10px 12px calc(10px + env(safe-area-inset-bottom))}.cro-complete-sticky strong{display:none}.cro-complete-sticky .cro-complete-cta{width:100%;font-size:15px}.cro-complete-form{padding:18px}}
+
+/* Integrated product page: visual framing */
+.cro-complete-hero{border:1px solid #e1e9e2;border-radius:16px;padding:28px;gap:35px;box-shadow:0 7px 26px rgba(19,59,40,.045);margin-bottom:28px}
+.cro-complete-image{background:#f5f8f5;min-height:520px;padding:22px;gap:18px}
+.cro-complete-packshot{width:100%;display:flex;align-items:center;justify-content:center;min-height:360px}
+.cro-complete-packshot img{width:100%;max-width:470px;height:auto;object-fit:contain}
+.cro-complete-image-choices{display:flex;flex-wrap:wrap;justify-content:center;gap:7px}
+.cro-complete-image-choices span{padding:7px 11px;border:1px solid #d8e5da;border-radius:7px;background:white;font-size:13px;color:#53645b}
+.cro-complete-image-choices .cro-complete-choice-active{border-color:#007d60;color:#006c52;background:#e7f4eb;font-weight:700}
+.cro-complete-image small{text-align:center;line-height:1.4}
+.cro-complete-price{border:1px solid #d5e6da;background:#f1f8f3}
+.cro-complete-benefits{list-style:none;padding:0;display:grid;gap:12px}
+.cro-complete-benefits li{display:flex;gap:12px;align-items:center;margin:0;font-weight:600}
+.cro-complete-benefits li span{flex:0 0 27px;height:27px;display:grid;place-items:center;border-radius:50%;background:#e1f2e7;color:#007d60;font-weight:800}
+.cro-complete-section{border:1px solid #e1eae3;border-radius:15px;padding:40px;margin:26px 0;background:#fff;box-shadow:0 6px 24px rgba(21,52,34,.035)}
+.cro-complete-section:nth-of-type(3n){background:#f7faf8}
+.cro-complete-cards article{background:#fff;box-shadow:0 4px 13px rgba(23,66,40,.045)}
+.cro-complete-feature-mark{display:inline-grid;place-items:center;width:42px;height:42px;background:#e5f4eb;color:#007d60;font-weight:750;border-radius:50%;font-size:15px;margin-bottom:18px}
+.cro-complete-service{background:#f1f8f4!important}
+.cro-complete-service>img{box-shadow:0 9px 25px rgba(18,51,32,.12)}
+.cro-complete-steps{padding:0!important;list-style:none;display:grid;gap:15px}
+.cro-complete-steps li{display:flex;gap:14px;align-items:start;margin:0!important}
+.cro-complete-steps li span{font-size:14px;font-weight:800;color:#007d60;background:#fff;border:1px solid #d9e9dd;border-radius:50%;width:40px;height:40px;flex-shrink:0;display:grid;place-items:center}
+.cro-complete-steps li p{font-size:16px;line-height:1.55;margin:6px 0}
+.cro-complete-included{display:flex;gap:17px;align-items:start;border:1px solid #d6e6da}
+.cro-complete-included-icon{flex:0 0 38px;height:38px;display:grid;place-items:center;border-radius:50%;background:#007d60;color:#fff;font-size:20px;font-weight:800}
+.cro-complete-review-demo{border:1px solid #d8e7dc}
+.cro-complete-review-symbol{font-size:22px;color:#d69b23;letter-spacing:3px;margin-bottom:12px}
+.cro-complete-appointment{background:#f1f8f4!important}
+.cro-complete-form{background:#fff;box-shadow:0 5px 20px rgba(23,66,40,.06)}
+@media(max-width:850px){.cro-complete-hero{padding:18px}.cro-complete-section{padding:28px;margin:18px 0}.cro-complete-image{min-height:310px}.cro-complete-packshot{min-height:230px}}
+@media(max-width:550px){.cro-complete-section{padding:22px 18px}.cro-complete-hero{padding:14px}.cro-complete-image{padding:12px}.cro-complete-image-choices span{font-size:11px}.cro-complete-packshot img{max-width:310px}}
