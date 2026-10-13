@@ -2251,3 +2251,20 @@ td {
 .cro-accessories-cta small{font-size:12px;color:#53675b;text-align:center}
 @media(max-width:800px){.cro-accessories-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.cro-accessories-cta{display:block}.cro-accessories-cta>div:last-child{margin-top:20px}}
 @media(max-width:600px){.cro-accessories-section{padding:20px}.cro-accessories-heading h2{font-size:24px}.cro-accessories-included,.cro-accessories-maintenance{grid-template-columns:1fr;padding:15px;gap:14px}.cro-accessories-grid{grid-template-columns:1fr}.cro-accessories-item-copy p{min-height:0}.cro-accessories-cta{padding:22px}.cro-accessories-cta-button{width:100%}}
+
+/* Sticky appointment CTA experiment */
+.cro-sticky-page{padding:34px 0 100px}
+.cro-sticky-toggle{display:inline-flex;align-items:center;gap:10px;padding:10px 16px;background:#f1f7f3;border-radius:9px;margin:12px 0 24px;font-size:16px}
+.cro-sticky-toggle input{width:22px;min-height:22px;height:22px}
+.cro-sticky-hero{min-height:410px;padding:45px;background:#f3f8f5;border-radius:12px;display:flex;align-items:center}
+.cro-sticky-hero>div{max-width:640px}
+.cro-sticky-hero small{display:block;margin-top:12px;color:#52655b}
+.cro-sticky-button{display:inline-block;padding:14px 22px;background:#e77c24;color:#fff!important;border-radius:8px;text-decoration:none;font-size:16px;font-weight:700;text-align:center;line-height:1.4}
+.cro-sticky-button:hover{background:#cf6715;text-decoration:none}
+.cro-sticky-content{min-height:370px;padding:48px 22px;border-bottom:1px solid #e0e9e3}
+.cro-sticky-content>p{max-width:750px}
+.cro-sticky-bar{position:fixed;bottom:0;left:0;right:0;z-index:1000;background:#fff;border-top:1px solid #d8e3db;box-shadow:0 -5px 24px #142b1a1c;padding:12px 20px}
+.cro-sticky-bar-inner{max-width:1180px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.cro-sticky-context{display:flex;flex-direction:column;gap:2px}
+.cro-sticky-context strong{font-size:16px}.cro-sticky-context span{font-size:13px;color:#586b60}
+@media(max-width:650px){.cro-sticky-page{padding-bottom:110px}.cro-sticky-hero{padding:25px;min-height:390px}.cro-sticky-content{min-height:310px;padding:38px 10px}.cro-sticky-bar{padding:10px 14px calc(10px + env(safe-area-inset-bottom))}.cro-sticky-context{display:none}.cro-sticky-bar-inner,.cro-sticky-bar .cro-sticky-button{width:100%}.cro-sticky-bar .cro-sticky-button{font-size:15px}}
