@@ -1968,3 +1968,8 @@ td {
     transform: scale(1.7);
   }
 }
+
+/* CRO microtests: inherit reference layout; only one scoped change per variant. */
+.variant-a .cro-cta-focus { min-height: 58px; font-size: 17px; font-weight: 750; }
+.variant-b .original-price > strong { font-size: 30px; }
+.variant-b .original-price .small { font-size: 16px; }
