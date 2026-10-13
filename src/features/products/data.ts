@@ -30,7 +30,7 @@ export const product = {
   slug: "bernafon-encanta-400-pro-minirite-oplaadbaar",
   name: "Bernafon Encanta 400 Pro miniRITE - Oplaadbaar",
   price: 2395,
-  image: "/assets/phonak-i90.webp" /* tijdelijk: vervangen door echte Bernafon-afbeelding vóór visuele goedkeuring */,
+  image: "https://cdn.oogvoororen.nl/cerZWoltyKDZlBKDjneOb3FWMNbKqvUw8c26MdXs.png",
   source:
     "https://oogvoororen.be/hoorapparaat/bernafon-encanta-400-pro-minirite-oplaadbaar",
   verifiedAt: "13 oktober 2026",
