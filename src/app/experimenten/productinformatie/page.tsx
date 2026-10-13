@@ -40,3 +40,4 @@ export default function ProductInfoChapter() {
     </section>
     <section className="section"><h2>Wat verandert er ten opzichte van nu?</h2><p>De belangrijkste audiologische verschillen tussen de vier technologieniveaus staan direct zichtbaar in één vergelijking. De volledige technische gegevens, connectiviteit en documenten blijven uitklapbaar. Aantal banden gebruiken we niet als koopargument.</p><p>De vergelijkingsniveaus zijn een begrijpelijke interpretatie en moeten voor publicatie per model aan de officiële Bernafon-specificaties worden getoetst.</p></section>
   </main>;
+}
