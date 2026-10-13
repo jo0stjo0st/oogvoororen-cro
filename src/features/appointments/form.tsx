@@ -1,5 +1,5 @@
 "use client";
-import { useState, useRef, type FormEvent } from "react";
+import { useState, useRef, useEffect, type FormEvent } from "react";
 import Link from "next/link";
 import { product, type Variant } from "@/features/products/data";
 export function AppointmentForm({
@@ -14,6 +14,10 @@ export function AppointmentForm({
   const [done, setDone] = useState(false);
   const [error, setError] = useState("");
   const phone = useRef<HTMLInputElement>(null);
+  const success = useRef<HTMLElement>(null);
+  useEffect(() => {
+    if (done) success.current?.focus();
+  }, [done]);
   function submit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const normalized = phone.current?.value.replace(/[\s()./-]/g, "") || "";
@@ -31,7 +35,12 @@ export function AppointmentForm({
   const productLabel = interest === product.slug ? product.name : interest;
   if (done)
     return (
-      <section className="form-success" role="status" tabIndex={-1}>
+      <section
+        ref={success}
+        className="form-success"
+        role="status"
+        tabIndex={-1}
+      >
         <p className="eyebrow">Demo afgerond</p>
         <h2>Uw testaanvraag is afgerond</h2>
         <p>

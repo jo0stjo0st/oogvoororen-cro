@@ -77,3 +77,14 @@ Dit zijn hypothesen. Deze demo bevat geen verkeersverdeling of analytics en kan 
 Geen database, productie-API, echte aanvraag, betaling of formulieropslag. Geen analytics-pixels of cookie-banner nodig voor toegevoegde trackers. Noindex/nofollow plus robots-disallow. Dit is geen toegangscontrole. Vercel Deployment Protection is niet gewijzigd; de beschikbare GitHub-connector kan die accountinstelling niet beheren.
 
 Een desktopbron-screenshot is vastgelegd. De browser biedt geen viewport-resize API; een echte mobiele bron-screenshot is nog niet vastgelegd. De demo kan op 390 px breedte in het vergelijkingsscherm beoordeeld worden. Die weergave is geen fysieke telefoontest.
+
+## Validatie eerste versie
+
+- Production build en lint succesvol; TypeScript tijdens de build gecontroleerd.
+- Vercel publiceerde commit `1a31c6a` succesvol; alle hoofdroutes geladen in de live browser.
+- Calculator: 65+ en twee toestellen geeft totaal € 5.290, vergoeding € 1.701,46 en opleg € 3.588,54. 18–64/twee geeft € 1.751,01 en € 3.538,99. Onbekend recht toont geen bedrag.
+- Productinteresse en variant worden vanuit de CTA meegenomen naar het formulier.
+- Ongeldig Belgisch nummer geeft een zichtbare fout; geldig fictief nummer rondt de demo af met expliciete melding dat geen echte aanvraag is verzonden.
+- Mobiele iframeweergaven: geen horizontale documentoverflow; menu getest. Geen fysieke telefoontest of volledige WCAG-audit uitgevoerd.
+- De console bevatte browserextensie-meldingen; er zijn geen applicatiefouten waargenomen.
+- Laatste verfijningen: compactere mobiele Lab-navigatie, focus op demobevestiging en grotere referentiefoto.

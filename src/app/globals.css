@@ -1619,3 +1619,34 @@ td {
   aspect-ratio: 2/1;
   object-fit: contain;
 }
+
+@media (max-width: 760px) {
+  .lab-bar .wide {
+    flex-wrap: nowrap;
+    gap: 8px;
+  }
+  .lab-bar .lab-brand {
+    font-size: 11px;
+  }
+  .lab-links {
+    flex-wrap: nowrap;
+  }
+  .lab-links a {
+    font-size: 11px;
+    padding: 10px 5px;
+    white-space: nowrap;
+  }
+}
+.original .image-button {
+  padding: 0;
+}
+.original .product-image {
+  height: 480px;
+  object-fit: cover;
+}
+@media (max-width: 760px) {
+  .original .product-image {
+    height: 290px;
+    object-fit: contain;
+  }
+}

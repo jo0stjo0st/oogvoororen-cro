@@ -153,9 +153,8 @@ function Reviews() {
       <p className="eyebrow">Ervaringen met dit toestel</p>
       <h2>Wat klanten vertellen</h2>
       <p>
-        De bronpagina toont twee ervaringen, ook afkomstig van de Nederlandse en
-        Duitse websites. De score bovenaan en het aantal in de reviewsectie
-        verschillen op de bron.
+        Ervaringen van klanten uit Nederland en Duitsland, gedeeld via onze
+        websites.
       </p>
       <div className="review-grid">
         <article className="review">
