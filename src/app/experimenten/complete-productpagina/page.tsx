@@ -4,6 +4,7 @@ import Image from "next/image";
 import {useEffect,useState} from "react";
 import {product,euro} from "@/features/products/data";
 import {calculatePrice,type Age} from "@/features/products/pricing";
+import {ProductSiteHeader,ProductSiteFooter} from "@/components/product-site-shell";
 import {ProductReviews} from "@/features/reviews/product-reviews";
 import {CompactAppointmentForm} from "@/features/appointments/compact-form";
 
@@ -29,7 +30,7 @@ export default function CompleteProductPage(){
   update();window.addEventListener("scroll",update,{passive:true});return()=>window.removeEventListener("scroll",update);
  },[]);
 
- return <main className="wide cro-complete-page" id="top">
+ return <><ProductSiteHeader locale="nl"/><main className="wide cro-complete-page" id="top">
   <p className="cro-complete-back"><Link href="/">← Terug naar de CRO-werkplaats</Link> <span>Samengestelde conceptpagina · niet gepubliceerd</span></p>
   <section id="complete-hero" className="cro-complete-hero">
    <div className="cro-complete-image"><div className="cro-complete-packshot"><Image unoptimized src="https://claso.net/image/catalog/productes-bernafon/bernafon-encanta-landing.png" alt="Bernafon Encanta miniRITE met oplader, voorbeeldpackshot" width={560} height={560}/></div><div className="cro-complete-image-choices"><span className="cro-complete-choice-active">Toestel + oplader</span><span>Toestel</span><span>Detail</span></div><small>Voorbeeldpackshot ter beoordeling · beeldrechten nog controleren</small></div>
@@ -48,5 +49,5 @@ export default function CompleteProductPage(){
   <section className="cro-complete-section cro-complete-appointment" id="afspraak"><div><p className="eyebrow">Persoonlijk hooradvies</p><h2>Bespreek uw gehoor met een audicien</h2><p>U hoeft nog geen hoorapparaat te kiezen. We bellen u om uw wensen en de afspraak te bespreken.</p><p>Met uw postcode koppelen we u aan een geschikte audicien of vestiging. De locatie bespreken we telefonisch.</p><p className="cro-complete-assurance">Geen aankoopverplichting</p></div><div className="cro-complete-form"><h3>Vraag uw afspraak aan</h3><CompactAppointmentForm interest={product.slug}/></div></section>
   {showSticky&&<aside className="cro-complete-sticky"><div><strong>Bernafon Encanta 400 Pro</strong><a href="#afspraak" className="cro-complete-cta">Maak een afspraak voor persoonlijk hooradvies</a></div></aside>}
 
- </main>;
+ </main><ProductSiteFooter locale="nl"/></>;
 }
