@@ -1980,3 +1980,19 @@ td {
 .cro-experiment h3{margin:0 0 6px}.cro-experiment p{margin:0;color:var(--muted)}
 .cro-experiment-status{font-size:14px;color:var(--muted);white-space:nowrap}
 @media(max-width:700px){.cro-experiment{grid-template-columns:40px 1fr}.cro-experiment-status{grid-column:2}}
+
+/* Independent CRO chapter previews; no changes to the product reference. */
+.cro-experiment-page{padding-top:36px;padding-bottom:70px}
+.cro-experiment-page>h1{margin:18px 0}.cro-experiment-page>p{max-width:900px}
+.cro-proposals{display:grid;grid-template-columns:1fr;gap:32px;margin:38px 0}
+.cro-proposal{border:1px solid var(--line);border-radius:12px;padding:28px;background:#fff}
+.cro-proposal h2{font-size:25px;margin:0 0 22px}
+.cro-proposal-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:30px}
+.cro-proposal-grid h3{font-size:25px}.cro-proposal-price{font-size:35px;font-weight:750;line-height:1.2;margin:12px 0}
+.cro-product-visual{text-align:center}.cro-product-visual img{object-fit:contain;max-height:380px;width:100%}.cro-product-visual p{font-size:14px;color:var(--muted)}
+.cro-proposal details{padding:8px 0;border-bottom:1px solid var(--line)}
+.cro-proposal .button{display:block;text-align:center;margin:22px 0 12px}
+.cro-proposal-benefits{list-style:none;padding:0;margin:18px 0}
+.cro-proposal-benefits li{padding:5px 0 5px 28px;position:relative}
+.cro-proposal-benefits li:before{content:"✓";position:absolute;left:0;color:var(--green);font-weight:700}
+@media(max-width:760px){.cro-proposal{padding:18px}.cro-proposal-grid{grid-template-columns:1fr;gap:12px}.cro-proposal h2{font-size:22px}.cro-proposal-grid h3{font-size:23px}.cro-product-visual img{max-height:260px}}
