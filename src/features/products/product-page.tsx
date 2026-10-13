@@ -18,7 +18,7 @@ export function AppointmentCTA({
 }) {
   return (
     <div className="appointment-cta" id={hero ? "hero-appointment" : undefined}>
-      <Link className="button primary" href={appointmentUrl(variant)}>
+      <Link className={`button primary ${variant === "variant-a" ? "cro-cta-focus" : ""}`} href={appointmentUrl(variant)}>
         {variant === "variant-b"
           ? "Probeer dit hoorapparaat vrijblijvend"
           : variant === "original"
@@ -372,10 +372,10 @@ function ReferenceBenefits() {
   );
 }
 export function ProductPage({ variant }: { variant: Variant }) {
-  const original = variant === "original";
+  const original = true;
   return (
     <PriceProvider>
-      <div className={`product-page ${variant}`}>
+      <div className={`product-page original ${variant}`}>
         <LabBar active={variant} />
         <Header variant={variant} />
         <div className="breadcrumb">
@@ -415,8 +415,8 @@ export function ProductPage({ variant }: { variant: Variant }) {
                   {original ? product.originalDescription : product.description}
                 </p>
               )}
-              {original ? <OriginalPrice /> : <HeroPrice />}
-              {original ? <ReferenceBenefits /> : <BenefitList />}
+              {<OriginalPrice />}
+              {<ReferenceBenefits />}
               <AppointmentCTA variant={variant} hero />
               {original && (
                 <>
@@ -542,7 +542,7 @@ export function ProductPage({ variant }: { variant: Variant }) {
           </div>
         </main>
         <Footer />
-        {!original && <StickyCTA variant={variant} />}
+        {variant !== "original" && <StickyCTA variant={variant} />}
       </div>
     </PriceProvider>
   );
