@@ -12,7 +12,7 @@ const experiments = [
   ["06", "Eenvoudige prijscalculator", "Leeftijd, aantal toestellen en indicatieve eigen opleg."],
   ["07", "Audiologische vergelijking en specificaties", "Technologieniveaus vergelijken, details uitklapbaar."],
   ["08", "Accessoires ordenen", "Inbegrepen, optioneel en onderhoud apart presenteren."],
-  ["09", "Reviews en vertrouwen", "Uitgebreide productervaringen en bedrijfsreviews."],
+  ["09", "Reviews en vertrouwen", "80 productreviews, samenvatting, filters en uitklapbare beoordelingen."],
   ["10", "Mobiele afspraakbalk", "Een subtiele sticky CTA als afzonderlijk experiment."],
   ["11", "Productspecifieke afspraak", "Het bekeken toestel automatisch meenemen naar de aanvraag."],
 ];
@@ -39,7 +39,7 @@ export default function HomePage() {
               <article className="cro-experiment" key={id}>
                 <span className="cro-experiment-number">{id}</span>
                 <div><h3>{title}</h3><p>{detail}</p></div>
-                {id === "01" ? <Link className="cro-experiment-status" href="/experimenten/productblok">Bekijk voor/na →</Link> : id === "04" ? <Link className="cro-experiment-status" href="/experimenten/producthighlights">Bekijk highlights →</Link> : id === "05" ? <Link className="cro-experiment-status" href="/experimenten/waarom-oogvoororen">Bekijk dienstverlening →</Link> : id === "06" ? <Link className="cro-experiment-status" href="/experimenten/prijscalculator">Bekijk calculator →</Link> : id === "07" ? <Link className="cro-experiment-status" href="/experimenten/productinformatie">Bekijk vergelijking →</Link> : <span className="cro-experiment-status">{id === "02" || id === "03" ? "Onderdeel van de hero" : "Nog te bouwen"}</span>}
+                {id === "01" ? <Link className="cro-experiment-status" href="/experimenten/productblok">Bekijk voor/na →</Link> : id === "04" ? <Link className="cro-experiment-status" href="/experimenten/producthighlights">Bekijk highlights →</Link> : id === "05" ? <Link className="cro-experiment-status" href="/experimenten/waarom-oogvoororen">Bekijk dienstverlening →</Link> : id === "06" ? <Link className="cro-experiment-status" href="/experimenten/prijscalculator">Bekijk calculator →</Link> : id === "07" ? <Link className="cro-experiment-status" href="/experimenten/productinformatie">Bekijk vergelijking →</Link> : id === "09" ? <Link className="cro-experiment-status" href="/experimenten/reviews">Bekijk reviews →</Link> : <span className="cro-experiment-status">{id === "02" || id === "03" ? "Onderdeel van de hero" : "Nog te bouwen"}</span>}
               </article>
             ))}
           </div>
