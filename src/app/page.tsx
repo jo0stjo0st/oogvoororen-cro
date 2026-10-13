@@ -4,16 +4,17 @@ import { LabBar } from "@/components/lab-bar";
 import { product } from "@/features/products/data";
 
 const experiments = [
-  ["01", "Producthero en primaire CTA", "Een dominante proefafspraak in plaats van twee gelijkwaardige acties."],
+  ["01", "Producthero en primaire CTA", "Product, prijs, persoonlijk hooradvies en duidelijke hoofdactie."],
   ["02", "Prijs en eigen opleg", "Heldere toestelprijs, indicatieve tegemoetkoming en inbegrepen service."],
-  ["03", "Direct zichtbare voordelen", "Proefperiode, audicien aan huis en garantie bij de prijs."],
-  ["04", "Waarom Oogvoororen?", "Persoonlijke dienstverlening direct onder het productblok."],
-  ["05", "Eenvoudiger prijsberekening", "Leeftijd, aantal toestellen en eigen opleg zonder verwarring."],
-  ["06", "Keuzehulp en vergelijking", "Een begrijpelijke modelkeuze vóór de technische specificaties."],
-  ["07", "Accessoires ordenen", "Inbegrepen, optioneel en onderhoud apart presenteren."],
-  ["08", "Reviews en vertrouwen", "Relevante productervaringen en Belgische bedrijfsreviews."],
-  ["09", "Mobiele afspraakbalk", "Een subtiele sticky CTA als afzonderlijk experiment."],
-  ["10", "Productspecifieke afspraak", "Het gekozen toestel automatisch meenemen naar de aanvraag."],
+  ["03", "Direct zichtbare voordelen", "Vrijblijvend proberen, persoonlijke begeleiding en service."],
+  ["04", "Waarom de Encanta 400 Pro?", "Audiologische highlights en echte productervaring, direct na de hero."],
+  ["05", "Waarom Oogvoororen?", "Persoonlijke dienstverlening en het adviestraject."],
+  ["06", "Eenvoudige prijscalculator", "Leeftijd, aantal toestellen en indicatieve eigen opleg."],
+  ["07", "Audiologische vergelijking en specificaties", "Technologieniveaus vergelijken, details uitklapbaar."],
+  ["08", "Accessoires ordenen", "Inbegrepen, optioneel en onderhoud apart presenteren."],
+  ["09", "Reviews en vertrouwen", "Uitgebreide productervaringen en bedrijfsreviews."],
+  ["10", "Mobiele afspraakbalk", "Een subtiele sticky CTA als afzonderlijk experiment."],
+  ["11", "Productspecifieke afspraak", "Het bekeken toestel automatisch meenemen naar de aanvraag."],
 ];
 export default function HomePage() {
   return (
@@ -38,14 +39,14 @@ export default function HomePage() {
               <article className="cro-experiment" key={id}>
                 <span className="cro-experiment-number">{id}</span>
                 <div><h3>{title}</h3><p>{detail}</p></div>
-                {id === "01" ? <Link className="cro-experiment-status" href="/experimenten/productblok">Bekijk voor/na →</Link> : id === "04" ? <Link className="cro-experiment-status" href="/experimenten/waarom-oogvoororen">Bekijk hoofdstuk 4 →</Link> : id === "05" ? <Link className="cro-experiment-status" href="/experimenten/prijscalculator">Bekijk calculator →</Link> : id === "06" ? <Link className="cro-experiment-status" href="/experimenten/productinformatie">Bekijk hoofdstuk 6 →</Link> : <span className="cro-experiment-status">Nog te bouwen</span>}
+                {id === "01" ? <Link className="cro-experiment-status" href="/experimenten/productblok">Bekijk voor/na →</Link> : id === "04" ? <Link className="cro-experiment-status" href="/experimenten/producthighlights">Bekijk highlights →</Link> : id === "05" ? <Link className="cro-experiment-status" href="/experimenten/waarom-oogvoororen">Bekijk dienstverlening →</Link> : id === "06" ? <Link className="cro-experiment-status" href="/experimenten/prijscalculator">Bekijk calculator →</Link> : id === "07" ? <Link className="cro-experiment-status" href="/experimenten/productinformatie">Bekijk vergelijking →</Link> : <span className="cro-experiment-status">{id === "02" || id === "03" ? "Onderdeel van de hero" : "Nog te bouwen"}</span>}
               </article>
             ))}
           </div>
         </section>
         <section className="section">
           <h2>Uitgangspunt</h2>
-          <p>De productpagina moet meteen antwoord geven op drie vragen: wat kost het mij, kan ik vrijblijvend proberen en waarom kiezen voor Oogvoororen? Met behoud van alle bestaande productinformatie verderop.</p>
+          <p>De productpagina begint met het toestel en de audiologische meerwaarde. Daarna volgen de persoonlijke dienstverlening, de eigen opleg en de verdiepende productinformatie.</p>
           <Image src={product.image} alt={product.name} width={160} height={160} />
         </section>
       </main>
