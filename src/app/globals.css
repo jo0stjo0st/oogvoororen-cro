@@ -2142,3 +2142,18 @@ td {
 .cro-info-explain h3{font-size:22px;margin:0 0 10px}
 .cro-info-explain p{line-height:1.6;margin:8px 0}
 @media(max-width:760px){.cro-info-compare-table{margin:0 12px 18px}.cro-info-table-note{padding:0 20px}.cro-info-explain{margin:0 16px 20px;padding:18px}}
+
+/* Chapter 6 audiological hierarchy and comparison. */
+.cro-audio-features{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;padding:0 36px 30px}
+.cro-audio-features article{padding:22px;background:#f2f8f4;border-radius:10px}
+.cro-audio-features article>span{color:#008261;font-size:14px;font-weight:800}
+.cro-audio-features h3{font-size:19px;line-height:1.3;margin:10px 0}
+.cro-audio-features p{font-size:15px;line-height:1.55;margin:0}
+.cro-audio-table{margin:0 24px 10px;overflow-x:auto}
+.cro-audio-table table{min-width:830px;table-layout:fixed}
+.cro-audio-table th:first-child{width:23%}
+.cro-audio-table th:not(:first-child),.cro-audio-table td{text-align:center}
+.cro-audio-table thead th:last-child,.cro-audio-table tbody td:last-child{background:#edf8f1}
+.cro-audio-table thead th small{display:block;margin-top:8px;font-weight:500;color:#51665b}
+.cro-audio-table-note{padding:0 36px;font-size:13px;color:#52625e;line-height:1.55}
+@media(max-width:760px){.cro-audio-features{grid-template-columns:1fr;padding:0 20px 20px}.cro-audio-features article{padding:17px}.cro-audio-table{margin:0 12px 10px}.cro-audio-table-note{padding:0 20px}}
