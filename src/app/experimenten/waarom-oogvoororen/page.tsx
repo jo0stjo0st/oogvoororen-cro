@@ -18,7 +18,7 @@ export default function WhyPage() {
       <div className="cro-why-head">
         <p className="eyebrow">Persoonlijke hoorzorg</p>
         <h2>Een goed hoorapparaat begint met goed advies.</h2>
-        <p>U hoeft nog niet te weten welk toestel het beste bij u past. Wij helpen u de juiste keuze te maken, met een hoortest en persoonlijke begeleiding.</p>
+        <p>U hoeft nog niet te weten welk toestel het beste bij u past. Wij helpen u de juiste keuze te maken, met persoonlijk advies en begeleiding.</p>
       </div>
       <div className="cro-why-content">
         <div className="cro-why-visual cro-why-real-photo">
@@ -34,7 +34,7 @@ export default function WhyPage() {
       </div>
       <div className="cro-why-footer">
         <p>Persoonlijk advies, zonder dat u nu al een toestel hoeft te kiezen.</p>
-        <Link href={appointmentUrl("original")} className="button cro-why-button">Plan mijn vrijblijvende hoortest</Link>
+        <Link href={appointmentUrl("original")} className="button cro-why-button">Maak een afspraak voor hooradvies</Link>
       </div>
     </section>
     <section className="section">
