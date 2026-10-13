@@ -6,7 +6,7 @@ import { appointmentUrl } from "@/features/products/data";
 const steps = [
   { number: "01", title: "We beginnen met uw gehoor", body: "Tijdens een hoortest en adviesgesprek bespreken we uw gehoor, wensen en dagelijkse situaties." },
   { number: "02", title: "Samen kiezen we een oplossing", body: "Samen met de audicien bespreekt u welke hooroplossingen bij uw gehoor, wensen en dagelijkse situaties passen." },
-  { number: "03", title: "U krijgt persoonlijke begeleiding", body: "Als u een toestel gaat proberen, helpen we bij de afstelling, het gebruik en de nazorg." },
+  { number: "03", title: "Vrijblijvend proberen, 5 jaar zekerheid", body: "Tijdens de tweede afspraak start u vrijblijvend met uw proefperiode. We stellen het hoorapparaat zorgvuldig af. Na aanschaf profiteert u van 5 jaar service, nazorg en garantie volgens de voorwaarden." },
 ];
 export default function WhyPage() {
   return <><LabBar /><main className="wide cro-why-page">
