@@ -1957,3 +1957,14 @@ td {
     padding-bottom: 96px;
   }
 }
+@media (max-width: 760px) {
+  .variant-a .product-image,
+  .variant-b .product-image {
+    height: 180px;
+    transform: scale(1.35);
+  }
+  .variant-a .product-image.zoom,
+  .variant-b .product-image.zoom {
+    transform: scale(1.7);
+  }
+}

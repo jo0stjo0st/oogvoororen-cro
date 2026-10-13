@@ -4,7 +4,7 @@ import Link from "next/link";
 import { variants, type Variant } from "@/features/products/data";
 export function Compare() {
   const [left, setLeft] = useState<Variant>("variant-a");
-  const [right, setRight] = useState<Variant>("variant-a");
+  const [right, setRight] = useState<Variant>("variant-b");
   const [mode, setMode] = useState("desktop");
   return (
     <>

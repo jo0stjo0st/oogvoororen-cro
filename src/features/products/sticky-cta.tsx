@@ -5,7 +5,7 @@ import { appointmentUrl, type Variant } from "./data";
 export function StickyCTA({ variant }: { variant: Variant }) {
   const [visible, setVisible] = useState(true);
   useEffect(() => {
-    const target = document.getElementById("hero-appointment");
+    const target = document.querySelector("#hero-appointment .button");
     if (!target) return;
     const observer = new IntersectionObserver(
       ([entry]) => setVisible(!entry.isIntersecting),
