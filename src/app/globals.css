@@ -2482,3 +2482,58 @@ td {
 .cro-home-form h3{font-size:24px}
 @media(max-width:900px){.cro-home-hero-grid,.cro-home-how,.cro-home-appointment,.cro-home-reputation{grid-template-columns:1fr;gap:30px}.cro-home-routes,.cro-home-service-grid,.cro-home-products{grid-template-columns:repeat(2,minmax(0,1fr))}.cro-home-hero-grid{padding:38px 0}.cro-home-hero-photo img{height:320px}.cro-home-section{padding:54px 0}}
 @media(max-width:600px){.cro-home-hero h1{font-size:33px}.cro-home-intro{font-size:17px}.cro-home-hero-photo img{height:245px}.cro-home-routes,.cro-home-service-grid,.cro-home-products{grid-template-columns:1fr}.cro-home-route{min-height:0}.cro-home-service-grid p{min-height:0}.cro-home-section-heading h2,.cro-home-how h2,.cro-home-appointment h2{font-size:28px}.cro-home-appointment{padding:45px 0}.cro-home-demo{font-size:12px}}
+
+/* Audicien aan huis landing page */
+.cro-house-hero{background:#f1f8f3}
+.cro-house-hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:47px;align-items:center;padding:56px 0}
+.cro-house-hero h1{font-size:46px;margin:0 0 19px}
+.cro-house-lead{font-size:20px;line-height:1.6;color:#3f584a}
+.cro-house-checks{padding:0;list-style:none;margin:25px 0}
+.cro-house-checks li{position:relative;padding-left:31px;margin-bottom:12px;font-size:16px}
+.cro-house-checks li:before{content:"✓";position:absolute;left:0;color:#00855f;font-weight:800}
+.cro-house-note{font-size:14px;margin:12px 0;color:#587063}
+.cro-house-sub-link{display:inline-block;margin-top:10px;font-size:15px;font-weight:700}
+.cro-house-hero-visual{position:relative}
+.cro-house-hero-visual img{width:100%;height:420px;object-fit:cover;border-radius:17px}
+.cro-house-visual-caption{position:absolute;bottom:19px;left:19px;right:19px;background:#fff;border-radius:10px;padding:15px 18px;box-shadow:0 8px 22px #13362224;display:flex;flex-direction:column;font-size:15px}
+.cro-house-visual-caption span{font-size:13px;color:#597066}
+.cro-house-service-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:19px}
+.cro-house-service-cards article{border:1px solid #dce8e0;border-radius:13px;padding:26px}
+.cro-house-service-cards h3{font-size:22px}
+.cro-house-service-cards p{font-size:16px;color:#53695c}
+.cro-house-card-icon{display:grid;place-items:center;background:#e8f5ec;color:#007d60;width:52px;height:52px;border-radius:12px;font-size:29px;margin-bottom:20px}
+.cro-house-important{display:flex;gap:20px;background:#fff9e9;border:1px solid #ebd7a9;border-radius:12px;padding:23px;margin-top:29px}
+.cro-house-important>span{display:grid;place-items:center;background:#f3dfaa;border-radius:50%;width:33px;height:33px;flex-shrink:0;font-weight:800}
+.cro-house-important p{margin:6px 0 0;font-size:16px;line-height:1.65}
+.cro-house-muted{background:#f4f9f5}
+.cro-house-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.cro-house-steps article{padding:25px;background:white;border:1px solid #dce9df;border-radius:13px}
+.cro-house-steps article>span{display:inline-block;font-size:26px;font-weight:800;color:#008360;margin-bottom:18px}
+.cro-house-steps h3{font-size:19px}
+.cro-house-steps p{font-size:15px;color:#53685c;line-height:1.6}
+.cro-house-split,.cro-house-reassurance,.cro-house-review{display:grid;grid-template-columns:1fr 1fr;gap:65px;align-items:center}
+.cro-house-split h2,.cro-house-reassurance h2,.cro-house-review h2{font-size:34px}
+.cro-house-split p,.cro-house-reassurance p,.cro-house-review p{color:#50665a}
+.cro-house-text-cta{font-weight:750}
+.cro-house-benefits{background:#f5f9f6;border-radius:13px;padding:20px 29px}
+.cro-house-benefits>div{border-bottom:1px solid #dce8df;padding:18px 0}
+.cro-house-benefits>div:last-child{border:0}
+.cro-house-benefits p{font-size:16px;margin:5px 0}
+.cro-house-reassurance-points{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.cro-house-reassurance-points p{background:white;border:1px solid #dce9df;border-radius:12px;padding:20px;margin:0}
+.cro-house-reassurance-points p:first-child{grid-column:1/-1}
+.cro-house-reassurance-points strong{display:block;font-size:26px;color:#007d60}
+.cro-house-reassurance-points span{font-size:14px}
+.cro-house-review{grid-template-columns:1.4fr .7fr}
+.cro-house-faq{max-width:900px}
+.cro-house-faq-item{border-bottom:1px solid #d4e2d8}
+.cro-house-faq-item button{display:flex;justify-content:space-between;align-items:center;gap:15px;width:100%;padding:21px 0;text-align:left;font-weight:700;font-size:18px}
+.cro-house-faq-item button span{font-size:26px;color:#008360}
+.cro-house-faq-item p{font-size:16px;color:#53695b;max-width:750px;padding:0 0 18px}
+.cro-house-appointment-bg{background:#eaf5ed}
+.cro-house-appointment{display:grid;grid-template-columns:1fr 1fr;gap:60px;padding:75px 0}
+.cro-house-appointment h2{font-size:36px}
+.cro-house-phone{font-weight:650}
+.cro-house-form{background:white;border-radius:14px;padding:30px;box-shadow:0 9px 25px #123f2512}
+@media(max-width:900px){.cro-house-hero-grid,.cro-house-split,.cro-house-reassurance,.cro-house-review,.cro-house-appointment{grid-template-columns:1fr;gap:28px}.cro-house-steps{grid-template-columns:repeat(2,1fr)}.cro-house-hero-grid{padding:40px 0}.cro-house-hero-visual img{height:320px}}
+@media(max-width:650px){.cro-house-hero h1{font-size:34px}.cro-house-lead{font-size:17px}.cro-house-hero-visual img{height:250px}.cro-house-service-cards,.cro-house-steps{grid-template-columns:1fr}.cro-house-split h2,.cro-house-reassurance h2,.cro-house-review h2,.cro-house-appointment h2{font-size:28px}.cro-house-appointment{padding:47px 0}.cro-house-reassurance-points{grid-template-columns:1fr}.cro-house-reassurance-points p:first-child{grid-column:auto}}
