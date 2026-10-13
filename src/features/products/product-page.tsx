@@ -106,11 +106,11 @@ function Description() {
           <h3>Plus- en minpunten</h3>
           <ul className="plain-list">
             <li>
-              Verbeterde spraakverstaanbaarheid en minder luisterinspanning.
+              Ondersteuning bij gesprekken, ook in rumoerige situaties.
             </li>
             <li>Oplaadbaar, zonder kleine losse batterijen.</li>
-            <li>Ultra-upgrade voor efficiëntere verwerking.</li>
-            <li>Dit model heeft geen Sphere-technologie.</li>
+            <li>Speciaal muziekprogramma voor muziekliefhebbers.</li>
+            <li>Het premium model binnen de Encanta-familie.</li>
           </ul>
         </div>
       </div>
@@ -163,21 +163,21 @@ function Reviews() {
       <div className="review-grid">
         <article className="review">
           <p className="review-score">9 / 10</p>
-          <h3>Zeer Goed gehoorapparaat</h3>
+          <h3>Fijn voor muziekliefhebbers</h3>
           <blockquote>
-            “Zeer prettig en deskundig geholpen bij Intoears te Maastricht.”
+            “Speciaal aangeschaft omdat ik veel naar muziek luister.”
           </blockquote>
-          <p className="small">Robert · 10 februari 2025 · Nederland</p>
+          <p className="small">Kees · 4 mei 2025 · Nederland</p>
         </article>
         <article className="review">
-          <p className="review-score">8,5 / 10</p>
-          <h3>Positieve ervaring, met aandachtspunten</h3>
+          <p className="review-score">8 / 10</p>
+          <h3>Kritische ervaring met muziek</h3>
           <p>
             Deze klant vindt het toestel comfortabel en de service goed, maar
             had meer verwacht van de gesprekskwaliteit en mist automatische
             volumeregeling bij muziek.
           </p>
-          <p className="small">S · 1 december 2025 · Duitsland · samengevat</p>
+          <p className="small">Joop · 2 mei 2025 · Nederland · samengevat</p>
         </article>
       </div>
       <a
@@ -218,7 +218,7 @@ function Specs() {
 function Comparison() {
   return (
     <section id="variaties" className="section">
-      <h2>Vergelijk de Infinio-modellen</h2>
+      <h2>Vergelijk de Encanta-modellen</h2>
       <p>
         De audicien helpt u bepalen welk technologieniveau bij uw gehoor en
         wensen past.
@@ -291,9 +291,9 @@ function Accessories() {
 function Apps() {
   return (
     <section id="apps" className="section">
-      <h2>myPhonak en onderhoud</h2>
+      <h2>Bernafon App en onderhoud</h2>
       <p>
-        Met de myPhonak-app kunt u de luisterinstellingen aanpassen. De audicien
+        Met de Bernafon App kunt u de luisterinstellingen aanpassen. De audicien
         helpt u met het koppelen, gebruik en onderhoud.
       </p>
       <details>
@@ -396,7 +396,7 @@ export function ProductPage({ variant }: { variant: Variant }) {
         <main id="main-content">
           <section className="product-hero wide">
             <div className="mobile-title">
-              <p className="eyebrow">Phonak · oplaadbaar</p>
+              <p className="eyebrow">Bernafon · oplaadbaar</p>
               <h1>{product.name}</h1>
             </div>
             <ProductGallery original={original} />
@@ -407,7 +407,7 @@ export function ProductPage({ variant }: { variant: Variant }) {
                   <a href="#reviews">Lees alle 1 reviews</a>
                 </p>
               ) : (
-                <p className="eyebrow desktop-title">Phonak · oplaadbaar</p>
+                <p className="eyebrow desktop-title">Bernafon · oplaadbaar</p>
               )}
               <h1 className="desktop-title">{product.name}</h1>
               {original && (
