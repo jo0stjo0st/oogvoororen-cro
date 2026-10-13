@@ -2176,3 +2176,16 @@ td {
 .cro-highlight-review>a{white-space:nowrap;color:#00795c;font-weight:750}
 .cro-highlight-bottom{margin:24px 0 0}.cro-highlight-bottom a{color:#00795c;font-weight:750}
 @media(max-width:760px){.cro-highlight-panel{padding:22px}.cro-highlight-panel>h2{font-size:28px}.cro-highlight-intro{font-size:17px}.cro-highlight-grid{grid-template-columns:1fr;gap:10px}.cro-highlight-grid article{padding:17px}.cro-highlight-review{display:block;padding:18px}.cro-highlight-review>a{display:inline-block;margin-top:14px;white-space:normal}}
+
+/* Product-specific audiology and inline social proof */
+.cro-highlight-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.cro-highlight-grid article{background:#f4f8f5}
+.cro-highlight-number{display:block;font-size:13px;line-height:1.5}
+.cro-highlight-review-placeholder{margin-top:18px;padding:20px;background:#f8faf8;border-radius:9px}
+.cro-highlight-review-placeholder>span{color:#cc8a20;letter-spacing:3px}
+.cro-highlight-review-placeholder blockquote{margin:12px 0;font-size:17px;line-height:1.55;font-style:italic}
+.cro-highlight-review-placeholder p{color:#64746b;font-size:13px}
+.cro-info-document-list{display:grid;gap:12px}
+.cro-info-document-list>div{display:flex;justify-content:space-between;gap:16px;padding:14px;background:#f4f8f5;border-radius:8px}
+.cro-info-document-list span{color:#617268;font-size:14px}
+@media(max-width:760px){.cro-highlight-grid{grid-template-columns:1fr}.cro-info-document-list>div{display:block}.cro-info-document-list span{display:block;margin-top:4px}}
