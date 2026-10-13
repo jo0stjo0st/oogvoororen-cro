@@ -38,7 +38,7 @@ export default function HomePage() {
               <article className="cro-experiment" key={id}>
                 <span className="cro-experiment-number">{id}</span>
                 <div><h3>{title}</h3><p>{detail}</p></div>
-                {id === "01" ? <Link className="cro-experiment-status" href="/experimenten/productblok">Bekijk voor/na →</Link> : <span className="cro-experiment-status">Nog te bouwen</span>}
+                {id === "01" ? <Link className="cro-experiment-status" href="/experimenten/productblok">Bekijk voor/na →</Link> : id === "04" ? <Link className="cro-experiment-status" href="/experimenten/waarom-oogvoororen">Bekijk hoofdstuk 4 →</Link> : <span className="cro-experiment-status">Nog te bouwen</span>}
               </article>
             ))}
           </div>
