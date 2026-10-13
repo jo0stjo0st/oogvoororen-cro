@@ -2356,3 +2356,12 @@ td {
 .cro-complete-form{background:#fff;box-shadow:0 5px 20px rgba(23,66,40,.06)}
 @media(max-width:850px){.cro-complete-hero{padding:18px}.cro-complete-section{padding:28px;margin:18px 0}.cro-complete-image{min-height:310px}.cro-complete-packshot{min-height:230px}}
 @media(max-width:550px){.cro-complete-section{padding:22px 18px}.cro-complete-hero{padding:14px}.cro-complete-image{padding:12px}.cro-complete-image-choices span{font-size:11px}.cro-complete-packshot img{max-width:310px}}
+
+/* Full-page review integration */
+.cro-complete-early-reviews{margin-top:34px}
+.cro-complete-early-reviews .cro-reviews-card{background:#f6faf7}
+.cro-integrated-reviews{max-width:none}
+.cro-complete-section>.cro-integrated-reviews{margin-top:20px}
+.cro-complete-early-reviews .cro-reviews-head h2{font-size:25px}
+.cro-complete-early-reviews .cro-reviews-preview{grid-template-columns:1fr}
+@media(max-width:700px){.cro-complete-early-reviews{margin-top:24px}}
