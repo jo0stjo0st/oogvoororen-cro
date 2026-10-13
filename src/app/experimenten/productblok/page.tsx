@@ -65,8 +65,8 @@ function After() {
           <li><span className="cro-benefit-icon" aria-hidden="true">⌂</span><span><strong>Hoortest en advies door een audicien</strong><small>Bij u thuis of in een hoorcentrum, afhankelijk van de mogelijkheden.</small></span></li>
           <li><span className="cro-benefit-icon" aria-hidden="true">✓</span><span><strong>5 jaar garantie en service</strong><small>Volgens de geldende voorwaarden.</small></span></li>
         </ul>
-        <Link href={appointmentUrl("original")} className="button cro-orange-cta">Plan een vrijblijvende hoortest en adviesgesprek →</Link>
-        <p className="cro-cta-assurance">Eerst een hoortest en advies · Geen aankoopverplichting</p>
+        <Link href={appointmentUrl("original")} className="button cro-orange-cta">Maak een afspraak voor persoonlijk hooradvies →</Link>
+        <p className="cro-cta-assurance">Persoonlijk advies · Geen aankoopverplichting</p>
         <p className="cro-call">Liever even bellen? <a href="tel:+3214480179">☎ 014 48 01 79</a></p>
         <p className="cro-product-disclaimer">U hoeft nu nog geen hoorapparaat te kiezen. De audicien adviseert welk toestel bij uw gehoor en wensen past.</p>
       </div>
