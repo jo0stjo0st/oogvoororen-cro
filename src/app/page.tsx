@@ -26,6 +26,7 @@ export default function HomePage() {
           <h1>Verbeter de bestaande productpagina, onderdeel voor onderdeel.</h1>
           <p>Geen redesign. Eerst een betrouwbare reproductie van de huidige productpagina. Daarna beoordelen we losse wijzigingen, zonder dat de rest van de pagina verandert.</p>
         </div>
+        <section className="section"><h2>Complete productpagina</h2><p>Alle uitgewerkte hoofdstukken in één doorlopende desktop- en mobiele conceptpagina, inclusief prijsberekening en afspraakformulier.</p><Link className="button primary" href="/experimenten/complete-productpagina">Bekijk de volledige productpagina →</Link></section>
         <section className="section">
           <h2>Stap 1: de originele productpagina</h2>
           <p>Referentie: <a href={product.source} target="_blank" rel="noreferrer">{product.name}</a>. De lokale reproductie is nog in ontwikkeling en mag pas als baseline worden gebruikt nadat de desktop- en mobiele weergave zijn gecontroleerd.</p>
