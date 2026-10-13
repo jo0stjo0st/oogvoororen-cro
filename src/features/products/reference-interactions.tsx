@@ -19,7 +19,7 @@ export function OriginalPrice() {
       </p>
       <strong>{euro(product.price)}</strong>
       <p className="small">
-        Eigen opleg: <b className="green">{euro(1785.41)}</b> na
+        Eigen opleg: <b className="green">{euro(1535.41)}</b> na
         standaardtegemoetkoming voor een 65-plusser met één toestel.
       </p>
       {open && (
