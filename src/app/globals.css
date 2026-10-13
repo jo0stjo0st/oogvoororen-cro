@@ -2094,3 +2094,36 @@ td {
 .cro-calc-details{border-top:1px solid #e1eae4;padding:18px 36px 24px;font-size:15px}
 .cro-calc-details summary{cursor:pointer;font-weight:700}.cro-calc-details p{max-width:800px;margin:12px 0 0;line-height:1.6}
 @media(max-width:800px){.cro-calc-head{padding:24px 20px 15px}.cro-calc-head h2{font-size:26px}.cro-calc-layout{grid-template-columns:1fr;padding:0 20px 24px;gap:4px}.cro-calc-result{padding:20px}.cro-calc-total strong{font-size:34px}.cro-calc-details{padding:18px 20px 22px}}
+
+/* Chapter 6: progressive disclosure without losing product detail. */
+.cro-info-page{padding-top:36px;padding-bottom:70px}.cro-info-page>p{max-width:850px}
+.cro-info-panel,.cro-info-compare{margin:34px 0;background:#fff;border:1px solid #dce8e1;border-radius:14px;overflow:hidden}
+.cro-info-heading{padding:32px 36px 22px;max-width:860px}
+.cro-info-heading h2{font-size:31px;line-height:1.25;margin:8px 0 14px}
+.cro-info-heading>p:last-child{font-size:17px;line-height:1.6;margin:0}
+.cro-info-highlights{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;padding:0 36px 30px}
+.cro-info-highlights>div{background:#f2f8f4;border-radius:10px;padding:19px 20px;min-height:100px}
+.cro-info-highlights strong,.cro-info-highlights span{display:block}
+.cro-info-highlights strong{font-size:19px;margin-bottom:6px}
+.cro-info-highlights span{font-size:15px;color:#506259;line-height:1.45}
+.cro-info-accordions{border-top:1px solid #e0e8e2}
+.cro-info-accordions details{border-bottom:1px solid #e0e8e2}
+.cro-info-accordions summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:22px 36px;cursor:pointer;font-size:19px;font-weight:750}
+.cro-info-accordions summary::-webkit-details-marker{display:none}
+.cro-info-accordions summary:before{content:"+";color:#007e60;font-size:25px;margin-right:12px}
+.cro-info-accordions details[open] summary:before{content:"−"}
+.cro-info-accordions summary>span:first-child{flex:1}
+.cro-info-summary-hint{font-size:13px;color:#5b6b62;font-weight:400}
+.cro-info-details{padding:0 36px 24px 69px;font-size:16px;line-height:1.6}
+.cro-info-details p{max-width:850px}.cro-info-details li{margin-bottom:5px}
+.cro-info-table-wrap{overflow-x:auto}
+.cro-info-table-wrap table{width:100%;border-collapse:collapse;font-size:16px}
+.cro-info-table-wrap th,.cro-info-table-wrap td{text-align:left;padding:15px 20px;border-bottom:1px solid #e3eae5}
+.cro-info-table-wrap th{font-weight:700}
+.cro-info-compare>.cro-info-table-wrap{margin:0 36px 24px}
+.cro-info-compare table thead{background:#edf5ef}
+.cro-info-selected{background:#f2f8f4}
+.cro-info-selected small{display:block;color:#007e60;margin-top:4px}
+.cro-info-compare-more{padding:18px 36px 26px;border-top:1px solid #e0e8e2}
+.cro-info-compare-more summary{font-weight:700;cursor:pointer}.cro-info-compare-more p{max-width:760px;line-height:1.6}
+@media(max-width:760px){.cro-info-heading{padding:24px 20px 20px}.cro-info-heading h2{font-size:25px}.cro-info-highlights{grid-template-columns:1fr;padding:0 20px 20px}.cro-info-highlights>div{min-height:0;padding:14px 17px}.cro-info-accordions summary{padding:19px 20px;font-size:17px}.cro-info-summary-hint{display:none}.cro-info-details{padding:0 20px 20px;font-size:15px}.cro-info-compare>.cro-info-table-wrap{margin:0 16px 20px}.cro-info-table-wrap table{font-size:14px}.cro-info-table-wrap th,.cro-info-table-wrap td{padding:12px 10px}.cro-info-compare-more{padding:18px 20px 22px}}
