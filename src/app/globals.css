@@ -2677,3 +2677,24 @@ td {
 .cro-cat-consult-banner p{font-size:15px;color:#52675b;margin:5px 0 0}
 .cro-cat-consult-banner a{display:inline-block;white-space:nowrap;background:#007d60;color:#fff;text-decoration:none;border-radius:8px;padding:12px 17px;font-size:15px;font-weight:750}
 @media(max-width:600px){.cro-cat-intro h1{font-size:32px}.cro-cat-toplists button{min-height:155px;padding:15px}.cro-cat-shortcut-icon{width:42px;height:42px;font-size:25px}.cro-cat-toplists button strong{font-size:15px}.cro-cat-toplists button small{font-size:13px}.cro-cat-consult-banner{flex-wrap:wrap;padding:18px;gap:12px}.cro-cat-consult-banner a{width:100%;text-align:center}.cro-cat-consult-banner strong{font-size:16px}}
+
+/* Category-first catalog landing: compact above-fold */
+.cro-cat-landing-head{display:flex;justify-content:space-between;align-items:center;gap:24px;padding:26px 0 8px}
+.cro-cat-landing-head h1{font-size:33px;line-height:1.2;margin:0 0 6px}
+.cro-cat-landing-head p:not(.eyebrow){font-size:16px;color:#54695c;margin:0}
+.cro-cat-all-button,.cro-cat-landing-bottom>button{flex-shrink:0;border-radius:8px;background:#007d60;color:#fff;font-size:15px;font-weight:750;padding:13px 19px}
+.cro-cat-landing-head+.cro-cat-shortcuts{padding-top:18px;padding-bottom:30px}
+.cro-cat-landing-head+.cro-cat-shortcuts .cro-cat-shortcuts-head{margin-bottom:14px}
+.cro-cat-landing-head+.cro-cat-shortcuts .cro-cat-shortcuts-head .eyebrow{display:none}
+.cro-cat-landing-head+.cro-cat-shortcuts .cro-cat-shortcuts-head h2{font-size:22px;margin:0 0 4px}
+.cro-cat-landing-head+.cro-cat-shortcuts .cro-cat-shortcuts-head p:last-child{font-size:14px;margin:0}
+.cro-cat-landing-head+.cro-cat-shortcuts .cro-cat-toplists{gap:10px}
+.cro-cat-landing-head+.cro-cat-shortcuts .cro-cat-toplists button{min-height:125px;padding:14px 17px}
+.cro-cat-landing-head+.cro-cat-shortcuts .cro-cat-shortcut-icon{width:36px;height:36px;font-size:22px;margin-bottom:7px}
+.cro-cat-landing-head+.cro-cat-shortcuts .cro-cat-toplists strong{font-size:16px}
+.cro-cat-landing-head+.cro-cat-shortcuts .cro-cat-toplists small{font-size:12px;margin-top:2px}
+.cro-cat-landing-bottom{display:flex;justify-content:space-between;align-items:center;gap:25px;background:#f1f8f3;border-radius:12px;padding:25px 29px;margin-bottom:48px}
+.cro-cat-landing-bottom h2{font-size:23px;margin:0 0 6px}
+.cro-cat-landing-bottom p{font-size:15px;margin:0 0 8px}
+.cro-cat-landing-bottom a{font-size:15px;font-weight:750}
+@media(max-width:700px){.cro-cat-landing-head,.cro-cat-landing-bottom{flex-direction:column;align-items:stretch;gap:14px}.cro-cat-landing-head{padding-top:19px}.cro-cat-landing-head h1{font-size:28px}.cro-cat-all-button,.cro-cat-landing-bottom>button{width:100%}.cro-cat-landing-head+.cro-cat-shortcuts .cro-cat-toplists button{min-height:120px;padding:12px}.cro-cat-landing-head+.cro-cat-shortcuts .cro-cat-toplists strong{font-size:14px}.cro-cat-landing-bottom{margin-bottom:28px;padding:20px}}
