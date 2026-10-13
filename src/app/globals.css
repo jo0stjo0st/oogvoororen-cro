@@ -2027,3 +2027,13 @@ td {
 .cro-call{text-align:center;font-size:15px;margin:0 0 9px}
 .cro-product-disclaimer{font-size:13px;color:#52625e;text-align:center;line-height:1.5}
 @media(max-width:760px){.cro-proposal-refined .cro-proposal-grid{grid-template-columns:1fr;gap:18px}.cro-packshot-image{min-height:260px}.cro-refined-info h3{font-size:24px}.cro-price-panel .cro-proposal-price{font-size:35px}.cro-proposal .cro-orange-cta{font-size:16px}}
+
+/* Chapter 1 v3: emphasize estimated own contribution and the advice-first journey. */
+.cro-own-contribution{display:flex;flex-direction:column;gap:1px;padding:11px 0 8px;margin-top:7px!important;border-top:1px solid #c8ded2}
+.cro-own-contribution span{font-size:14px;color:#344e42;font-weight:650}
+.cro-own-contribution strong{font-size:29px;line-height:1.2;color:#006b50;letter-spacing:-.025em}
+.cro-proposal .cro-orange-cta{background:#f9ac3c;color:#202826;border:1px solid #d98c22}
+.cro-proposal .cro-orange-cta:hover{background:#ef9a23;color:#202826}
+.cro-call a{font-weight:800;font-size:18px;text-decoration:none;color:#006f53}
+.cro-call a:hover{text-decoration:underline}
+.cro-benefit-icon{border-radius:8px;background:#f0f7f4;border:0;font-size:19px}
