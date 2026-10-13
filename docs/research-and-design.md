@@ -100,3 +100,7 @@ De 17 Belgische vestigingsadressen en exacte coördinaten zijn gecontroleerd via
 Het voorbeeld `?vestiging=antwerpen` selecteert Antwerpen (Berchem) om het lokale ontwerp te beoordelen, zonder een bezoekerslocatie te simuleren.
 
 Bron voor de Vercel-headers: https://vercel.com/docs/headers/request-headers
+
+Validatie herziening: alle zes leeftijd/aantal-combinaties, onbekend recht en eigen rekening getest. Alle 17 vestigingen ingelezen uit de bron; nabijheid voor Antwerpen en Gent gecontroleerd. De locatie-API is getest met onbekend land, ontbrekende gegevens, ongeldige coördinaten, een geldige Belgische locatie en handmatige/ongeldige keuzes. Responses zijn nooit publiek gecachet. In de live browser geeft 18–64/twee toestellen zowel bovenaan als in de calculator € 3.538,99 opleg. De keuze Gent vervangt de Antwerpse suggestie. Production build en lint geslaagd.
+
+Laatste mobiele controle: de eigen opleg past volledig boven de vaste afspraakknop in de 390px-testweergave. De vaste knop verdwijnt wanneer de gewone afspraakknop zichtbaar wordt. Beide varianten hebben geen horizontale overflow in deze weergave. Screenshots: `calm-desktop-20261013-v2.jpg` en `calm-mobile-20261013-v2.jpg`.
