@@ -40,3 +40,20 @@ Pushes naar `main` starten via de bestaande GitHub-koppeling een nieuwe deployme
 Er zijn geen omgevingsvariabelen nodig voor deze startversie.
 
 De metadata vraagt zoekmachines deze testomgeving niet te indexeren. Dit is geen toegangsbeveiliging.
+
+## CRO Lab routes
+
+- `/`: overzicht van de drie versies.
+- `/original`: benadering van de huidige Belgische productpagina.
+- `/variant-a`: Evolution.
+- `/variant-b`: Conversion First.
+- `/compare`: twee zelf te kiezen versies naast elkaar; desktop 1280 px of mobiel 390 px.
+- `/afspraak`: uitsluitend demo; product, variant en aanvraagtype via queryparameters.
+- `/informatie`: geverifieerde voorwaarden, bronnen en beperkingen.
+- `/hoorapparaat/phonak-audeo-infinio-i90-oplaadbaar`: productroute met Evolution-presentatie.
+
+Productdata: `src/features/products/data.ts`. Variantconfiguratie en gedeelde productsecties houden de routes klein. Nieuwe producten kunnen hun eigen data en route krijgen; geen CMS of database vereist.
+
+Onderzoeksnotities: `docs/research-and-design.md`. De calculator gebruikt de standaard RIZIV-tarieven van 1 januari 2026. Verifieer prijzen en tarieven opnieuw voordat u echte bezoekers laat rekenen. Demoformulieren verwerken alleen browsergeheugen en versturen niets.
+
+Vercel Deployment Protection: configureer desgewenst in Vercel onder project Settings → Deployment Protection. Noindex is geen afscherming.
