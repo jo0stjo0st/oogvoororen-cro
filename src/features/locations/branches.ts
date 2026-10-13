@@ -1,0 +1,170 @@
+// Branch addresses and coordinates verified from Oogvoororen.be JSON-LD on 2026-10-13.
+export const branches = [
+  {
+    id: "brugge",
+    city: "Brugge",
+    address: "Baron Ruzettelaan 7 bus 0",
+    postcode: "8800",
+    latitude: 51.19910679972095,
+    longitude: 3.231516740763644,
+    source: "https://oogvoororen.be/hoorcentrum/brugge",
+  },
+  {
+    id: "gent",
+    city: "Gent",
+    address: "Skiweg 3",
+    postcode: "9000",
+    latitude: 51.0425866,
+    longitude: 3.6978982,
+    source: "https://oogvoororen.be/hoorcentrum/gent",
+  },
+  {
+    id: "kortrijk",
+    city: "Kortrijk",
+    address: "Dumolinlaan 1",
+    postcode: "8500",
+    latitude: 50.813969173685166,
+    longitude: 3.2472957272600187,
+    source: "https://oogvoororen.be/hoorcentrum/kortrijk",
+  },
+  {
+    id: "oostende-1",
+    city: "Oostende",
+    address: "Onafhankelijkheidsstraat 11",
+    postcode: "8400",
+    latitude: 51.2130197,
+    longitude: 2.9016417,
+    source: "https://oogvoororen.be/hoorcentrum/oostende-1",
+  },
+  {
+    id: "roeselare",
+    city: "Roeselare",
+    address: "Kwadestraat 149",
+    postcode: "8800",
+    latitude: 50.91999905822676,
+    longitude: 3.1742030438879514,
+    source: "https://oogvoororen.be/hoorcentrum/roeselare",
+  },
+  {
+    id: "aalst",
+    city: "Aalst",
+    address: "Ninovesteenweg 198",
+    postcode: "9320",
+    latitude: 50.91563627014709,
+    longitude: 4.045280671439172,
+    source: "https://oogvoororen.be/hoorcentrum/aalst",
+  },
+  {
+    id: "antwerpen",
+    city: "Antwerpen",
+    address: "Uitbreidingstraat 84",
+    postcode: "2600",
+    latitude: 51.19275415551891,
+    longitude: 4.418163742610758,
+    source: "https://oogvoororen.be/hoorcentrum/berchem",
+  },
+  {
+    id: "brecht",
+    city: "Brecht",
+    address: "Ringlaan 17 A",
+    postcode: "2960",
+    latitude: 51.3580421732953,
+    longitude: 4.639536054261695,
+    source: "https://oogvoororen.be/hoorcentrum/brecht",
+  },
+  {
+    id: "machelen",
+    city: "Zaventem",
+    address: "Leuvensesteenweg 643",
+    postcode: "1930",
+    latitude: 50.8777139,
+    longitude: 4.501528,
+    source: "https://oogvoororen.be/hoorcentrum/machelen",
+  },
+  {
+    id: "mechelen",
+    city: "Mechelen",
+    address: "Antwerpsesteenweg 261",
+    postcode: "2800",
+    latitude: 51.0567015,
+    longitude: 4.4603152,
+    source: "https://oogvoororen.be/hoorcentrum/mechelen",
+  },
+  {
+    id: "temse",
+    city: "Temse",
+    address: "Luxemburgstraat 20",
+    postcode: "9140",
+    latitude: 51.143318872272985,
+    longitude: 4.186433661645293,
+    source: "https://oogvoororen.be/hoorcentrum/temse",
+  },
+  {
+    id: "geel",
+    city: "Geel",
+    address: "Kleinhoefstraat 5",
+    postcode: "2440",
+    latitude: 51.161819132504675,
+    longitude: 4.965469769598035,
+    source: "https://oogvoororen.be/hoorcentrum/geel",
+  },
+  {
+    id: "hasselt",
+    city: "Hasselt",
+    address: "Hendrik van Veldekesingel 150",
+    postcode: "3500",
+    latitude: 50.93574067165564,
+    longitude: 5.315707915053023,
+    source: "https://oogvoororen.be/hoorcentrum/hasselt",
+  },
+  {
+    id: "wiekevorst-heist-op-den-berg",
+    city: "Wiekevorst",
+    address: "Wiekevorst-Dorp 55 A",
+    postcode: "2222",
+    latitude: 51.1090009,
+    longitude: 4.7927134,
+    source: "https://oogvoororen.be/hoorcentrum/wiekevorst-heist-op-den-berg",
+  },
+  {
+    id: "leuven",
+    city: "Leuven",
+    address: "Grauwmeer 1",
+    postcode: "B-3001",
+    latitude: 50.8488779,
+    longitude: 4.7211396,
+    source: "https://oogvoororen.be/hoorcentrum/leuven",
+  },
+  {
+    id: "turnhout",
+    city: "Turnhout",
+    address: "Rubensstraat 104",
+    postcode: "2300",
+    latitude: 51.31640580716969,
+    longitude: 4.943906463131258,
+    source: "https://oogvoororen.be/hoorcentrum/turnhout",
+  },
+  {
+    id: "sint-truiden",
+    city: "Sint-Truiden",
+    address: "Tongersesteenweg 190",
+    postcode: "3800",
+    latitude: 50.8108847,
+    longitude: 5.2105496,
+    source: "https://oogvoororen.be/hoorcentrum/sint-truiden",
+  },
+] as const;
+export function nearestBranch(latitude: number, longitude: number) {
+  const radians = (n: number) => (n * Math.PI) / 180;
+  const distance = (b: (typeof branches)[number]) => {
+    const dlat = radians(b.latitude - latitude),
+      dlon = radians(b.longitude - longitude);
+    const a =
+      Math.sin(dlat / 2) ** 2 +
+      Math.cos(radians(latitude)) *
+        Math.cos(radians(b.latitude)) *
+        Math.sin(dlon / 2) ** 2;
+    return 6371 * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  };
+  return [...branches].sort((a, b) => distance(a) - distance(b))[0];
+}

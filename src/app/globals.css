@@ -1650,3 +1650,310 @@ td {
     object-fit: contain;
   }
 }
+/* Calm product presentation: one photo, one price hierarchy, one action. */
+.variant-a .product-hero,
+.variant-b .product-hero {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 64px;
+  background: none;
+  padding: 48px 0 44px;
+  margin-top: 0;
+  margin-bottom: 0;
+  border-radius: 0;
+}
+.variant-a .product-info h1,
+.variant-b .product-info h1 {
+  font-size: 34px;
+  margin-bottom: 24px;
+  line-height: 1.3;
+}
+.variant-a .gallery-image,
+.variant-b .gallery-image {
+  border: 0;
+  border-radius: 0;
+  background: #fff;
+}
+.variant-a .product-image,
+.variant-b .product-image {
+  height: 440px;
+  transform: scale(1.15);
+}
+.variant-a .product-image.zoom,
+.variant-b .product-image.zoom {
+  transform: scale(1.5);
+}
+.hero-price-block p {
+  margin-bottom: 0;
+}
+.gross-price {
+  font-size: 20px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+.gross-price strong {
+  font-weight: 600;
+  color: #384840;
+}
+.net-price-label {
+  font-size: 18px;
+  font-weight: 600;
+  margin-top: 14px !important;
+  color: var(--green);
+}
+.net-price {
+  font-size: 42px;
+  font-weight: 750;
+  color: var(--ink);
+  line-height: 1.3;
+  letter-spacing: -0.03em;
+  margin: 4px 0 8px !important;
+}
+.price-assumption {
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--muted);
+  max-width: 460px;
+}
+.hero-price-settings {
+  padding: 5px 0 0;
+  margin-bottom: 22px;
+  border: 0;
+}
+.hero-price-settings summary {
+  display: inline-block;
+  min-height: 44px;
+  padding-top: 6px;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--green);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.hero-price-settings[open] summary {
+  margin-bottom: 14px;
+}
+.hero-price-settings .calculator-inputs {
+  grid-template-columns: 1fr;
+  gap: 16px;
+  padding: 20px 0;
+}
+.hero-price-settings .small {
+  margin-top: 12px;
+  font-size: 16px;
+}
+.variant-a .benefits,
+.variant-b .benefits {
+  margin: 20px 0 26px;
+  padding: 0;
+  list-style: none;
+}
+.variant-a .benefits li,
+.variant-b .benefits li {
+  padding: 0;
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+.variant-a .benefits li:before,
+.variant-b .benefits li:before {
+  content: none;
+}
+.location-change {
+  display: inline-block;
+  min-height: 44px;
+  font-size: 16px;
+  color: var(--green);
+  padding: 6px 0;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.location-hint > span {
+  display: block;
+}
+.location-options {
+  padding: 12px 0;
+  font-size: 17px;
+}
+.location-options select {
+  margin-top: 8px;
+}
+.location-options .small {
+  margin-top: 12px;
+}
+.location-hint strong {
+  font-weight: 600;
+}
+.appointment-cta .phone-link {
+  text-align: left;
+  font-size: 18px;
+  margin-top: 12px;
+  font-weight: 500;
+}
+.variant-a .appointment-cta .small,
+.variant-b .appointment-cta .small {
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 10px 0;
+}
+.why-section {
+  padding: 48px 0 38px;
+}
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 40px;
+}
+.why-grid h3 {
+  font-size: 21px;
+}
+.why-grid p {
+  font-size: 18px;
+  color: var(--muted);
+  margin-bottom: 0;
+}
+.fitting-note {
+  font-size: 16px;
+  margin: 28px 0 0;
+  color: var(--muted);
+}
+.product-more {
+  border-top: 1px solid var(--line);
+  padding-bottom: 36px;
+}
+.product-disclosure {
+  padding: 24px 0;
+}
+.product-disclosure > summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  list-style: none;
+  min-height: 52px;
+}
+.product-disclosure > summary::-webkit-details-marker {
+  display: none;
+}
+.product-disclosure > summary h2 {
+  font-size: 25px;
+  margin: 0;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+.product-disclosure > summary:after {
+  content: "+";
+  font-size: 28px;
+  color: var(--green);
+  flex-shrink: 0;
+}
+.product-disclosure[open] > summary:after {
+  content: "−";
+}
+.product-disclosure > .section {
+  border: 0;
+  padding: 30px 0 12px;
+}
+.product-disclosure > p {
+  margin-top: 20px;
+}
+.product-disclosure .calculator {
+  margin-top: 26px;
+}
+.mobile-appointment {
+  display: none;
+}
+@media (max-width: 760px) {
+  .variant-a .product-hero,
+  .variant-b .product-hero {
+    display: flex;
+    gap: 18px;
+    padding: 24px 0 32px;
+  }
+  .variant-a .product-image,
+  .variant-b .product-image {
+    height: 220px;
+    transform: scale(1.12);
+  }
+  .variant-a .gallery-image,
+  .variant-b .gallery-image {
+    overflow: hidden;
+  }
+  .variant-a .image-button,
+  .variant-b .image-button {
+    padding: 0;
+  }
+  .variant-a .mobile-title h1,
+  .variant-b .mobile-title h1 {
+    font-size: 27px;
+    line-height: 1.35;
+  }
+  .variant-a .mobile-title .eyebrow,
+  .variant-b .mobile-title .eyebrow {
+    margin-bottom: 8px;
+  }
+  .net-price {
+    font-size: 38px;
+  }
+  .gross-price {
+    font-size: 18px;
+  }
+  .price-assumption {
+    font-size: 16px;
+  }
+  .hero-price-settings {
+    margin-bottom: 10px;
+  }
+  .variant-a .benefits,
+  .variant-b .benefits {
+    margin: 14px 0 22px;
+  }
+  .variant-a .benefits li,
+  .variant-b .benefits li {
+    font-size: 18px;
+    margin-bottom: 10px;
+    line-height: 1.5;
+  }
+  .location-change {
+    font-size: 16px;
+  }
+  .why-grid {
+    grid-template-columns: 1fr;
+    gap: 26px;
+  }
+  .why-section {
+    padding: 36px 0;
+  }
+  .why-grid h3 {
+    font-size: 21px;
+    margin-bottom: 8px;
+  }
+  .product-disclosure {
+    padding: 18px 0;
+  }
+  .product-disclosure > summary h2 {
+    font-size: 23px;
+  }
+  .mobile-appointment {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 20;
+    background: white;
+    border-top: 1px solid var(--line);
+    padding: 10px 18px max(10px, env(safe-area-inset-bottom));
+  }
+  .mobile-appointment .button {
+    width: 100%;
+    min-height: 54px;
+    font-size: 18px;
+  }
+  .mobile-appointment.is-hidden {
+    display: none;
+  }
+  .variant-a .site-footer,
+  .variant-b .site-footer {
+    padding-bottom: 96px;
+  }
+}

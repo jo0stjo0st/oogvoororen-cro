@@ -88,3 +88,15 @@ Een desktopbron-screenshot is vastgelegd. De browser biedt geen viewport-resize 
 - Mobiele iframeweergaven: geen horizontale documentoverflow; menu getest. Geen fysieke telefoontest of volledige WCAG-audit uitgevoerd.
 - De console bevatte browserextensie-meldingen; er zijn geen applicatiefouten waargenomen.
 - Laatste verfijningen: compactere mobiele Lab-navigatie, focus op demobevestiging en grotere referentiefoto.
+
+## Herziening: rust, eigen opleg en lokale dekking
+
+De feedback van 13 oktober is doorgevoerd in A en B: op desktop een gelijkwaardig 50/50 productblok, zonder vlakken rond de foto. Mobiel productnaam, foto, prijs, drie korte argumenten en een afspraakknop. De vaste mobiele afspraakknop verdwijnt wanneer de afspraakknop in de hero zichtbaar is. Extra productinformatie is lager beschikbaar in uitklapbare secties. Reviews en technische voordelen staan niet in de hero.
+
+De standaardvoorbeeldberekening is 65+, één toestel, standaardtegemoetkoming. De eigen opleg wordt prominent weergegeven; de volle prijs blijft zichtbaar. Leeftijd, aantal en vergoeding zijn aanpasbaar zonder de pagina te verlaten. De grote opleg en calculator delen één toestand. Onbekend recht toont nog steeds geen verzonnen bedrag.
+
+De 17 Belgische vestigingsadressen en exacte coördinaten zijn gecontroleerd via de JSON-LD van hun eigen bronpagina’s. `/api/vestiging` gebruikt de Vercel-headers voor land, latitude en longitude, uitsluitend voor bezoekers in België. De dichtstbijzijnde vestiging wordt geselecteerd op hemelsbrede afstand. De tekst is een suggestie, geen claim over rijtijd. Er worden geen gebruikerscoördinaten teruggestuurd, opgeslagen of naar een externe GeoIP-dienst gestuurd; de response is `private, no-store`. Geen browserlocatietoestemming nodig. Onbekende locatie of een ander land toont alle 17 vestigingen. Een handmatige keuze heeft voorrang.
+
+Het voorbeeld `?vestiging=antwerpen` selecteert Antwerpen (Berchem) om het lokale ontwerp te beoordelen, zonder een bezoekerslocatie te simuleren.
+
+Bron voor de Vercel-headers: https://vercel.com/docs/headers/request-headers

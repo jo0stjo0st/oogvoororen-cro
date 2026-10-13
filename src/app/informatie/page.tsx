@@ -117,11 +117,14 @@ export default function Page() {
         <section id="privacy" className="section">
           <h2>Privacy in deze testomgeving</h2>
           <p>
-            Vul fictieve gegevens in. De demo verstuurt en bewaart geen
-            formuliergegevens. Er zijn geen CRM-koppelingen, betaalfuncties,
-            analysetrackers of advertentiepixels toegevoegd. Er volgen geen
-            echte afspraken. Hosting kan normale technische toegangslogs
-            bijhouden.
+            Een vestiging kan worden voorgesteld op basis van uw globale
+            IP-locatie. U kunt de suggestie zelf aanpassen. Hiervoor worden geen
+            locatiegegevens opgeslagen of naar een extra geolocatiedienst
+            verstuurd. Vul fictieve gegevens in. De demo verstuurt en bewaart
+            geen formuliergegevens. Er zijn geen CRM-koppelingen,
+            betaalfuncties, analysetrackers of advertentiepixels toegevoegd. Er
+            volgen geen echte afspraken. Hosting kan normale technische
+            toegangslogs bijhouden.
           </p>
           <p>
             De site heeft noindex en nofollow. Dat verhindert indexering op

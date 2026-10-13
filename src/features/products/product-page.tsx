@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { LabBar } from "@/components/lab-bar";
 import { Header, Footer } from "@/components/site-shell";
@@ -6,9 +5,19 @@ import { ProductGallery } from "./gallery";
 import { PriceCalculator } from "./price-calculator";
 import { product, euro, appointmentUrl, type Variant } from "./data";
 import { OriginalPrice } from "./reference-interactions";
-export function AppointmentCTA({ variant }: { variant: Variant }) {
+import { HeroPrice } from "./hero-price";
+import { PriceProvider } from "./price-model";
+import { StickyCTA } from "./sticky-cta";
+import { LocationHint } from "@/features/locations/location-hint";
+export function AppointmentCTA({
+  variant,
+  hero = false,
+}: {
+  variant: Variant;
+  hero?: boolean;
+}) {
   return (
-    <div className="appointment-cta">
+    <div className="appointment-cta" id={hero ? "hero-appointment" : undefined}>
       <Link className="button primary" href={appointmentUrl(variant)}>
         {variant === "variant-b"
           ? "Probeer dit hoorapparaat vrijblijvend"
@@ -33,7 +42,9 @@ export function AppointmentCTA({ variant }: { variant: Variant }) {
 export function BenefitList() {
   return (
     <ul className="benefits">
-      <li>Audicien aan huis in Vlaanderen</li>
+      <li>
+        <LocationHint />
+      </li>
       <li>Vrijblijvend proberen met begeleiding</li>
       <li>Vijf jaar garantie en service</li>
     </ul>
@@ -108,42 +119,35 @@ function Description() {
 }
 function Service() {
   return (
-    <section id="waarom" className="service-section section">
-      <div className="two-col">
-        <Image
-          src="/assets/audicien.webp"
-          width={800}
-          height={600}
-          alt="Audicien van Oogvoororen bij haar auto"
-          className="service-photo"
-          sizes="(max-width: 760px) 100vw, 50vw"
-        />
+    <section id="waarom" className="section why-section">
+      <h2>Waarom kiezen voor Oogvoororen?</h2>
+      <div className="why-grid">
         <div>
-          <p className="eyebrow">Scherpe online prijzen. Persoonlijke zorg.</p>
-          <h2>Waarom kiezen voor Oogvoororen?</h2>
-          <div className="service-item">
-            <h3>Persoonlijk advies bij u thuis</h3>
-            <p>
-              Een audicien helpt u in uw vertrouwde omgeving. De eerste
-              afstelling tijdens de proefperiode gebeurt in een hoorcentrum.
-            </p>
-          </div>
-          <div className="service-item">
-            <h3>Eerst vrijblijvend proberen</h3>
-            <p>
-              Ontdek met begeleiding of het toestel aansluit bij uw gehoor en
-              dagelijks leven.
-            </p>
-          </div>
-          <div className="service-item">
-            <h3>Ook na aankoop goed geholpen</h3>
-            <p>
-              Vijf jaar service en garantie bij normaal gebruik. Voor accu’s
-              gelden fabrikantafhankelijke voorwaarden.
-            </p>
-          </div>
+          <h3>Persoonlijke zorg, dichtbij</h3>
+          <p>
+            Een audicien helpt u aan huis of in een hoorcentrum. U krijgt advies
+            dat bij uw gehoor en dagelijks leven past.
+          </p>
+        </div>
+        <div>
+          <h3>Eerst rustig proberen</h3>
+          <p>
+            Samen kiest u een geschikt toestel. U ervaart het in uw dagelijks
+            leven voordat u beslist.
+          </p>
+        </div>
+        <div>
+          <h3>Ook na aankoop geholpen</h3>
+          <p>
+            Persoonlijke begeleiding, vijf jaar service en garantie volgens de
+            voorwaarden.
+          </p>
         </div>
       </div>
+      <p className="fitting-note">
+        De eerste afstelling tijdens uw proefperiode vindt plaats in een
+        hoorcentrum.
+      </p>
     </section>
   );
 }
@@ -369,174 +373,177 @@ function ReferenceBenefits() {
 }
 export function ProductPage({ variant }: { variant: Variant }) {
   const original = variant === "original";
-  const conversion = variant === "variant-b";
   return (
-    <div className={`product-page ${variant}`}>
-      <LabBar active={variant} />
-      <Header variant={variant} />
-      <div className="breadcrumb">
-        <div className="wide">
-          <Link href="/">Home</Link>
-          <span>/</span>
-          <Link href="/original">Hoorapparaten</Link>
-          <span>/</span>
-          <span>Phonak</span>
-          {original && (
-            <>
-              <span>/</span>
-              <span>{product.name}</span>
-            </>
-          )}
-        </div>
-      </div>
-      <main id="main-content">
-        <section className="product-hero wide">
-          <div className="mobile-title">
-            <p className="eyebrow">Phonak · oplaadbaar</p>
-            <h1>{product.name}</h1>
-          </div>
-          <ProductGallery original={original} />
-          <div className="product-info">
-            {original ? (
-              <p className="source-rating">
-                <span className="stars">★★★★★</span>{" "}
-                <a href="#reviews">Lees alle 1 reviews</a>
-              </p>
-            ) : (
-              <p className="eyebrow desktop-title">Phonak · oplaadbaar</p>
-            )}
-            <h1 className="desktop-title">{product.name}</h1>
-            {!conversion && (
-              <p className="description">
-                {original ? product.originalDescription : product.description}
-              </p>
-            )}
-            {original ? (
-              <OriginalPrice />
-            ) : (
-              <>
-                <p className="price-label">
-                  Prijs per hoorapparaat, inclusief btw en lader
-                </p>
-                <p className="hero-price">{euro(product.price)}</p>
-                <p className="compensation-note">
-                  Mogelijk een tegemoetkoming van uw mutualiteit.{" "}
-                  <a href="#prijsberekening">
-                    Bereken uw indicatieve eigen opleg
-                  </a>
-                  .
-                </p>
-                {conversion && (
-                  <p className="description">
-                    Horen op uw manier, met een oplaadbaar toestel en
-                    persoonlijke begeleiding.
-                  </p>
-                )}
-              </>
-            )}
-            {original ? <ReferenceBenefits /> : <BenefitList />}
-            <AppointmentCTA variant={variant} />
+    <PriceProvider>
+      <div className={`product-page ${variant}`}>
+        <LabBar active={variant} />
+        <Header variant={variant} />
+        <div className="breadcrumb">
+          <div className="wide">
+            <Link href="/">Home</Link>
+            <span>/</span>
+            <Link href="/original">Hoorapparaten</Link>
+            <span>/</span>
+            <span>Phonak</span>
             {original && (
               <>
-                <Link
-                  className="button secondary"
-                  href={appointmentUrl(variant, product.slug, "offerte")}
-                >
-                  Ik wil een offerte ontvangen
-                </Link>
-                <p className="small">Geheel gratis en vrijblijvend.</p>
-                <h3>Samen kiezen we het perfecte hoortoestel:</h3>
-                <ol className="reference-steps">
-                  <li>Vraag een vrijblijvende hoortest en adviesgesprek aan</li>
-                  <li>
-                    Onze audicien belt u voor een kort gesprek en het maken van
-                    een afspraak
-                  </li>
-                  <li>Een uitgebreide hoortest en persoonlijk advies</li>
-                  <li>
-                    Samen kiest u een hoorapparaat om vrijblijvend uit te
-                    proberen
-                  </li>
-                </ol>
-                <Link href="#variaties" className="text-link">
-                  Toevoegen aan vergelijker
-                </Link>
+                <span>/</span>
+                <span>{product.name}</span>
               </>
             )}
-            {!original && (
-              <p className="visit-note">
-                De eerste afstelling tijdens uw proefperiode gebeurt in een
-                hoorcentrum.
-              </p>
-            )}
           </div>
-        </section>
-        {original && (
-          <nav className="product-tabs wide" aria-label="Productinformatie">
-            {[
-              ["omschrijving", "Omschrijving"],
-              ["reviews", "Reviews"],
-              ["variaties", "Variaties"],
-              ["specificaties", "Tech-levels"],
-              ["apps", "Apps"],
-              ["accessoires", "Accessoires"],
-              ["downloads", "Downloads"],
-              ["garantie", "Garantie"],
-            ].map(([id, label]) => (
-              <a key={id} href={"#" + id}>
-                {label}
-              </a>
-            ))}
-          </nav>
-        )}
-        <div className="wide below-product">
-          {conversion && <Service />}
-          {!original && (
-            <section id="prijsberekening" className="section">
-              <p className="eyebrow">Duidelijkheid over uw kosten</p>
-              <h2>Wat betaalt u zelf?</h2>
-              <p>
-                Een of twee toestellen, met of zonder tegemoetkoming. Bekijk een
-                indicatie voor uw situatie.
-              </p>
-              <PriceCalculator />
-            </section>
-          )}
-          {!original && <HowItWorks />}
-          <Description />
-          {original ? (
-            <>
-              <Reviews />
-              <Comparison />
-              <Specs />
-              <Apps />
-              <Accessories />
-              <Downloads />
-              <Warranty />
-            </>
-          ) : (
-            <>
-              <Reviews />
-              <Specs />
-              <Comparison />
-              <Apps />
-              <Accessories />
-              <Downloads />
-              <Warranty />
-            </>
-          )}
-          <section className="closing section">
-            <h2>Ontdek wat bij uw gehoor past</h2>
-            <p>Bespreek uw wensen met een professionele audicien.</p>
-            <AppointmentCTA variant={variant} />
-          </section>
-          <p className="source-note">
-            Broninformatie en prijzen gecontroleerd op {product.verifiedAt}.
-            Deze demo is een momentopname.
-          </p>
         </div>
-      </main>
-      <Footer />
-    </div>
+        <main id="main-content">
+          <section className="product-hero wide">
+            <div className="mobile-title">
+              <p className="eyebrow">Phonak · oplaadbaar</p>
+              <h1>{product.name}</h1>
+            </div>
+            <ProductGallery original={original} />
+            <div className="product-info">
+              {original ? (
+                <p className="source-rating">
+                  <span className="stars">★★★★★</span>{" "}
+                  <a href="#reviews">Lees alle 1 reviews</a>
+                </p>
+              ) : (
+                <p className="eyebrow desktop-title">Phonak · oplaadbaar</p>
+              )}
+              <h1 className="desktop-title">{product.name}</h1>
+              {original && (
+                <p className="description">
+                  {original ? product.originalDescription : product.description}
+                </p>
+              )}
+              {original ? <OriginalPrice /> : <HeroPrice />}
+              {original ? <ReferenceBenefits /> : <BenefitList />}
+              <AppointmentCTA variant={variant} hero />
+              {original && (
+                <>
+                  <Link
+                    className="button secondary"
+                    href={appointmentUrl(variant, product.slug, "offerte")}
+                  >
+                    Ik wil een offerte ontvangen
+                  </Link>
+                  <p className="small">Geheel gratis en vrijblijvend.</p>
+                  <h3>Samen kiezen we het perfecte hoortoestel:</h3>
+                  <ol className="reference-steps">
+                    <li>
+                      Vraag een vrijblijvende hoortest en adviesgesprek aan
+                    </li>
+                    <li>
+                      Onze audicien belt u voor een kort gesprek en het maken
+                      van een afspraak
+                    </li>
+                    <li>Een uitgebreide hoortest en persoonlijk advies</li>
+                    <li>
+                      Samen kiest u een hoorapparaat om vrijblijvend uit te
+                      proberen
+                    </li>
+                  </ol>
+                  <Link href="#variaties" className="text-link">
+                    Toevoegen aan vergelijker
+                  </Link>
+                </>
+              )}
+            </div>
+          </section>
+          {original && (
+            <nav className="product-tabs wide" aria-label="Productinformatie">
+              {[
+                ["omschrijving", "Omschrijving"],
+                ["reviews", "Reviews"],
+                ["variaties", "Variaties"],
+                ["specificaties", "Tech-levels"],
+                ["apps", "Apps"],
+                ["accessoires", "Accessoires"],
+                ["downloads", "Downloads"],
+                ["garantie", "Garantie"],
+              ].map(([id, label]) => (
+                <a key={id} href={"#" + id}>
+                  {label}
+                </a>
+              ))}
+            </nav>
+          )}
+          <div className="wide below-product">
+            {original ? (
+              <>
+                <Description />
+                <Reviews />
+                <Comparison />
+                <Specs />
+                <Apps />
+                <Accessories />
+                <Downloads />
+                <Warranty />
+              </>
+            ) : (
+              <>
+                <Service />
+                <div className="product-more">
+                  <details className="product-disclosure" id="prijsberekening">
+                    <summary>
+                      <h2>Wat kost het mij?</h2>
+                    </summary>
+                    <p>
+                      Pas uw leeftijd en aantal toestellen aan. De eigen opleg
+                      bovenaan verandert mee.
+                    </p>
+                    <PriceCalculator />
+                  </details>
+                  <details className="product-disclosure">
+                    <summary>
+                      <h2>Hoe werkt het uitproberen?</h2>
+                    </summary>
+                    <HowItWorks />
+                  </details>
+                  <details className="product-disclosure">
+                    <summary>
+                      <h2>Wat kan dit hoorapparaat?</h2>
+                    </summary>
+                    <Description />
+                    <Specs />
+                    <Apps />
+                  </details>
+                  <details className="product-disclosure">
+                    <summary>
+                      <h2>Ervaringen van klanten</h2>
+                    </summary>
+                    <Reviews />
+                  </details>
+                  <details className="product-disclosure">
+                    <summary>
+                      <h2>Andere modellen en accessoires</h2>
+                    </summary>
+                    <Comparison />
+                    <Accessories />
+                  </details>
+                  <details className="product-disclosure">
+                    <summary>
+                      <h2>Garantie, service en handleidingen</h2>
+                    </summary>
+                    <Warranty />
+                    <Downloads />
+                  </details>
+                </div>
+              </>
+            )}
+            <section className="closing section">
+              <h2>Ontdek wat bij uw gehoor past</h2>
+              <p>Bespreek uw wensen met een professionele audicien.</p>
+              <AppointmentCTA variant={variant} />
+            </section>
+            <p className="source-note">
+              Broninformatie en prijzen gecontroleerd op {product.verifiedAt}.
+              Deze demo is een momentopname.
+            </p>
+          </div>
+        </main>
+        <Footer />
+        {!original && <StickyCTA variant={variant} />}
+      </div>
+    </PriceProvider>
   );
 }

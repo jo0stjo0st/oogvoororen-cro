@@ -3,7 +3,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { variants, type Variant } from "@/features/products/data";
 export function Compare() {
-  const [left, setLeft] = useState<Variant>("original");
+  const [left, setLeft] = useState<Variant>("variant-a");
   const [right, setRight] = useState<Variant>("variant-a");
   const [mode, setMode] = useState("desktop");
   return (
@@ -109,8 +109,10 @@ export function Compare() {
               <tr>
                 <th>Prijs</th>
                 <td>Huidige voorbeeldopleg</td>
-                <td>Prijs + eigen opleg berekenen</td>
-                <td>Prijs prominent; calculator lager</td>
+                <td>Eigen opleg prominent, toestelprijs ernaast</td>
+                <td>
+                  Eigen opleg prominent, instellingen uitgeklapt op verzoek
+                </td>
               </tr>
               <tr>
                 <th>Typografie</th>

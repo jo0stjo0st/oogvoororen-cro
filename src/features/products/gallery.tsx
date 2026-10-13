@@ -7,7 +7,7 @@ export function ProductGallery({ original = false }: { original?: boolean }) {
   return (
     <div className={`gallery ${original ? "original-gallery" : ""}`}>
       <div className="gallery-image">
-        <span className="included">Inclusief lader</span>
+        {original && <span className="included">Inclusief lader</span>}
         <button
           className="image-button"
           onClick={() => setZoom(!zoom)}
@@ -25,20 +25,22 @@ export function ProductGallery({ original = false }: { original?: boolean }) {
           />
         </button>
       </div>
-      <div className="gallery-bottom">
-        <button
-          className="thumbnail"
-          aria-label="Toon productfoto"
-          onClick={() => setZoom(false)}
-        >
-          <Image src={product.image} alt="" width={48} height={48} />
-        </button>
-        <span>
-          {original ? "Graphite Gray" : "Oplaadbaar · Graphite Gray"}
-          <br />
-          <span className="small">Klik op de foto om te vergroten</span>
-        </span>
-      </div>
+      {original && (
+        <div className="gallery-bottom">
+          <button
+            className="thumbnail"
+            aria-label="Toon productfoto"
+            onClick={() => setZoom(false)}
+          >
+            <Image src={product.image} alt="" width={48} height={48} />
+          </button>
+          <span>
+            {original ? "Graphite Gray" : "Oplaadbaar · Graphite Gray"}
+            <br />
+            <span className="small">Klik op de foto om te vergroten</span>
+          </span>
+        </div>
+      )}
     </div>
   );
 }
