@@ -2290,3 +2290,11 @@ td {
 .cro-booking-form .appointment-form{max-width:none}
 @media(max-width:850px){.cro-booking-layout{grid-template-columns:1fr}.cro-booking-explainer,.cro-booking-form{padding:22px}}
 @media(max-width:550px){.cro-booking-product{align-items:flex-start}.cro-booking-product img{width:70px;height:70px}.cro-booking-explainer h2{font-size:25px}}
+
+.cro-compact-form{display:grid;gap:15px}.cro-compact-form label{display:grid;gap:6px;font-size:16px;font-weight:650}
+.cro-compact-form input{min-height:50px;font-size:16px}
+.cro-compact-form .cro-sticky-button{border:0;cursor:pointer;margin-top:5px;width:100%}
+.cro-compact-intro{font-size:16px;line-height:1.5;margin:0 0 3px}
+.cro-compact-help,.cro-compact-privacy{font-size:13px;line-height:1.5;color:#53665b;margin:0}
+.cro-compact-success{padding:20px;background:#f2f8f4;border-radius:9px}
+.cro-compact-success button{margin-top:10px;text-decoration:underline}
