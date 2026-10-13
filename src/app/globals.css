@@ -2416,3 +2416,69 @@ td {
 .cro-site-search button{background:#007d60;color:#fff;border-radius:7px;padding:8px 17px;font-size:15px;font-weight:700}
 @media(max-width:850px){.cro-site-top-actions{gap:10px}.cro-site-utilities{gap:0;padding-left:4px}.cro-site-icon-button{width:39px;min-width:39px;height:42px}.cro-site-search .wide{display:block}.cro-site-search label{display:block;margin-bottom:8px}}
 @media(max-width:600px){.cro-site-top>.wide{width:calc(100% - 24px);justify-content:space-between;gap:4px}.cro-site-top-actions{gap:5px}.cro-site-top-actions>a[href^="tel:"]{display:none}.cro-site-utilities{padding-left:2px;border:0}.cro-site-icon-button{width:36px;min-width:36px;height:42px}.cro-site-icon-button svg{width:20px;height:20px}.cro-site-proof-stars{font-size:14px;letter-spacing:0}.cro-site-top .cro-site-top-cta{padding:7px 9px;white-space:nowrap}.cro-site-search form{flex-direction:column}}
+
+/* Homepage concept */
+.cro-home-demo{display:flex;justify-content:space-between;gap:15px;font-size:13px;padding:13px 0;color:#65756b}
+.cro-home-hero{background:#f1f8f3}
+.cro-home-hero-grid{display:grid;grid-template-columns:1.04fr .96fr;align-items:center;gap:45px;padding:55px 0}
+.cro-home-hero h1{font-size:46px;line-height:1.18;max-width:610px;margin-bottom:23px}
+.cro-home-intro{font-size:20px;line-height:1.65;max-width:590px}
+.cro-home-undercta{font-size:14px;color:#4e6757;margin:13px 0}
+.cro-home-secondary{display:inline-block;font-size:16px;margin-top:13px;font-weight:650}
+.cro-home-hero-photo{position:relative}
+.cro-home-hero-photo img{width:100%;height:430px;object-fit:cover;border-radius:17px}
+.cro-home-photo-tag{position:absolute;bottom:19px;left:19px;background:white;padding:12px 17px;border-radius:10px;box-shadow:0 4px 20px #0c2e1a20;font-size:15px;font-weight:700}
+.cro-home-photo-tag span{color:#00895e;margin-right:6px}
+.cro-home-trust{border-bottom:1px solid #e0e9e2;background:#fff}
+.cro-home-trust>.wide{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 22px;padding:21px 0;font-size:15px;font-weight:650;color:#24543c}
+.cro-home-section{padding:76px 0}
+.cro-home-section-heading{max-width:790px;margin-bottom:29px}
+.cro-home-section-heading h2{font-size:34px;margin:0 0 14px}
+.cro-home-section-heading>p:last-child{font-size:18px;color:#596a60}
+.cro-home-routes,.cro-home-service-grid,.cro-home-products{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:19px}
+.cro-home-route{border:1px solid #d9e6dd;border-radius:14px;padding:29px 25px;color:inherit;text-decoration:none;box-shadow:0 5px 19px #102e1810;display:flex;flex-direction:column;min-height:310px}
+.cro-home-route:hover{border-color:#00ad81;text-decoration:none}
+.cro-home-route-icon,.cro-home-service-icon{width:53px;height:53px;display:grid;place-items:center;background:#e4f4e9;color:#007d60;border-radius:13px;font-size:29px;margin-bottom:21px}
+.cro-home-route h3{font-size:23px;margin-bottom:13px}
+.cro-home-route p{font-size:16px;color:#52655a;line-height:1.6}
+.cro-home-route strong{margin-top:auto;color:#007d60;font-size:16px}
+.cro-home-soft{background:#f5f9f6}
+.cro-home-service-grid article{background:white;padding:27px;border-radius:13px;border:1px solid #e0e9e2}
+.cro-home-service-grid p{font-size:16px;line-height:1.6;min-height:115px}
+.cro-home-service-grid a{font-size:15px;font-weight:700}
+.cro-home-filters{display:flex;gap:10px;margin:15px 0 27px;flex-wrap:wrap}
+.cro-home-filters button{border:1px solid #bdcfc2;border-radius:24px;padding:9px 19px;font-size:15px;background:#fff}
+.cro-home-filters button[aria-pressed=true]{background:#e1f3e7;border-color:#007d60;font-weight:750;color:#006b50}
+.cro-home-products article{border:1px solid #dce7df;border-radius:13px;padding:22px;display:flex;flex-direction:column;min-height:390px}
+.cro-home-product-image{height:170px;display:grid;place-items:center;background:#f6f9f6;border-radius:10px;margin-bottom:17px}
+.cro-home-product-image img{max-height:150px;width:auto;object-fit:contain}
+.cro-home-product-placeholder{font-size:14px;text-align:center;color:#65756b}
+.cro-home-product-stars{font-size:13px;color:#997120;margin-bottom:7px}
+.cro-home-products h3{font-size:18px;margin-bottom:9px}
+.cro-home-product-note{font-size:14px;color:#65756b}
+.cro-home-product-bottom{display:flex;align-items:baseline;gap:10px;margin-top:auto}
+.cro-home-product-bottom strong{font-size:24px}
+.cro-home-product-bottom small{font-size:13px}
+.cro-home-products article>a{font-size:15px;font-weight:700;margin-top:17px}
+.cro-home-center{text-align:center;margin-top:29px;font-weight:700}
+.cro-home-choice-help{background:#f0f8f3;border-radius:12px;padding:30px}
+.cro-home-how{display:grid;grid-template-columns:1fr 1fr;gap:65px;align-items:center}
+.cro-home-how h2{font-size:34px}
+.cro-home-how>ol{list-style:none;padding:0;display:grid;gap:20px}
+.cro-home-how li{display:flex;gap:16px;align-items:start}
+.cro-home-how li>span{width:41px;height:41px;flex-shrink:0;border-radius:50%;display:grid;place-items:center;background:#007d60;color:#fff;font-weight:750}
+.cro-home-how li p{font-size:16px;margin:5px 0}
+.cro-home-reputation{display:grid;grid-template-columns:1.5fr .8fr;gap:40px;align-items:center}
+.cro-home-reputation p{max-width:640px}
+.cro-home-review-score{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:35px;background:#f0f7f2;border-radius:14px}
+.cro-home-review-score span{font-size:23px;color:#b88720;letter-spacing:3px}
+.cro-home-review-score strong{font-size:60px;line-height:1.3}
+.cro-home-review-score small{text-align:center;font-size:12px}
+.cro-home-appointment-bg{background:#eaf5ed}
+.cro-home-appointment{display:grid;grid-template-columns:1fr 1fr;gap:55px;padding:72px 0}
+.cro-home-appointment h2{font-size:35px}
+.cro-home-appointment li{margin:12px 0;font-size:16px}
+.cro-home-form{padding:29px;background:white;border-radius:14px;box-shadow:0 8px 25px #10371b12}
+.cro-home-form h3{font-size:24px}
+@media(max-width:900px){.cro-home-hero-grid,.cro-home-how,.cro-home-appointment,.cro-home-reputation{grid-template-columns:1fr;gap:30px}.cro-home-routes,.cro-home-service-grid,.cro-home-products{grid-template-columns:repeat(2,minmax(0,1fr))}.cro-home-hero-grid{padding:38px 0}.cro-home-hero-photo img{height:320px}.cro-home-section{padding:54px 0}}
+@media(max-width:600px){.cro-home-hero h1{font-size:33px}.cro-home-intro{font-size:17px}.cro-home-hero-photo img{height:245px}.cro-home-routes,.cro-home-service-grid,.cro-home-products{grid-template-columns:1fr}.cro-home-route{min-height:0}.cro-home-service-grid p{min-height:0}.cro-home-section-heading h2,.cro-home-how h2,.cro-home-appointment h2{font-size:28px}.cro-home-appointment{padding:45px 0}.cro-home-demo{font-size:12px}}
