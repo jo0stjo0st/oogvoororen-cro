@@ -1,29 +1,34 @@
 import Link from "next/link";
-import { product } from "@/features/products/data";
 
-const highlights=[
-  {title:"Spraak in rumoer",body:"Meer ondersteuning om gesprekken te volgen in restaurants en andere drukke omgevingen."},
-  {title:"Groepsgesprekken",body:"Geavanceerde geluidsverwerking wanneer meerdere mensen tegelijk spreken."},
-  {title:"Geluidsdetails",body:"Uitgebreidere verwerking van nuances in stemmen, omgevingsgeluiden en muziek."},
-  {title:"Persoonlijk af te stellen",body:"Uw audicien stemt de uitgebreide audiologische mogelijkheden af op uw gehoor."},
+const technologies = [
+  {name:"Smart Sensor",benefit:"Volgt de luistersituatie",description:"De Encanta 400 Pro gebruikt sensortechnologie om beter rekening te houden met beweging en wisselende gesprekken. Dat is vooral relevant als u niet steeds stil tegenover één spreker zit."},
+  {name:"Smart Noise Reduction",benefit:"Verwerkt storend geluid verfijnder",description:"De hoogste uitvoering binnen de Encanta-familie biedt de meest uitgebreide ruisreductie. Niet alleen dát achtergrondgeluid wordt verwerkt is relevant, maar hoe verfijnd dit gebeurt terwijl spraak hoorbaar blijft."},
+  {name:"Uitgebreide audiologische verwerking",benefit:"Meer ruimte voor nuance",description:"Het topniveau van de serie combineert de meest uitgebreide mogelijkheden voor complexe luisteromgevingen met een rijkere verwerking van geluidsdetails. De audicien stemt dit op uw gehoor af."},
 ];
 export default function ProductHighlights(){
  return <main className="wide cro-highlights-page">
    <p><Link href="/">Terug naar de CRO-werkplaats</Link></p>
-   <p className="eyebrow">Hoofdstuk 4 · nieuw productblok direct na de hero</p>
+   <p className="eyebrow">Hoofdstuk 4 · direct onder de producthero</p>
    <h1>Waarom kiezen voor de Encanta 400 Pro?</h1>
-   <p>Een compact productinhoudelijk blok vóór de uitleg over Oogvoororen, de prijscalculator en de uitgebreide vergelijking.</p>
+   <p>Een compacte, productspecifieke introductie vóór de uitleg over Oogvoororen en de prijscalculator.</p>
    <section className="cro-highlight-panel">
      <p className="eyebrow">Bernafon Encanta 400 Pro</p>
-     <h2>Haal meer uit ieder gesprek.</h2>
-     <p className="cro-highlight-intro">Het hoogste audiologische technologieniveau binnen de Encanta-serie. Voor wie ook in uitdagende luistersituaties zoveel mogelijk wil verstaan.</p>
-     <div className="cro-highlight-grid">{highlights.map((h,i)=><article key={h.title}><span className="cro-highlight-number">0{i+1}</span><h3>{h.title}</h3><p>{h.body}</p></article>)}</div>
+     <h2>Het verschil merkt u juist wanneer luisteren lastig wordt.</h2>
+     <p className="cro-highlight-intro">De Encanta 400 Pro is het hoogste audiologische niveau binnen de Encanta-familie. Niet Bluetooth of oplaadbaarheid maken dit toestel bijzonder, maar de verfijning waarmee het spraak en omgevingsgeluid verwerkt.</p>
+     <div className="cro-highlight-grid">{technologies.map((t,i)=><article key={t.name}><span className="cro-highlight-number">0{i+1} · {t.name}</span><h3>{t.benefit}</h3><p>{t.description}</p></article>)}</div>
      <div className="cro-highlight-review">
-       <div><p className="eyebrow">Ervaringen met dit hoorapparaat</p><h3>Wat zeggen gebruikers?</h3><p>Naast de audiologische voordelen tonen we hier één echte, relevante productreview. Bij voorkeur over spraakverstaan of geluidskwaliteit, met de originele beoordeling en bronvermelding.</p></div>
-       <a href={product.source+"#reviews"} target="_blank" rel="noreferrer">Lees de bestaande productreviews ↗</a>
+       <div>
+         <p className="eyebrow">Klantervaringen met dit toestel</p>
+         <h3>Hoe ervaren dragers de Encanta 400 Pro?</h3>
+         <div className="cro-highlight-review-placeholder" aria-label="Voorbeeld van de plaatsing van een bestaande klantreview">
+           <span aria-hidden="true">★★★★★</span>
+           <blockquote>Hier verschijnt een bestaande productreview over bijvoorbeeld verstaan in gezelschap, geluidskwaliteit of luistercomfort.</blockquote>
+           <p>Naam klant · geverifieerde productreview (placeholder)</p>
+         </div>
+       </div>
      </div>
-     <p className="cro-highlight-bottom"><Link href="/experimenten/productinformatie">Vergelijk de Encanta-technologieniveaus →</Link></p>
+     <p className="cro-highlight-bottom"><Link href="/experimenten/productinformatie">Bekijk de uitgebreide audiologische vergelijking ↓</Link></p>
    </section>
-   <section className="section"><h2>Ontwerpkeuze</h2><p>De highlights staan bewust vóór de dienstverlening en prijsberekening. De volledige audiologische vergelijking en technische specificaties blijven in het latere informatieblok. We voegen pas een letterlijk reviewcitaat toe nadat de exacte tekst en bron zijn gecontroleerd.</p></section>
+   <section className="section"><h2>Opbouw binnen de productpagina</h2><p>Dit blok introduceert de specifieke audiologische technologie. Verderop op dezelfde productpagina volgen de volledige vergelijking, bestaande reviews, technische gegevens en handleidingen. De reviewtekst hierboven is uitsluitend een UI-placeholder.</p></section>
  </main>;
 }
