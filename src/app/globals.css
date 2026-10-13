@@ -2037,3 +2037,25 @@ td {
 .cro-call a{font-weight:800;font-size:18px;text-decoration:none;color:#006f53}
 .cro-call a:hover{text-decoration:underline}
 .cro-benefit-icon{border-radius:8px;background:#f0f7f4;border:0;font-size:19px}
+
+/* Chapter 4: distinct but restrained service story. */
+.cro-why-page{padding-top:36px;padding-bottom:70px}
+.cro-why-page>h1{margin:15px 0}.cro-why-page>p{max-width:850px}
+.cro-why-panel{margin:36px 0 48px;background:#f5f8f6;border-radius:16px;overflow:hidden}
+.cro-why-head{text-align:center;max-width:760px;margin:auto;padding:48px 30px 30px}
+.cro-why-head h2{font-size:35px;margin:0 0 15px}.cro-why-head>p:last-child{font-size:18px}
+.cro-why-content{display:grid;grid-template-columns:.95fr 1.05fr;gap:0;background:#fff;margin:0 36px;border-radius:12px;overflow:hidden}
+.cro-why-visual{background:linear-gradient(140deg,#c9ded5,#7eaf9d);padding:36px;min-height:440px;display:flex;flex-direction:column;justify-content:end;color:#163e31}
+.cro-why-visual span{font-size:15px;font-weight:700;text-transform:uppercase;letter-spacing:.08em}
+.cro-why-visual strong{font-size:30px;line-height:1.2;margin:12px 0;max-width:360px}
+.cro-why-visual p{font-size:14px;line-height:1.5;max-width:340px;margin:0}
+.cro-why-steps{padding:28px 36px;display:flex;flex-direction:column;justify-content:center}
+.cro-why-step{display:flex;gap:20px;padding:18px 0}
+.cro-why-step+.cro-why-step{border-top:1px solid var(--line)}
+.cro-why-step>span{font-size:24px;color:#007d60;font-weight:800;line-height:1.2}
+.cro-why-step h3{font-size:20px;margin:0 0 8px}
+.cro-why-step p{font-size:16px;line-height:1.55;margin:0;color:#52625e}
+.cro-why-footer{display:flex;gap:28px;align-items:center;justify-content:space-between;padding:26px 36px 36px}
+.cro-why-footer p{margin:0;max-width:420px;font-size:16px}
+.cro-why-button{background:#f9ac3c!important;color:#202826!important;white-space:nowrap;text-decoration:none!important}
+@media(max-width:800px){.cro-why-head{padding:30px 20px 18px}.cro-why-head h2{font-size:27px}.cro-why-content{grid-template-columns:1fr;margin:0 16px}.cro-why-visual{min-height:230px;padding:24px}.cro-why-visual strong{font-size:25px}.cro-why-steps{padding:14px 24px}.cro-why-footer{padding:22px 20px 28px;flex-direction:column;align-items:stretch}.cro-why-button{text-align:center;white-space:normal}}
