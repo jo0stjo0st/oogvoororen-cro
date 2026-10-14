@@ -2885,3 +2885,21 @@ td {
 @media(max-width:650px){.cro-local-featured-heading{align-items:flex-start}.cro-local-featured-heading h2{font-size:24px}.cro-local-carousel-controls button{width:37px;height:37px}.cro-local-featured-card{flex-basis:min(82vw,310px)}.cro-local-featured-bottom{flex-direction:column;align-items:flex-start;gap:10px}}
 
 .cro-local-price-breakdown .cro-local-original-price{color:#77877b;text-decoration:line-through;font-size:15px}.cro-local-price-breakdown .cro-local-discount-active{color:#b14c17}.cro-local-price-breakdown .cro-local-discount-active span{font-weight:800;color:#b14c17}.cro-local-price-breakdown .cro-local-discount-active strong{font-size:20px;color:#b14c17}
+
+/* Compact typography for location hearing-aid carousel */
+.cro-local-featured-card{flex-basis:290px}
+.cro-local-featured-image{height:190px}
+.cro-local-featured-card-body{padding:14px}
+.cro-local-featured-card h3{font-size:15px;line-height:1.35;min-height:42px;margin-bottom:10px}
+.cro-local-featured-brand{font-size:10px}
+.cro-local-price-breakdown>div{padding:8px 0}
+.cro-local-price-breakdown span{font-size:12px}
+.cro-local-price-breakdown strong{font-size:14px}
+.cro-local-price-breakdown .cro-local-original-price{font-size:13px}
+.cro-local-price-breakdown .cro-local-discount-active strong{font-size:16px}
+.cro-local-price-breakdown .cro-local-own-payment{padding:10px 8px;margin:0 -8px}
+.cro-local-own-payment span{font-size:12px}
+.cro-local-own-payment strong{font-size:16px}
+.cro-local-price-note{font-size:10px;min-height:36px;margin:10px 0}
+.cro-local-featured-link{font-size:13px;padding:10px}
+@media(max-width:650px){.cro-local-featured-card{flex-basis:min(78vw,290px)}}
