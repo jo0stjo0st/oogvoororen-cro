@@ -2903,3 +2903,10 @@ td {
 .cro-local-price-note{font-size:10px;min-height:36px;margin:10px 0}
 .cro-local-featured-link{font-size:13px;padding:10px}
 @media(max-width:650px){.cro-local-featured-card{flex-basis:min(78vw,290px)}}
+
+/* Location page: reviews are secondary, appointment is primary */
+.cro-local-reviews-button{background:#087d60;color:#fff;border:0}
+.cro-local-reviews-button:hover{background:#06664e}
+.cro-local-mid-cta{display:inline-flex;align-items:center;justify-content:center;margin-top:15px;padding:13px 22px;border-radius:8px;background:#ed791b;color:#fff!important;text-decoration:none!important;font-weight:800;font-size:16px}
+.cro-local-mid-cta:hover{background:#d96911}
+@media(max-width:650px){.cro-local-mid-cta{display:flex;width:100%;min-height:49px}}
