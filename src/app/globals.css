@@ -2883,3 +2883,5 @@ td {
 .cro-local-featured-bottom a:last-child{background:none;color:#007d60;padding:0}
 .cro-local-featured-disclaimer{font-size:11px;color:#748276;margin-top:12px}
 @media(max-width:650px){.cro-local-featured-heading{align-items:flex-start}.cro-local-featured-heading h2{font-size:24px}.cro-local-carousel-controls button{width:37px;height:37px}.cro-local-featured-card{flex-basis:min(82vw,310px)}.cro-local-featured-bottom{flex-direction:column;align-items:flex-start;gap:10px}}
+
+.cro-local-price-breakdown .cro-local-original-price{color:#77877b;text-decoration:line-through;font-size:15px}.cro-local-price-breakdown .cro-local-discount-active{color:#b14c17}.cro-local-price-breakdown .cro-local-discount-active span{font-weight:800;color:#b14c17}.cro-local-price-breakdown .cro-local-discount-active strong{font-size:20px;color:#b14c17}
