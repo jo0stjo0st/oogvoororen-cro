@@ -16,15 +16,21 @@ const experiments = [
   ["10", "Mobiele afspraakbalk", "Een subtiele sticky CTA als afzonderlijk experiment."],
   ["11", "Productspecifieke afspraak", "Het bekeken toestel automatisch meenemen naar de aanvraag."],
 ];
+const pages = [
+  {group:"Hoofdpagina’s",items:[["Nieuwe homepage","/experimenten/nieuwe-homepage","In ontwikkeling"],["Hoorapparaten: keuzeportaal","/experimenten/hoorapparaten-overzicht","In ontwikkeling"],["Signia: merkoverzicht","/experimenten/signia-overzicht","In ontwikkeling"],["Audicien aan huis","/experimenten/audicien-aan-huis","In ontwikkeling"],["Hoorcentrum Antwerpen-Berchem","/experimenten/hoorcentrum-berchem","In ontwikkeling"]]},
+  {group:"Productpagina’s",items:[["Complete productpagina (NL)","/experimenten/complete-productpagina","In ontwikkeling"],["Productpagina Frans (BE)","/experimenten/page-produit-fr","In ontwikkeling"]]},
+  {group:"Losse CRO-experimenten",items:[["Producthero","/experimenten/productblok","Concept"],["Producthighlights","/experimenten/producthighlights","Concept"],["Waarom Oogvoororen","/experimenten/waarom-oogvoororen","Concept"],["Prijscalculator","/experimenten/prijscalculator","Concept"],["Productinformatie","/experimenten/productinformatie","Concept"],["Accessoires","/experimenten/accessoires","Concept"],["Reviews","/experimenten/reviews","Concept"],["Mobiele afspraakbalk","/experimenten/mobiele-afspraakbalk","Concept"],["Productspecifieke afspraak","/experimenten/productspecifieke-afspraak","Concept"]]},
+  {group:"Referentie & vergelijking",items:[["Originele productpagina","/original","Referentie"],["Variant A","/variant-a","Referentie"],["Variant B","/variant-b","Referentie"],["Varianten vergelijken","/compare","Referentie"]]}
+];
 export default function HomePage() {
   return (
     <>
       <LabBar />
-      <main id="main-content" className="wide lab-home">
+      <main id="main-content" className="wide lab-home cro-lab-dashboard"><aside className="cro-lab-sidebar"><div className="cro-lab-sidebar-heading"><strong>Pagina-overzicht</strong><small>Alle concepten op één plek</small></div>{pages.map(section=><div className="cro-lab-navgroup" key={section.group}><h2>{section.group}</h2>{section.items.map(([label,url,status])=><Link href={url} key={url}><span>{label}</span><small>{status}</small></Link>)}</div>)}</aside><div className="cro-lab-main">
         <div className="lab-intro">
           <p className="eyebrow">Oogvoororen · CRO-werkplaats</p>
-          <h1>Verbeter de bestaande productpagina, onderdeel voor onderdeel.</h1>
-          <p>Geen redesign. Eerst een betrouwbare reproductie van de huidige productpagina. Daarna beoordelen we losse wijzigingen, zonder dat de rest van de pagina verandert.</p>
+          <h1>CRO-werkplaats Oogvoororen</h1>
+          <p>Alle pagina’s en losse experimenten op één plek. Open links een concept om het te beoordelen, verder te verfijnen en uiteindelijk aan development over te dragen.</p>
         </div>
         <section className="section"><h2>Complete productpagina</h2><p>Alle uitgewerkte hoofdstukken in één doorlopende desktop- en mobiele conceptpagina, inclusief prijsberekening en afspraakformulier.</p><Link className="button primary" href="/experimenten/complete-productpagina">Bekijk de volledige productpagina →</Link> <Link className="button" href="/experimenten/page-produit-fr">Voir la version française (Belgique) →</Link></section>
         <section className="section">
@@ -50,7 +56,7 @@ export default function HomePage() {
           <p>De productpagina begint met het toestel en de audiologische meerwaarde. Daarna volgen de persoonlijke dienstverlening, de eigen opleg en de verdiepende productinformatie.</p>
           <Image src={product.image} alt={product.name} width={160} height={160} />
         </section>
-      </main>
+      </div></main>
     </>
   );
 }
