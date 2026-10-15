@@ -9,7 +9,8 @@ type Phase="intro"|"goals"|"setup"|"tones"|"results";
 type Trial={ear:Ear;frequency:number;level:number;heard:boolean};
 type Point={ear:Ear;frequency:number;level:number|null};
 const FREQUENCIES=[250,500,1000,2000,4000,8000];
-const LEVELS=[-60,-54,-48,-42,-36,-30,-24];
+const TEST_ORDER=[1000,2000,4000,8000,1000,500,250];
+const LEVELS=[-60,-50,-40,-30,-20];
 const SUGGESTIONS=["Gesprekken met familie of vrienden","Een gesprek in een druk restaurant","Televisie of radio op normaal volume","Een gesprek met meerdere personen","Telefoneren","Een vergadering of bijeenkomst","De deurbel of andere signalen horen","Anders, namelijk…"];
 const hz=(f:number)=>f>=1000?`${f/1000}k`:`${f}`;
 function Audiogram({points,mode}:{points:Point[];mode:Mode}){
