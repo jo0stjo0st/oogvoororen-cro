@@ -3241,3 +3241,23 @@ td {
 .ht-avatar-portrait{display:block;object-fit:cover;object-position:center top;width:auto!important;max-width:none!important;height:100%!important;min-height:0;filter:drop-shadow(0 8px 10px #18462e20);border-radius:0 0 4px 4px}
 .ht-avatar-accessory{position:absolute;right:12px;bottom:24px;width:39px;height:39px;border-radius:50%;display:grid;place-items:center;background:#fff;color:#168054;font-size:23px;box-shadow:0 3px 15px #245b3b2e;border:1px solid #dceee0}
 @media(max-width:650px){.ht-avatar-portrait{height:100%!important;width:auto!important}.ht-avatar-accessory{right:6px;bottom:13px;width:30px;height:30px;font-size:18px}}
+
+/* Hearing-test guide: blend cutout artwork into page + real speech bubble */
+.ht-companion{background:linear-gradient(115deg,#e7f6eb 0%,#f5fbf6 58%,#fff 100%);grid-template-columns:220px minmax(0,1fr);gap:0;overflow:visible}
+.ht-avatar-figure{overflow:visible;isolation:auto}
+.ht-avatar-portrait{object-fit:contain!important;filter:drop-shadow(0 9px 11px #173e2718)!important}
+.ht-avatar-accessory{display:none!important}
+.ht-companion-bubble{position:relative;background:#fff;border:1px solid #cde4d3;border-radius:22px 22px 22px 22px;padding:19px 23px;box-shadow:0 9px 26px #1b503414}
+.ht-companion-bubble:before{content:"";position:absolute;left:-19px;top:46px;width:0;height:0;border-top:13px solid transparent;border-bottom:13px solid transparent;border-right:20px solid #cde4d3}
+.ht-companion-bubble:after{content:"";position:absolute;left:-17px;top:47px;width:0;height:0;border-top:12px solid transparent;border-bottom:12px solid transparent;border-right:19px solid #fff}
+.ht-companion-bubble strong{font-size:21px}
+.ht-companion-bubble p{font-size:15px}
+@media(max-width:650px){
+ .ht-companion{grid-template-columns:112px minmax(0,1fr);gap:0;padding:10px 11px 0 0}
+ .ht-avatar-figure{width:120px;height:176px;margin-left:-8px}
+ .ht-companion-bubble{padding:12px 13px;border-radius:15px}
+ .ht-companion-bubble:before{left:-13px;top:31px;border-top-width:10px;border-bottom-width:10px;border-right-width:14px}
+ .ht-companion-bubble:after{left:-11px;top:32px;border-top-width:9px;border-bottom-width:9px;border-right-width:13px}
+ .ht-companion-bubble strong{font-size:15px}
+ .ht-companion-bubble p{font-size:12px}
+}
