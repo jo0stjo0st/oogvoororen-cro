@@ -8,6 +8,14 @@ type Ear="beide"|"links"|"rechts";
 type Phase="intro"|"goals"|"setup"|"tones"|"results";
 type Trial={ear:Ear;frequency:number;level:number;heard:boolean};
 type Point={ear:Ear;frequency:number;level:number|null};
+type RecognitionEvent={results:ArrayLike<ArrayLike<{transcript:string}>>};
+type BrowserRecognition={lang:string;continuous:boolean;interimResults:boolean;onresult:((e:RecognitionEvent)=>void)|null;onerror:((e:{error:string})=>void)|null;onend:(()=>void)|null;start:()=>void;stop:()=>void;abort:()=>void};
+type RecognitionConstructor=new()=>BrowserRecognition;
+function getRecognition():RecognitionConstructor|undefined{
+ if(typeof window==="undefined")return undefined;
+ const w=window as typeof window & {SpeechRecognition?:RecognitionConstructor;webkitSpeechRecognition?:RecognitionConstructor};
+ return w.SpeechRecognition||w.webkitSpeechRecognition;
+}
 const FREQUENCIES=[250,500,1000,2000,4000,8000];
 const TEST_ORDER=[1000,2000,4000,8000,1000,500,250];
 const LEVELS=[-60,-50,-40,-30,-20];
@@ -50,6 +58,19 @@ export default function OnlineHearingTest(){
  const [waiting,setWaiting]=useState(false);
  const [paused,setPaused]=useState(false);
  const [audioError,setAudioError]=useState("");
+ const [voiceOn,setVoiceOn]=useState(false);
+ const [voiceBusy,setVoiceBusy]=useState(false);
+ const [voiceStatus,setVoiceStatus]=useState("Schakel de gesproken begeleiding in om te beginnen.");
+ const [voiceError,setVoiceError]=useState("");
+ const [voiceAvailable,setVoiceAvailable]=useState(false);
+ const recognitionRef=useRef<BrowserRecognition|null>(null);
+ const voiceTimerRef=useRef<ReturnType<typeof setTimeout>|null>(null);
+ const voiceSessionRef=useRef(0);
+ const voiceModeRef=useRef(false);
+ const respondRef=useRef<(heard:boolean)=>void>(()=>{});
+ const playRef=useRef<(f:number,db:number,ear:Ear,cal?:boolean)=>Promise<void>>(async()=>{});
+ const voiceStepRef=useRef({frequency:1000,level:-35,ear:"beide" as Ear});
+
  const ctxRef=useRef<AudioContext|null>(null);
  const oscRef=useRef<OscillatorNode|null>(null);
  const timeoutRef=useRef<ReturnType<typeof setTimeout>|null>(null);
@@ -60,8 +81,17 @@ export default function OnlineHearingTest(){
  const level=signalDb;
  const total=TEST_ORDER.length*ears.length;
  const completed=points.length;
+ useEffect(()=>{setVoiceAvailable(typeof window!=="undefined"&&"speechSynthesis" in window)},[]);
+ const cancelVoice=useCallback(()=>{
+  voiceSessionRef.current+=1;
+  if(voiceTimerRef.current){clearTimeout(voiceTimerRef.current);voiceTimerRef.current=null}
+  if(typeof window!=="undefined"&&"speechSynthesis" in window)window.speechSynthesis.cancel();
+  const recognition=recognitionRef.current;recognitionRef.current=null;
+  if(recognition){recognition.onend=null;recognition.onerror=null;recognition.onresult=null;try{recognition.abort()}catch{}}
+  setVoiceBusy(false);
+ },[]);
  const stop=useCallback(()=>{if(timeoutRef.current){clearTimeout(timeoutRef.current);timeoutRef.current=null;}try{oscRef.current?.stop()}catch{}oscRef.current=null;pendingRef.current=false;setPlaying(false)},[]);
- useEffect(()=>()=>{if(timeoutRef.current)clearTimeout(timeoutRef.current);try{oscRef.current?.stop()}catch{}void ctxRef.current?.close();ctxRef.current=null},[]);
+ useEffect(()=>()=>{if(timeoutRef.current)clearTimeout(timeoutRef.current);try{oscRef.current?.stop()}catch{}void ctxRef.current?.close();ctxRef.current=null;if(voiceTimerRef.current)clearTimeout(voiceTimerRef.current);if(typeof window!=="undefined"&&"speechSynthesis" in window)window.speechSynthesis.cancel();try{recognitionRef.current?.abort()}catch{}},[]);
  const play=useCallback(async(f:number,db:number,channel:Ear,calibration=false)=>{
   if(pendingRef.current)return;
   pendingRef.current=true;setWaiting(false);setPlaying(true);setAudioError("");
@@ -82,6 +112,7 @@ export default function OnlineHearingTest(){
    timeoutRef.current=setTimeout(()=>{oscRef.current=null;pendingRef.current=false;setPlaying(false);if(!calibration)setWaiting(true)},Math.ceil((duration+.12)*1000));
   }catch(e){pendingRef.current=false;setPlaying(false);setWaiting(false);setAudioError(e instanceof Error?e.message:"Geluid afspelen is niet gelukt.")}
  },[]);
+ playRef.current=play;
  const currentGoal=(s:string)=>s==="Anders, namelijk…"?customGoal.trim():s;
  const addGoal=(s:string)=>{const g=currentGoal(s);if(!g||goals.includes(g)||goals.length>=5)return;setGoals(v=>[...v,g]);if(s==="Anders, namelijk…")setCustomGoal("")};
  const resetSearch=()=>{setSignalDb(-35);setDirection("start");setHits({});setAttempts(0);setLastHeard(null);setWaiting(false)};
@@ -121,7 +152,8 @@ export default function OnlineHearingTest(){
    adjust(level+5,"up");
   }
  };
- const restart=()=>{stop();setPhase("intro");setGoals([]);setCustomGoal("");setMode("speaker");setCalibrated(false);setVolumeOk(false);setFrequencyIndex(0);setEarIndex(0);resetSearch();setPoints([]);setTrials([]);setPaused(false);setAudioError("")};
+ respondRef.current=respond;
+ const restart=()=>{cancelVoice();setVoiceOn(false);voiceModeRef.current=false;stop();setPhase("intro");setGoals([]);setCustomGoal("");setMode("speaker");setCalibrated(false);setVolumeOk(false);setFrequencyIndex(0);setEarIndex(0);resetSearch();setPoints([]);setTrials([]);setPaused(false);setAudioError("")};
  const avg=(ps:Point[])=>{const v=ps.filter(p=>p.level!==null).map(p=>p.level!);return v.length?v.reduce((a,b)=>a+b,0)/v.length:null};
  const highs=points.filter(p=>p.frequency>=2000);
  const lows=points.filter(p=>p.frequency<=1000);
