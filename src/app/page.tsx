@@ -4,6 +4,7 @@ import {LabBar} from "@/components/lab-bar";
 const pages=[
  {group:"Algemene pagina’s",items:[
   {name:"Nieuwe homepage",url:"/experimenten/nieuwe-homepage",status:"In ontwikkeling"},
+  {name:"Afspraak maken (Nederland)",url:"/experimenten/afspraak",status:"Nieuw ontwerp · ter beoordeling"},
   {name:"Hoorapparaten: keuzeportaal",url:"/experimenten/hoorapparaten-overzicht",status:"In ontwikkeling"},
   {name:"Signia: merkoverzicht",url:"/experimenten/signia-overzicht",status:"In ontwikkeling"}]},
  {group:"Dienstverlening",items:[
