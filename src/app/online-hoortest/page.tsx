@@ -190,9 +190,8 @@ export default function OnlineHearingTest(){
   const session=voiceSessionRef.current;
   const step=voiceStepRef.current;
   setVoiceBusy(true);setWaiting(false);setVoiceError("");
-  const isSpeaker=step.ear==="beide";
   const message=intro
-   ?"Welkom. Ik begeleid u door de hoortest. U hoort zo een korte pieptoon. Daarna vraagt ik of u die hoorde. U kunt gewoon ja of nee zeggen. U mag ook op de knoppen drukken. Houd het volume tijdens de test gelijk. We beginnen."
+   ?"Welkom. Ik begeleid u door de hoortest. U hoort zo een korte pieptoon. Daarna vraag ik of u die hoorde. U kunt gewoon ja of nee zeggen. U mag ook op de knoppen drukken. Houd het volume tijdens de test gelijk. We beginnen."
    :step.level===-35?"We gaan naar de volgende toon. Luister maar.":"Luister nog eens goed naar de volgende toon.";
   setVoiceStatus("Uw begeleider spreekt…");
   const startTone=()=>{
@@ -203,7 +202,7 @@ export default function OnlineHearingTest(){
    });
   };
   if(!("speechSynthesis" in window)){startTone();return}
-  const u=new SpeechSynthesisUtterance(message.replace("Daarna vraagt ik","Daarna vraag ik"));
+  const u=new SpeechSynthesisUtterance(message);
   u.lang="nl-NL";u.rate=.94;u.pitch=1;u.volume=1;
   const voices=window.speechSynthesis.getVoices();
   const dutch=voices.find(v=>v.lang.toLowerCase()==="nl-nl"&&v.localService)||voices.find(v=>v.lang.toLowerCase().startsWith("nl"));
@@ -227,8 +226,9 @@ export default function OnlineHearingTest(){
  const toggleVoice=()=>{
   if(voiceOn){voiceModeRef.current=false;setVoiceOn(false);cancelVoice();setVoiceStatus("Gesproken begeleiding uitgeschakeld.");return}
   if(!voiceAvailable)return;
-  voiceModeRef.current=true;lastVoiceStepRef.current="";setVoiceOn(true);
+  voiceModeRef.current=true;lastVoiceStepRef.current=voiceStepKey;setVoiceOn(true);
   setVoiceStatus("De begeleider begint zo. U kunt ook de knoppen blijven gebruiken.");
+  speakAndPlay(true);
  };
  const avg=(ps:Point[])=>{const v=ps.filter(p=>p.level!==null).map(p=>p.level!);return v.length?v.reduce((a,b)=>a+b,0)/v.length:null};
  const highs=points.filter(p=>p.frequency>=2000);
