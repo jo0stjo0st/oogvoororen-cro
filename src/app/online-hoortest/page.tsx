@@ -154,6 +154,82 @@ export default function OnlineHearingTest(){
  };
  respondRef.current=respond;
  const restart=()=>{cancelVoice();setVoiceOn(false);voiceModeRef.current=false;stop();setPhase("intro");setGoals([]);setCustomGoal("");setMode("speaker");setCalibrated(false);setVolumeOk(false);setFrequencyIndex(0);setEarIndex(0);resetSearch();setPoints([]);setTrials([]);setPaused(false);setAudioError("")};
+
+ const listenForAnswer=useCallback((session:number)=>{
+  if(voiceSessionRef.current!==session||!voiceModeRef.current)return;
+  const Recognition=getRecognition();
+  if(!Recognition){setVoiceStatus("Gebruik de knoppen Ja of Nee om te antwoorden. Uw browser ondersteunt geen spraakherkenning.");setVoiceBusy(false);return}
+  try{
+   const rec=new Recognition();rec.lang="nl-NL";rec.continuous=false;rec.interimResults=false;
+   recognitionRef.current=rec;
+   setVoiceStatus("Ik luister. Zeg 'ja' als u de toon hoorde, of 'nee' als u niets hoorde.");
+   rec.onresult=e=>{
+    if(voiceSessionRef.current!==session)return;
+    const spoken=Array.from(e.results).map(v=>v[0]?.transcript||"").join(" ").toLowerCase().trim();
+    const no=/\\b(nee|neen|niet|niks|niets|nope|no)\\b/.test(spoken);
+    const yes=/\\b(ja|jazeker|zeker|gehoord|hoorde|yes|jawel)\\b/.test(spoken);
+    if(!yes&&!no){setVoiceStatus(`Ik hoorde: "${spoken}". Gebruik Ja of Nee hieronder, of probeer het opnieuw.`);setVoiceBusy(false);return}
+    recognitionRef.current=null;rec.onend=null;try{rec.stop()}catch{}
+    setVoiceStatus(no?"Dank u. Ik pas de toon aan.":"Dank u. We gaan verder.");
+    setVoiceBusy(false);
+    respondRef.current(!no);
+   };
+   rec.onerror=e=>{
+    if(voiceSessionRef.current!==session)return;
+    setVoiceBusy(false);
+    setVoiceStatus(e.error==="not-allowed"?"Microfoon niet toegestaan. Gebruik de knoppen Ja en Nee.":"Ik kon uw antwoord niet verstaan. Gebruik Ja of Nee of probeer opnieuw.");
+    if(e.error==="not-allowed")setVoiceError("Geef eventueel microfoontoegang in uw browserinstellingen.");
+   };
+   rec.onend=()=>{if(voiceSessionRef.current===session){recognitionRef.current=null;setVoiceBusy(false)}};
+   rec.start();
+  }catch{setVoiceBusy(false);setVoiceStatus("Spraakherkenning is hier niet beschikbaar. Gebruik de knoppen Ja en Nee.")}
+ },[]);
+ const speakAndPlay=useCallback((intro:boolean)=>{
+  if(!voiceModeRef.current||paused||phase!=="tones")return;
+  cancelVoice();
+  const session=voiceSessionRef.current;
+  const step=voiceStepRef.current;
+  setVoiceBusy(true);setWaiting(false);setVoiceError("");
+  const isSpeaker=step.ear==="beide";
+  const message=intro
+   ?"Welkom. Ik begeleid u door de hoortest. U hoort zo een korte pieptoon. Daarna vraagt ik of u die hoorde. U kunt gewoon ja of nee zeggen. U mag ook op de knoppen drukken. Houd het volume tijdens de test gelijk. We beginnen."
+   :step.level===-35?"We gaan naar de volgende toon. Luister maar.":"Luister nog eens goed naar de volgende toon.";
+  setVoiceStatus("Uw begeleider spreekt…");
+  const startTone=()=>{
+   if(voiceSessionRef.current!==session||!voiceModeRef.current)return;
+   setVoiceStatus("Luister naar de pieptoon…");
+   void playRef.current(step.frequency,step.level,step.ear).then(()=>{
+    voiceTimerRef.current=setTimeout(()=>{if(voiceSessionRef.current===session&&voiceModeRef.current)listenForAnswer(session)},1250);
+   });
+  };
+  if(!("speechSynthesis" in window)){startTone();return}
+  const u=new SpeechSynthesisUtterance(message.replace("Daarna vraagt ik","Daarna vraag ik"));
+  u.lang="nl-NL";u.rate=.94;u.pitch=1;u.volume=1;
+  const voices=window.speechSynthesis.getVoices();
+  const dutch=voices.find(v=>v.lang.toLowerCase()==="nl-nl"&&v.localService)||voices.find(v=>v.lang.toLowerCase().startsWith("nl"));
+  if(dutch)u.voice=dutch;
+  let started=false;
+  const done=()=>{if(started)return;started=true;startTone()};
+  u.onend=done;u.onerror=done;
+  window.speechSynthesis.speak(u);
+ },[cancelVoice,listenForAnswer,paused,phase]);
+ voiceStepRef.current={frequency,level,ear};
+ const voiceStepKey=`${phase}:${ear}:${frequencyIndex}:${signalDb}:${attempts}`;
+ const lastVoiceStepRef=useRef("");
+ useEffect(()=>{
+  if(!voiceOn||phase!=="tones"||paused)return;
+  if(lastVoiceStepRef.current===voiceStepKey)return;
+  const first=lastVoiceStepRef.current==="";
+  lastVoiceStepRef.current=voiceStepKey;
+  const t=setTimeout(()=>speakAndPlay(first),first?250:650);
+  return()=>clearTimeout(t);
+ },[voiceOn,voiceStepKey,phase,paused,speakAndPlay]);
+ const toggleVoice=()=>{
+  if(voiceOn){voiceModeRef.current=false;setVoiceOn(false);cancelVoice();setVoiceStatus("Gesproken begeleiding uitgeschakeld.");return}
+  if(!voiceAvailable)return;
+  voiceModeRef.current=true;lastVoiceStepRef.current="";setVoiceOn(true);
+  setVoiceStatus("De begeleider begint zo. U kunt ook de knoppen blijven gebruiken.");
+ };
  const avg=(ps:Point[])=>{const v=ps.filter(p=>p.level!==null).map(p=>p.level!);return v.length?v.reduce((a,b)=>a+b,0)/v.length:null};
  const highs=points.filter(p=>p.frequency>=2000);
  const lows=points.filter(p=>p.frequency<=1000);
