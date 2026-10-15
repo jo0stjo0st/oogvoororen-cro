@@ -39,8 +39,11 @@ export default function OnlineHearingTest(){
  const [volumeOk,setVolumeOk]=useState(false);
  const [frequencyIndex,setFrequencyIndex]=useState(0);
  const [earIndex,setEarIndex]=useState(0);
- const [levelIndex,setLevelIndex]=useState(0);
- const [confirmed,setConfirmed]=useState(false);
+ const [signalDb,setSignalDb]=useState(-35);
+ const [direction,setDirection]=useState<"start"|"down"|"up">("start");
+ const [hits,setHits]=useState<Record<string,number>>({});
+ const [attempts,setAttempts]=useState(0);
+ const [lastHeard,setLastHeard]=useState<number|null>(null);
  const [points,setPoints]=useState<Point[]>([]);
  const [trials,setTrials]=useState<Trial[]>([]);
  const [playing,setPlaying]=useState(false);
@@ -53,9 +56,9 @@ export default function OnlineHearingTest(){
  const pendingRef=useRef(false);
  const ears:Ear[]=mode==="speaker"?["beide"]:["rechts","links"];
  const ear=ears[earIndex];
- const frequency=FREQUENCIES[frequencyIndex];
- const level=LEVELS[levelIndex];
- const total=FREQUENCIES.length*ears.length;
+ const frequency=TEST_ORDER[frequencyIndex];
+ const level=signalDb;
+ const total=TEST_ORDER.length*ears.length;
  const completed=points.length;
  const stop=useCallback(()=>{if(timeoutRef.current){clearTimeout(timeoutRef.current);timeoutRef.current=null;}try{oscRef.current?.stop()}catch{}oscRef.current=null;pendingRef.current=false;setPlaying(false)},[]);
  useEffect(()=>()=>{if(timeoutRef.current)clearTimeout(timeoutRef.current);try{oscRef.current?.stop()}catch{}void ctxRef.current?.close();ctxRef.current=null},[]);
@@ -81,25 +84,44 @@ export default function OnlineHearingTest(){
  },[]);
  const currentGoal=(s:string)=>s==="Anders, namelijk…"?customGoal.trim():s;
  const addGoal=(s:string)=>{const g=currentGoal(s);if(!g||goals.includes(g)||goals.length>=5)return;setGoals(v=>[...v,g]);if(s==="Anders, namelijk…")setCustomGoal("")};
+ const resetSearch=()=>{setSignalDb(-35);setDirection("start");setHits({});setAttempts(0);setLastHeard(null);setWaiting(false)};
  const next=(newPoint:Point)=>{
-  const updated=[...points,newPoint];setPoints(updated);setLevelIndex(0);setConfirmed(false);setWaiting(false);
-  if(frequencyIndex<FREQUENCIES.length-1){setFrequencyIndex(v=>v+1)}
+  const updated=[...points,newPoint];setPoints(updated);resetSearch();
+  if(frequencyIndex<TEST_ORDER.length-1){setFrequencyIndex(v=>v+1)}
   else if(earIndex<ears.length-1){setEarIndex(v=>v+1);setFrequencyIndex(0)}
   else{setPhase("results");setPaused(false)}
  };
  const respond=(heard:boolean)=>{
   if(!waiting||playing||paused)return;
   setWaiting(false);setTrials(v=>[...v,{ear,frequency,level,heard}]);
+  const n=attempts+1;setAttempts(n);
+  const finish=(threshold:number|null)=>next({ear,frequency,level:threshold});
+  const adjust=(db:number,dir:"start"|"down"|"up")=>{setSignalDb(Math.max(-60,Math.min(-20,db)));setDirection(dir)};
+  if(direction==="start"){
+   if(heard){setLastHeard(level);adjust(level-10,"down")}
+   else if(level>=-20)finish(null);
+   else adjust(level+5,"start");
+   return;
+  }
+  if(direction==="down"){
+   if(heard){setLastHeard(level);if(level<=-60)adjust(level,"up");else adjust(level-10,"down")}
+   else adjust(level+5,"up");
+   return;
+  }
   if(heard){
-   if(confirmed){next({ear,frequency,level});return}
-   setConfirmed(true);
+   setLastHeard(level);
+   const count=(hits[String(level)]||0)+1;
+   setHits(v=>({...v,[String(level)]:count}));
+   if(count>=2){finish(level);return}
+   if(level<=-60){adjust(level,"up");return}
+   adjust(level-10,"down");
   }else{
-   setConfirmed(false);
-   if(levelIndex===LEVELS.length-1){next({ear,frequency,level:null});return}
-   setLevelIndex(v=>v+1);
+   if(level>=-20){finish(null);return}
+   if(n>=24){finish(lastHeard);return}
+   adjust(level+5,"up");
   }
  };
- const restart=()=>{stop();setPhase("intro");setGoals([]);setCustomGoal("");setMode("speaker");setCalibrated(false);setVolumeOk(false);setFrequencyIndex(0);setEarIndex(0);setLevelIndex(0);setConfirmed(false);setPoints([]);setTrials([]);setWaiting(false);setPaused(false);setAudioError("")};
+ const restart=()=>{stop();setPhase("intro");setGoals([]);setCustomGoal("");setMode("speaker");setCalibrated(false);setVolumeOk(false);setFrequencyIndex(0);setEarIndex(0);resetSearch();setPoints([]);setTrials([]);setPaused(false);setAudioError("")};
  const avg=(ps:Point[])=>{const v=ps.filter(p=>p.level!==null).map(p=>p.level!);return v.length?v.reduce((a,b)=>a+b,0)/v.length:null};
  const highs=points.filter(p=>p.frequency>=2000);
  const lows=points.filter(p=>p.frequency<=1000);
@@ -113,7 +135,7 @@ export default function OnlineHearingTest(){
   {phase==="intro"&&<div className="ht-panel"><div className="ht-step-number">01 / 04</div><h2>Een eerste indruk van uw gehoor</h2><p>Deze online check bestaat uit twee onderdelen: uw persoonlijke luisterwensen en een reeks zachte pieptonen. U krijgt daarna een grafiek en een passend vervolgadvies.</p><div className="ht-notice"><strong>Belangrijk om te weten</strong><p>Een telefoon, laptop of koptelefoon is niet medisch gekalibreerd. Daarom meten we <strong>geen gehoorverlies in dB HL</strong> en kan deze check een hoortest bij een audicien niet vervangen. Via een speaker meten we beide oren samen; voor links en rechts apart is een koptelefoon nodig.</p></div><div className="ht-intro-tiles"><div><b>1</b><strong>Uw luisterdoelen</strong><small>Wat wilt u beter kunnen horen?</small></div><div><b>2</b><strong>De pieptonen</strong><small>Op uw eigen apparaat</small></div><div><b>3</b><strong>Uw resultaat</strong><small>Grafiek en persoonlijk advies</small></div></div><button className="ht-primary" onClick={()=>setPhase("goals")}>Start mijn hoortest <span>→</span></button></div>}
   {phase==="goals"&&<div className="ht-panel"><div className="ht-step-number">02 / 04 · COSI-LUISTERDOELEN</div><h2>Wat zou u graag beter willen horen?</h2><p>De COSI-methode begint bij uw eigen wensen. Kies maximaal vijf <strong>concrete situaties</strong>, op volgorde van belangrijkheid. Uw belangrijkste wens staat bovenaan. Dit zijn doelen voor een eventueel adviesgesprek, geen diagnosevragen.</p><div className="ht-goal-suggestions">{SUGGESTIONS.filter(s=>s!=="Anders, namelijk…").map(s=><button type="button" key={s} disabled={goals.length>=5||goals.includes(s)} onClick={()=>addGoal(s)}><span>{goals.includes(s)?"✓":"+"}</span>{s}</button>)}</div><div className="ht-custom-goal"><label htmlFor="ht-own-goal">Uw eigen situatie toevoegen</label><div><input id="ht-own-goal" value={customGoal} onChange={e=>setCustomGoal(e.target.value)} maxLength={150} placeholder="Bijv. mijn kleinkind verstaan tijdens het eten"/><button type="button" onClick={()=>addGoal("Anders, namelijk…")} disabled={!customGoal.trim()||goals.length>=5}>Toevoegen</button></div></div><div className="ht-goal-list"><strong>Uw doelen ({goals.length}/5)</strong>{goals.length===0?<p>Nog geen situaties gekozen. Begin met wat voor u het belangrijkst is.</p>:<ol>{goals.map((g,i)=><li key={g}><span>{i+1}</span><p>{g}</p><button type="button" aria-label={`Verwijder ${g}`} onClick={()=>setGoals(v=>v.filter(x=>x!==g))}>×</button></li>)}</ol>}</div><div className="ht-panel-actions"><button className="ht-back" onClick={()=>setPhase("intro")}>← Terug</button><button className="ht-primary" disabled={!goals.length} onClick={()=>setPhase("setup")}>Verder naar de toontest →</button></div></div>}
   {phase==="setup"&&<div className="ht-panel"><div className="ht-step-number">03 / 04</div><h2>Stel uw geluid goed in</h2><p>Ga in een stille ruimte zitten en kies hoe u wilt luisteren. Gebruik bij voorkeur een koptelefoon. U kunt ook gewoon de speaker van uw telefoon of computer gebruiken.</p><div className="ht-device-options"><button className={mode==="speaker"?"selected":""} onClick={()=>{setMode("speaker");setCalibrated(false)}}><span className="ht-device-icon">◖))</span><strong>Speaker</strong><small>Beide oren tegelijk · minder betrouwbaar</small></button><button className={mode==="headphones"?"selected":""} onClick={()=>{setMode("headphones");setCalibrated(false)}}><span className="ht-device-icon">◉</span><strong>Koptelefoon</strong><small>Linker- en rechteroor afzonderlijk</small></button></div><div className="ht-calibration"><h3>Controleer het volume</h3><ol><li>Zet het apparaatvolume eerst <strong>laag</strong> (ongeveer 20–30%).</li><li>Speel de voorbeeldtoon af en verhoog alleen indien nodig iets, tot deze <strong>comfortabel en duidelijk, maar niet hard</strong> hoorbaar is.</li><li>Laat het volume tijdens de rest van de test ongewijzigd.</li></ol><button className="ht-sound-button" disabled={playing} onClick={()=>{setCalibrated(false);void play(1000,-24,"beide",true)}}>{playing?"♪ Voorbeeldtoon speelt…":"▶ Speel voorbeeldtoon (1.000 Hz)"}</button>{audioError&&<p className="ht-error" role="alert">{audioError}</p>}<label className="ht-checkbox"><input type="checkbox" checked={volumeOk} onChange={e=>setVolumeOk(e.target.checked)}/> <span>De voorbeeldtoon is het hardste testsignaal en klinkt prettig en niet hard. Ik houd het volume gelijk en stop als geluid oncomfortabel wordt.</span></label></div><div className="ht-notice ht-soft"><strong>{mode==="speaker"?"Test via speaker":"Test met koptelefoon"}</strong><p>{mode==="speaker"?"We kunnen met een speaker niet bepalen welk oor een toon hoort. Uw resultaat toont daarom één gecombineerde lijn en is alleen een grove indicatie.":"De tonen worden naar het linker- of rechterkanaal gestuurd. Controleer of uw koptelefoon goed zit en of mono-audio, ruimtelijke audio en geluidsverbetering uitstaan."}</p></div><div className="ht-panel-actions"><button className="ht-back" onClick={()=>setPhase("goals")}>← Terug</button><button className="ht-primary" disabled={!calibrated||!volumeOk||playing||Boolean(audioError)} onClick={()=>{setPhase("tones");setPaused(false);setWaiting(false)}}>Start de pieptonen →</button></div></div>}
-  {phase==="tones"&&<div className="ht-panel ht-tones-panel"><div className="ht-step-number">04 / 04 · TOONMETING</div><h2>Hoort u de pieptoon?</h2><p>Luister aandachtig. Speel de toon af en geef aan of u hem hebt gehoord. Sommige tonen zijn heel zacht. <strong>Verander het volume niet.</strong></p><div className="ht-test-meter"><div><span>Voortgang</span><strong>{completed} van {total} frequenties</strong></div><div className="ht-test-meter-track"><div style={{width:`${(completed/total)*100}%`}}/></div></div><div className="ht-tone-card"><div className="ht-ear-label">{ear==="beide"?"◖))  Via de speaker":ear==="links"?"◉  Linkeroor":"◉  Rechteroor"}</div><div className="ht-frequency">{hz(frequency)} <small>Hz</small></div><p>{confirmed?"We herhalen de toon om uw antwoord te controleren.":playing?"De toon wordt nu afgespeeld…":waiting?"Heeft u de toon gehoord?":"Klik op de knop om de toon af te spelen."}</p><div className={playing?"ht-sound-pulse active":"ht-sound-pulse"} aria-hidden="true">♫</div><button className="ht-play-tone" disabled={playing||paused} onClick={()=>void play(frequency,level,ear)}>{playing?"♪ Toon speelt…":waiting?"↻ Nogmaals luisteren":"▶ Speel de toon af"}</button><div className="ht-response-buttons"><button className="ht-heard" disabled={!waiting||playing||paused} onClick={()=>respond(true)}>✓ Ja, gehoord</button><button className="ht-not-heard" disabled={!waiting||playing||paused} onClick={()=>respond(false)}>Nee, niet gehoord</button></div></div><p className="ht-tone-hint">Hoort u niets? Kies ‘Nee, niet gehoord’. Het volgende signaal wordt iets duidelijker, tot een begrensd maximum. Zet uw apparaat nooit harder tijdens de meting.</p><div className="ht-panel-actions"><button className="ht-back" onClick={()=>{stop();setWaiting(false);setPaused(v=>!v)}}>{paused?"▶ Hervat test":"Ⅱ Pauzeer"}</button><button className="ht-secondary" onClick={()=>{stop();setWaiting(false);setPhase("setup");setFrequencyIndex(0);setEarIndex(0);setLevelIndex(0);setConfirmed(false);setPoints([]);setTrials([]);setCalibrated(false);setVolumeOk(false)}}>Opnieuw instellen</button></div>{audioError&&<p className="ht-error" role="alert">{audioError}</p>}{paused&&<p className="ht-paused">Test gepauzeerd. U kunt straks verdergaan.</p>}</div>}
+  {phase==="tones"&&<div className="ht-panel ht-tones-panel"><div className="ht-step-number">04 / 04 · TOONMETING</div><h2>Hoort u de pieptoon?</h2><p>Luister aandachtig. Speel de toon af en geef aan of u hem hebt gehoord. Sommige tonen zijn heel zacht. <strong>Verander het volume niet.</strong></p><div className="ht-test-meter"><div><span>Voortgang</span><strong>{completed} van {total} frequenties</strong></div><div className="ht-test-meter-track"><div style={{width:`${(completed/total)*100}%`}}/></div></div><div className="ht-tone-card"><div className="ht-ear-label">{ear==="beide"?"◖))  Via de speaker":ear==="links"?"◉  Linkeroor":"◉  Rechteroor"}</div><div className="ht-frequency">{hz(frequency)} <small>Hz</small></div><p>{confirmed?"We herhalen de toon om uw antwoord te controleren.":playing?"De toon wordt nu afgespeeld…":waiting?"Heeft u de toon gehoord?":"Klik op de knop om de toon af te spelen."}</p><div className={playing?"ht-sound-pulse active":"ht-sound-pulse"} aria-hidden="true">♫</div><button className="ht-play-tone" disabled={playing||paused} onClick={()=>void play(frequency,level,ear)}>{playing?"♪ Toon speelt…":waiting?"↻ Nogmaals luisteren":"▶ Speel de toon af"}</button><div className="ht-response-buttons"><button className="ht-heard" disabled={!waiting||playing||paused} onClick={()=>respond(true)}>✓ Ja, gehoord</button><button className="ht-not-heard" disabled={!waiting||playing||paused} onClick={()=>respond(false)}>Nee, niet gehoord</button></div></div><p className="ht-tone-hint">Hoort u niets? Kies ‘Nee, niet gehoord’. Het volgende signaal wordt iets duidelijker, tot een begrensd maximum. Zet uw apparaat nooit harder tijdens de meting.</p><div className="ht-panel-actions"><button className="ht-back" onClick={()=>{stop();setWaiting(false);setPaused(v=>!v)}}>{paused?"▶ Hervat test":"Ⅱ Pauzeer"}</button><button className="ht-secondary" onClick={()=>{stop();setWaiting(false);setPhase("setup");setFrequencyIndex(0);setEarIndex(0);resetSearch();setPoints([]);setTrials([]);setCalibrated(false);setVolumeOk(false)}}>Opnieuw instellen</button></div>{audioError&&<p className="ht-error" role="alert">{audioError}</p>}{paused&&<p className="ht-paused">Test gepauzeerd. U kunt straks verdergaan.</p>}</div>}
   {phase==="results"&&<div className="ht-panel ht-results"><div className="ht-step-number">UW PERSOONLIJKE UITSLAG</div><h2>Dit is uw gehoorcheck</h2><p>U hebt de toontest afgerond. Hieronder ziet u hoe zacht een signaal op <strong>dit apparaat</strong> nog hoorbaar was. De uitkomst is niet te vergelijken met een klinische hoortest.</p><div className="ht-result-banner"><span aria-hidden="true">♡</span><div><strong>{indication?"Een professionele hoortest is verstandig":"Uw online check is afgerond"}</strong><p>{indication?"U hoorde enkele tonen pas bij een sterker signaal of niet binnen de testgrens. Dit kan door uw gehoor, apparaat, speaker of omgevingsgeluid komen.":"Op basis van deze beperkte thuistest kunnen we geen gehoorverlies bevestigen of uitsluiten. Uw luisterwensen blijven belangrijk."}</p></div></div><Audiogram points={points} mode={mode}/><div className="ht-result-details"><div><span>Luistermethode</span><strong>{mode==="speaker"?"Speaker (beide oren samen)":"Koptelefoon (links en rechts)"}</strong></div><div><span>Frequenties</span><strong>250 – 8.000 Hz</strong></div><div><span>Niet gehoord binnen testgrens</span><strong>{missing} van {points.length}</strong></div></div><div className="ht-advice"><h3>Ons advies</h3><p>{mode==="speaker"?"U hebt via een speaker getest. Daarmee kunnen we geen verschil tussen uw oren meten. Wilt u nauwkeuriger vergelijken, herhaal de test met een koptelefoon. ":""}{indication?"Maak een afspraak bij een audicien voor een echte gehoormeting in dB HL en persoonlijk advies.":"Als u moeite hebt met gesprekken, televisie of telefoneren, maak dan alsnog een afspraak bij een audicien. Een online test kan gehoorproblemen missen."}</p><p>Bij <strong>plotseling gehoorverlies</strong>, een duidelijk nieuw verschil tussen beide oren of bijkomende klachten: neem snel contact op met uw huisarts. Wacht dan niet op een online test.</p></div><div className="ht-your-goals"><h3>Uw persoonlijke luisterdoelen (COSI)</h3><p>Neem deze wensen mee naar een gesprek met de audicien, in deze volgorde:</p><ol>{goals.map(g=><li key={g}>{g}</li>)}</ol></div><div className="ht-result-actions"><a className="ht-primary" href="https://oogvoororen.nl/afspraak">Maak een afspraak voor een echte hoortest →</a><button className="ht-secondary" onClick={()=>window.print()}>↧ Uitslag bewaren / afdrukken</button><button className="ht-back" onClick={restart}>↻ Opnieuw testen</button></div><p className="ht-privacy">De resultaten worden alleen op uw apparaat verwerkt en niet naar een server verstuurd.</p></div>}
   </div><aside className="ht-aside"><div className="ht-aside-box"><span className="ht-aside-icon">✳</span><h3>Goed om te weten</h3><p>Een online hoortest geeft een eerste indruk. Alleen met gekalibreerde apparatuur kan een audicien uw gehoordrempel betrouwbaar vaststellen.</p><a href="https://oogvoororen.nl/afspraak">Plan een professionele hoortest →</a></div><div className="ht-aside-small"><strong>Een paar handige tips</strong><p>Zoek een rustige ruimte, zet meldingen uit en neem de tijd. Er is geen haast.</p></div></aside></div>
  </main><footer className="ht-footer"><div className="wide"><span>© Oogvoororen · Online gehoorcheck</span><span>Indicatieve zelftest · Geen medische diagnose</span><Link href="/">CRO-werkplaats</Link></div></footer></div>;
