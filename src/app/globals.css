@@ -3235,3 +3235,9 @@ td {
 .ht-companion-content>.ht-voice-retry{margin-top:8px}
 @media(max-width:650px){.ht-companion{grid-template-columns:116px minmax(0,1fr);gap:0;min-height:177px;padding:9px 12px 0 0}.ht-avatar-figure{height:173px;width:140px;margin-left:-13px}.ht-companion-content{padding:8px 0 11px}.ht-companion-eyebrow{font-size:9px;margin-bottom:6px}.ht-companion-bubble{padding:10px 12px;border-radius:12px 12px 12px 3px}.ht-companion-bubble strong{font-size:15px}.ht-companion-bubble p{font-size:12px;line-height:1.4;margin-top:4px}.ht-companion-controls{margin-top:8px}.ht-companion-controls .ht-voice-toggle{width:auto;min-height:38px;font-size:12px;padding:8px 10px}.ht-companion-content>.ht-voice-status{font-size:11px;margin-top:5px}.ht-companion-controls .ht-voice-retry{font-size:11px}}
 @media print{.ht-companion-controls,.ht-companion-content>.ht-voice-status{display:none!important}}
+
+/* Real 3D cartoon audicien from the approved visual mock-up */
+.ht-avatar-figure{overflow:hidden;isolation:isolate}
+.ht-avatar-portrait{display:block;object-fit:cover;object-position:center top;width:auto!important;max-width:none!important;height:100%!important;min-height:0;filter:drop-shadow(0 8px 10px #18462e20);border-radius:0 0 4px 4px}
+.ht-avatar-accessory{position:absolute;right:12px;bottom:24px;width:39px;height:39px;border-radius:50%;display:grid;place-items:center;background:#fff;color:#168054;font-size:23px;box-shadow:0 3px 15px #245b3b2e;border:1px solid #dceee0}
+@media(max-width:650px){.ht-avatar-portrait{height:100%!important;width:auto!important}.ht-avatar-accessory{right:6px;bottom:13px;width:30px;height:30px;font-size:18px}}
