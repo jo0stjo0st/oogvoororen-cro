@@ -3214,3 +3214,5 @@ td {
 .ht-voice-status{font-size:15px;color:#1b6547;font-weight:650;line-height:1.5;margin:14px 0 0}
 .ht-voice-help{font-size:13px;color:#50725e;line-height:1.65;margin:9px 0 0}
 @media(max-width:650px){.ht-voice-guide{padding:18px;margin:12px 0 22px}.ht-voice-guide-top strong{font-size:17px}.ht-voice-avatar{width:45px;height:45px}.ht-voice-toggle{width:100%}}
+
+.ht-voice-retry{margin-top:13px;background:#fff;border:1px solid #8ac9ad;border-radius:8px;padding:11px 15px;font-size:14px;font-weight:750;color:#0b7755;cursor:pointer}
