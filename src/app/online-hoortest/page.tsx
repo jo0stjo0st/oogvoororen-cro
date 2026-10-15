@@ -166,8 +166,8 @@ export default function OnlineHearingTest(){
    rec.onresult=e=>{
     if(voiceSessionRef.current!==session)return;
     const spoken=Array.from(e.results).map(v=>v[0]?.transcript||"").join(" ").toLowerCase().trim();
-    const no=/\\b(nee|neen|niet|niks|niets|nope|no)\\b/.test(spoken);
-    const yes=/\\b(ja|jazeker|zeker|gehoord|hoorde|yes|jawel)\\b/.test(spoken);
+    const no=/\b(nee|neen|niet|niks|niets|nope|no)\b/.test(spoken);
+    const yes=/\b(ja|jazeker|zeker|gehoord|hoorde|yes|jawel)\b/.test(spoken);
     if(!yes&&!no){setVoiceStatus(`Ik hoorde: "${spoken}". Gebruik Ja of Nee hieronder, of probeer het opnieuw.`);setVoiceBusy(false);return}
     recognitionRef.current=null;rec.onend=null;try{rec.stop()}catch{}
     setVoiceStatus(no?"Dank u. Ik pas de toon aan.":"Dank u. We gaan verder.");
