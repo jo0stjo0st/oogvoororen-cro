@@ -3280,3 +3280,7 @@ td {
  .cro-house-reassurance-points .cro-house-location-label{font-size:23px;gap:10px}
  .cro-house-location-label svg{width:25px;height:25px;margin-top:2px}
 }
+
+.cro-house-review-actions{display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin-top:20px}
+.cro-house-review-actions .cro-local-reviews-button,.cro-house-review-actions .cro-local-mid-cta{display:inline-flex;align-items:center;justify-content:center;min-height:54px;margin-top:0;line-height:1.5}
+@media(max-width:650px){.cro-house-review-actions{flex-direction:column;align-items:stretch}.cro-house-review-actions .cro-local-reviews-button,.cro-house-review-actions .cro-local-mid-cta{width:100%}}
