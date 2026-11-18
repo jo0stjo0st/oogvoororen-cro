@@ -48,7 +48,8 @@ export default function Page() {
           <section id="locatie" className={styles.section}>
             <h2>Aan huis of in een hoorcentrum?</h2>
             <h3>Een audicien aan huis</h3>
-            <p>Een afspraak thuis scheelt reistijd en kan uitkomst bieden als lopen, autorijden of vervoer regelen lastig is. Een partner of mantelzorger kan makkelijker aansluiten. U kunt ook ter plekke laten zien in welke situaties u moeite hebt met verstaan, bijvoorbeeld wanneer de televisie aanstaat of iemand vanuit de keuken praat.</p>
+            <p>Een afspraak thuis is prettig als u liever in uw eigen omgeving afspreekt. U bespaart reistijd en uw partner kan gemakkelijk aanschuiven. U kunt de audicien ook meteen laten horen wat u lastig vindt, bijvoorbeeld een gesprek aan tafel terwijl de televisie aanstaat.</p>
+            <p>Heeft u een drukke baan? Dan kan het handig zijn om de ene keer thuis af te spreken en de volgende keer op kantoor, bijvoorbeeld tussen twee vergaderingen door. Bespreek bij het plannen of een bezoek op kantoor mogelijk is. Een afspraak thuis is ook praktisch als u minder mobiel bent of vervoer moet regelen.</p>
             <h3>Een afspraak in een hoorcentrum</h3>
             <p>Een hoorcentrum kan praktisch zijn als het op uw route ligt of als u voor een controle of reparatie makkelijk kunt langskomen. Vraag naar de bereikbaarheid, wachttijden en of u voor kleine handelingen een afspraak nodig hebt.</p>
             <p>Bij Oogvoororen kunt u kiezen voor een afspraak aan huis of in een hoorcentrum. Tijdens het plannen bespreken we wat voor u het handigst is. Bij toestellen die het ondersteunen, kunnen sommige bijstellingen ook online.</p>
