@@ -90,7 +90,7 @@ export default function Page() {
 
           <ChapterNavigation
             previous={{ href: "/hoortoestellen/keuzehulp/audicien-kiezen", label: "Vorig hoofdstuk", title: "Een audicien kiezen" }}
-            next={{ href: "/hoortoestellen/keuzehulp#hoofdstuk-3", label: "Volgend hoofdstuk · in de koopgids", title: "Hoortoestellen kiezen" }}
+            next={{ href: "/hoortoestellen/keuzehulp/hoortoestel-kiezen", label: "Volgend hoofdstuk", title: "Hoortoestellen kiezen" }}
           />
         </article>
       </div>
