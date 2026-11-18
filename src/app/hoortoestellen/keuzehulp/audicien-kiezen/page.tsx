@@ -57,7 +57,7 @@ export default function Page() {
           <section id="onderhoud" className={styles.section}>
             <h2>Hoeveel onderhoud wilt u zelf doen?</h2>
             <p>Veel dagelijks onderhoud kunt u thuis doen, zoals de buitenkant schoonmaken en het toestel opladen of de batterij vervangen. Afhankelijk van het model kunt u ook zelf het oorsmeerfilter of het dopje vervangen. Laat de audicien voordoen hoe dat bij uw toestel gaat en probeer het zelf tijdens de afspraak.</p>
-            <p>Heeft u weinig kracht in uw vingers of ziet u kleine onderdelen lastig? Vraag om een model dat u zelf kunt hanteren en spreek af wie helpt als het onderhoud thuis niet lukt. Vraag ook wat losse filters en dopjes kosten en hoe u eraan komt. <a href="https://rnid.org.uk/information-and-support/hearing-aids/cleaning-maintaining/">Onderhoudsinstructies van RNID</a></p>
+            <p>Heeft u weinig kracht in uw vingers of ziet u kleine onderdelen lastig? Vraag om een model dat u zelf kunt hanteren en spreek af wie helpt als het onderhoud thuis niet lukt. Uw audicien bij Oogvoororen laat u zien welke filters en dopjes bij uw toestel passen en waar u die kunt bestellen.</p>
           </section>
           <section id="begeleiding" className={styles.section}>
             <h2>Hoe beoordeelt u de begeleiding?</h2>
