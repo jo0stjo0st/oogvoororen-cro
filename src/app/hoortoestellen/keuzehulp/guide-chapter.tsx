@@ -8,7 +8,7 @@ export type GuideChapterContent = {
   title: string;
   intro: string;
   image: string;
-  sections: { id: string; title: string; paragraphs?: string[]; points?: string[] }[];
+  sections: { id: string; title: string; paragraphs?: string[]; points?: string[]; image?: string; note?: { title: string; text: string } }[];
   faq: [string, string][];
   previous: NonNullable<Parameters<typeof ChapterNavigation>[0]["previous"]>;
   next?: Parameters<typeof ChapterNavigation>[0]["next"];
@@ -38,11 +38,18 @@ export function GuideChapter({ chapter }: { chapter: GuideChapterContent }) {
           </ol>
         </nav>
         <article>
-          {chapter.sections.map(({ id, title, paragraphs, points }) => (
+          {chapter.sections.map(({ id, title, paragraphs, points, image, note }) => (
             <section id={id} key={id} className={points ? `${styles.section} ${styles.callout}` : styles.section}>
               <h2>{title}</h2>
+              {image && <div className={styles.sectionImage}><GuideVisual src={image} /></div>}
               {paragraphs?.map(paragraph => <p key={paragraph}>{paragraph}</p>)}
               {points && <ul>{points.map(point => <li key={point}>{point}</li>)}</ul>}
+              {note && (
+                <aside className={styles.callout}>
+                  <h3>{note.title}</h3>
+                  <p>{note.text}</p>
+                </aside>
+              )}
             </section>
           ))}
           <section id="vragen" className={`${styles.section} ${styles.faq}`}>

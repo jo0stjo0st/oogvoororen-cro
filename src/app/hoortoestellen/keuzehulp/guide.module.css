@@ -298,3 +298,48 @@
     grid-column: 1;
   }
 }
+
+.audiogram {
+  margin: 0 0 24px;
+  padding: clamp(12px, 3vw, 20px);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--tint);
+}
+
+.audiogramHeading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 2px 16px;
+}
+
+.audiogramHeading span,
+.audiogram figcaption {
+  color: var(--muted);
+  font-size: .875rem;
+}
+
+.audiogram svg {
+  display: block;
+  width: 100%;
+  max-width: 540px;
+  margin: 10px auto;
+}
+
+.sectionImage {
+  margin-bottom: 18px;
+}
+
+.sectionImage > div {
+  aspect-ratio: 3 / 1;
+}
+
+.sectionImage img[src*="phonak-i90"] {
+  object-fit: contain;
+  background: #f7faf8;
+}
+
+.section aside h3 {
+  margin-top: 0;
+}

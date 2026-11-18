@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ChapterNavigation } from "../chapter-navigation";
 import styles from "../guide.module.css";
+import { Audiogram } from "./audiogram";
 import { GuideVisual, guidePhotos } from "../visual";
 
 export const metadata: Metadata = {
@@ -59,8 +60,10 @@ export default function Page() {
             <p>De audicien legt uit welke metingen nodig zijn en bekijkt zo nodig uw oren. De twee metingen hieronder geven elk antwoord op een andere vraag.</p>
             <h3>De piepjestest</h3>
             <p>U geeft aan wanneer u een toon hoort. De audicien meet per oor hoe zacht een toon op verschillende toonhoogtes mag zijn voordat u hem niet meer hoort. Die uitkomst komt in een grafiek, het toonaudiogram.</p>
+            <Audiogram kind="tone" />
             <h3>De woordjestest</h3>
-            <p>U herhaalt woorden die u op verschillende volumes hoort. Daarmee onderzoekt de audicien hoe goed u spraak verstaat en wat harder aanbieden voor uw verstaan doet.</p>
+            <p>U herhaalt woorden die u op verschillende volumes hoort. Daarmee onderzoekt de audicien hoe goed u spraak verstaat en wat harder aanbieden voor uw verstaan doet. De uitslag komt in een spraakaudiogram.</p>
+            <Audiogram kind="speech" />
             <p>Na afloop legt de audicien uit wat de uitslag voor u betekent. Vraag gerust hoe de resultaten aansluiten bij wat u thuis of op het werk ervaart.</p>
           </section>
 
