@@ -4,6 +4,7 @@ import {LabBar} from "@/components/lab-bar";
 const pages=[
  {group:"Algemene pagina’s",items:[
   {name:"Nieuwe homepage",url:"/experimenten/nieuwe-homepage",status:"In ontwikkeling"},
+  {name:"Koopgids eerste hoortoestellen",url:"/hoortoestellen/keuzehulp",status:"Voorpagina en hoofdstuk 1 · ter beoordeling"},
   {name:"Afspraak maken (Nederland)",url:"/experimenten/afspraak",status:"Nieuw ontwerp · ter beoordeling"},
   {name:"Online hoortest (COSI + tonen)",url:"/online-hoortest",status:"Werkende zelftest · ter beoordeling"},
   {name:"Hoorapparaten: keuzeportaal",url:"/experimenten/hoorapparaten-overzicht",status:"In ontwikkeling"},
