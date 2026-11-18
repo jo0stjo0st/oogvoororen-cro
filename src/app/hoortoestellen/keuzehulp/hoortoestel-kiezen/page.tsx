@@ -37,6 +37,7 @@ const chapter: GuideChapterContent = {
       image: guidePhotos.consult,
       paragraphs: [
         "Bij Oogvoororen kunt u kiezen uit bekende A-merken zoals Oticon, Phonak, Signia en Widex. Toestellen kunnen stemmen en omgevingsgeluid verschillend laten klinken. Ook de afstelling en de manier waarop het toestel in uw oor zit beïnvloeden wat u hoort.",
+        "Bij Oogvoororen testen we uw klankvoorkeur met Sound Preference. U luistert naar voorbeelden uit alledaagse situaties en vergelijkt hoe die klinken met verschillende manieren van geluidsverwerking. Misschien klinkt de ene versie voor u rustiger of zijn stemmen in de andere versie duidelijker. Uw voorkeur helpt de audicien om samen met u te kiezen welk toestel u gaat uitproberen.",
         "Vertel concreet wat u opvalt. Klinkt uw eigen stem hol? Zijn bestek en servies erg scherp? Verstaat u uw partner beter? Met die observaties kan de audicien bepalen wat bijstelling vraagt en wanneer het zinvol is een ander model te proberen.",
       ],
     },
@@ -44,12 +45,13 @@ const chapter: GuideChapterContent = {
       id: "prijs",
       title: "Wat kost een hoortoestel en wat kan een duurder model opleveren?",
       paragraphs: [
-        "Bij Oogvoororen beginnen prijsvoorbeelden voor hoortoestellen die voor vergoeding in aanmerking komen rond € 515 per toestel vóór vergoeding. Voor particuliere hoortoestellen vindt u in ons assortiment voorbeelden van ongeveer € 1.500 tot ruim € 3.000 per toestel. Uw prijs hangt af van het model en of u één of twee toestellen kiest.",
+        "Hoortoestellen die in aanmerking komen voor vergoeding kosten bij Oogvoororen gemiddeld € 625 per toestel vóór vergoeding. Voor particuliere hoortoestellen vindt u in ons assortiment voorbeelden van ongeveer € 1.500 tot ruim € 3.000 per toestel. Uw prijs hangt af van het model en of u één of twee toestellen kiest.",
         "Een hoger technologieniveau kan vooral iets toevoegen als u vaak in wisselende of drukke luistersituaties bent. Denk aan een toestel dat uitgebreider omgaat met stemmen en achtergrondgeluid. Vraag welk verschil de audicien voor ú verwacht en probeer het in een situatie die voor u telt.",
         "Laat het bedrag voor uw complete keuze op een rij zetten, met eventuele vergoeding, lader of accessoires en de inbegrepen service. Zo weet u wat u zelf betaalt.",
       ],
       note: {
         title: "Oogvoororen heeft afspraken met alle zorgverzekeraars",
+        link: { href: "/vergoedingen", label: "Alles over vergoedingen voor hoortoestellen" },
         text: "Komt u als volwassene in aanmerking voor vergoeding uit de basisverzekering? Dan vergoedt uw zorgverzekeraar doorgaans 75% van het afgesproken tarief en betaalt u zelf 25% wettelijke eigen bijdrage. Openstaand eigen risico kan daarnaast nog van toepassing zijn. Tijdens het adviesgesprek rekenen we uit wat dit voor uw keuze betekent.",
       },
     },

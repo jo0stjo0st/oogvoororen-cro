@@ -8,7 +8,7 @@ export type GuideChapterContent = {
   title: string;
   intro: string;
   image: string;
-  sections: { id: string; title: string; paragraphs?: string[]; points?: string[]; image?: string; note?: { title: string; text: string } }[];
+  sections: { id: string; title: string; paragraphs?: string[]; points?: string[]; image?: string; note?: { title: string; text: string; link?: { href: string; label: string } } }[];
   faq: [string, string][];
   previous: NonNullable<Parameters<typeof ChapterNavigation>[0]["previous"]>;
   next?: Parameters<typeof ChapterNavigation>[0]["next"];
@@ -48,6 +48,7 @@ export function GuideChapter({ chapter }: { chapter: GuideChapterContent }) {
                 <aside className={styles.callout}>
                   <h3>{note.title}</h3>
                   <p>{note.text}</p>
+                  {note.link && <Link href={note.link.href}>{note.link.label} →</Link>}
                 </aside>
               )}
             </section>
