@@ -1,3 +1,4 @@
+import { ChapterNavigation } from "../chapter-navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
 import styles from "../guide.module.css";
@@ -90,7 +91,10 @@ export default function Page() {
             <details><summary>Kan elke bijstelling online?</summary><p>Vraag of uw toestel en de audicien online bijstellen ondersteunen. Voor een andere pasvorm, een kapot onderdeel of een meting kan een fysieke afspraak nodig zijn.</p></details>
             <details><summary>Hoort onderhoud standaard bij de aankoop?</summary><p>Dat verschilt per aanbieder. Vraag apart naar schoonmaak, vervangende filters en dopjes, periodieke controles en hulp aan huis. Laat op de offerte zetten wat inbegrepen is.</p></details>
           </section>
-          <p><Link href="/hoortoestellen/keuzehulp#hoofdstukken">Terug naar de hoofdstukken →</Link></p>
+          <ChapterNavigation
+            previous={{ href: "/hoortoestellen/keuzehulp#hoofdstukken", label: "Terug naar de koopgids", title: "Alle hoofdstukken" }}
+            next={{ href: "/hoortoestellen/keuzehulp#hoofdstuk-2", label: "Volgend hoofdstuk · in de koopgids", title: "De hoortest en het adviesgesprek" }}
+          />
         </article>
       </div>
     </>

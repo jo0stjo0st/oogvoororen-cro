@@ -1,3 +1,4 @@
+import { ChapterNavigation } from "./chapter-navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
 import styles from "./guide.module.css";
@@ -52,7 +53,7 @@ export default function Page() {
             <h2>Van eerste afspraak tot nazorg</h2>
             <ol className={styles.chapters}>
               {chapters.map(({ title, text, href, image }, index) => (
-                <li key={title}>
+                <li key={title} id={`hoofdstuk-${index + 1}`}>
                   <GuideVisual src={image} />
                   <div>
                   <h3>{index + 1}. {href ? <Link href={href}>{title} →</Link> : title}</h3>
@@ -73,6 +74,7 @@ export default function Page() {
             <details><summary>Moet ik bij mijn eerste afspraak meteen beslissen?</summary><p>Bij Oogvoororen is een adviesafspraak vrijblijvend. De audicien bespreekt uw gehoor en wensen met u. Daarna bepaalt u zelf of u verder wilt.</p></details>
             <details><summary>Hoe vergelijk ik prijzen van hoortoestellen?</summary><p>Vraag of de prijs per toestel of voor twee geldt, wat u uiteindelijk zelf betaalt en welke accessoires, controles en bijstellingen zijn inbegrepen.</p></details>
           </section>
+          <ChapterNavigation next={{ href: "/hoortoestellen/keuzehulp/audicien-kiezen", label: "Lees hoofdstuk 1", title: "Een audicien kiezen" }} />
         </div>
       </div>
     </>
