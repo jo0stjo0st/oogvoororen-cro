@@ -54,7 +54,7 @@ const chapter: GuideChapterContent = {
     ["Heb ik altijd een app nodig voor nazorg?", "Een app kan nodig zijn voor een online bijstelling. U kunt ook met ons afspreken voor hulp op locatie of aan huis."],
   ],
   previous: { href: "/hoortoestellen/keuzehulp/proefperiode-hoortoestellen", label: "Vorig hoofdstuk", title: "Uitproberen en wennen" },
-  next: { href: "/hoortoestellen/keuzehulp#hoofdstukken", label: "Terug naar de koopgids", title: "Alle hoofdstukken" },
+  next: { href: "/experimenten/afspraak", label: "Uw volgende stap", title: "Maak vrijblijvend een afspraak", primary: true },
 };
 
 export default function Page() {
