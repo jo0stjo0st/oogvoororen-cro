@@ -1,5 +1,4 @@
-import Image from "next/image";
-import Link from "next/link";
+import { FrenchGuideFooter, FrenchGuideHeader } from "./guide-site-shell";
 import { AppointmentRequest } from "@/features/appointments/appointment-request-nl";
 import styles from "../hoortoestellen/keuzehulp/guide.module.css";
 
@@ -7,13 +6,7 @@ export default function FrenchLayout({ children }: { children: React.ReactNode }
   return (
     <div lang="fr">
       <a className="skip-link" href="#main-content">Aller au contenu</a>
-      <header className="cro-appointment-header">
-        <div className="wide cro-appointment-header-inner">
-          <Link href="/fr/guide-auditif" aria-label="Guide auditif Oogvoororen">
-            <Image src="/assets/logo-white.svg" alt="Oogvoororen" width={207} height={50} />
-          </Link>
-        </div>
-      </header>
+      <FrenchGuideHeader />
       <main id="main-content" className={styles.guide}>
         {children}
         <section id="afspraak" className={styles.appointment}>
@@ -39,11 +32,7 @@ export default function FrenchLayout({ children }: { children: React.ReactNode }
           </div>
         </section>
       </main>
-      <footer className={`${styles.guide} ${styles.wrap} ${styles.footer}`}>
-        <Link href="/fr/guide-auditif">Guide des premiers appareils auditifs</Link>
-        <Link href="/hoortoestellen/keuzehulp" lang="nl">Nederlands</Link>
-        <a href="tel:+31854863743">+31 85 486 37 43</a>
-      </footer>
+      <FrenchGuideFooter />
     </div>
   );
 }
