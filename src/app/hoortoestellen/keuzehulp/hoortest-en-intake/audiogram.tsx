@@ -25,8 +25,26 @@ const charts = {
   },
 };
 
-export function Audiogram({ kind }: { kind: keyof typeof charts }) {
+const frenchLabels = {
+  tone: {
+    title: "Exemple d’audiogramme tonal",
+    description: "Seuils fictifs pour une oreille, de 15 dB à 250 Hz à 55 dB à 8 000 Hz.",
+    xLabel: "Fréquence (Hz)",
+    yLabel: "Seuil auditif (dB HL)",
+    caption: "Plus un point est bas sur le graphique, plus le son devait être fort pour être entendu à cette fréquence.",
+  },
+  speech: {
+    title: "Exemple d’audiogramme vocal",
+    description: "Scores fictifs pour une oreille, de 0 % de mots compris à 30 dB à 100 % à 80 dB.",
+    xLabel: "Niveau sonore (dB)",
+    yLabel: "Mots compris (%)",
+    caption: "La courbe indique la proportion de mots correctement compris à chaque niveau sonore.",
+  },
+};
+
+export function Audiogram({ kind, locale = "nl" }: { kind: keyof typeof charts; locale?: "nl" | "fr" }) {
   const chart = charts[kind];
+  const labels = locale === "fr" ? frenchLabels[kind] : chart;
   const left = 72;
   const right = 424;
   const top = 24;
@@ -37,10 +55,10 @@ export function Audiogram({ kind }: { kind: keyof typeof charts }) {
 
   return (
     <figure className={styles.audiogram}>
-      <div className={styles.audiogramHeading}><strong>{chart.title}</strong><span>Fictieve meting · één oor</span></div>
+      <div className={styles.audiogramHeading}><strong>{labels.title}</strong><span>{locale === "fr" ? "Mesure fictive · une oreille" : "Fictieve meting · één oor"}</span></div>
       <svg viewBox="0 0 460 252" role="img" aria-labelledby={`${kind}-title ${kind}-description`}>
-        <title id={`${kind}-title`}>{chart.title}</title>
-        <desc id={`${kind}-description`}>{chart.description}</desc>
+        <title id={`${kind}-title`}>{labels.title}</title>
+        <desc id={`${kind}-description`}>{labels.description}</desc>
         <g fill="currentColor" fontSize="14">
           {chart.yTicks.map(value => (
             <g key={value}>
@@ -51,17 +69,17 @@ export function Audiogram({ kind }: { kind: keyof typeof charts }) {
           {chart.xTicks.map((label, index) => (
             <g key={label}>
               <line x1={x(index)} x2={x(index)} y1={top} y2={bottom} stroke="#ceddd6" />
-              <text x={x(index)} y={bottom + 20} textAnchor="middle">{label}</text>
+              <text x={x(index)} y={bottom + 20} textAnchor="middle">{locale === "fr" ? label.replace(".", " ") : label}</text>
             </g>
           ))}
-          <text x={(left + right) / 2} y="242" textAnchor="middle">{chart.xLabel}</text>
-          <text transform="translate(18 109) rotate(-90)" textAnchor="middle">{chart.yLabel}</text>
+          <text x={(left + right) / 2} y="242" textAnchor="middle">{labels.xLabel}</text>
+          <text transform="translate(18 109) rotate(-90)" textAnchor="middle">{labels.yLabel}</text>
         </g>
         <path d={`M ${left} ${top} V ${bottom} H ${right}`} fill="none" stroke="currentColor" />
         <polyline points={chart.values.map((value, index) => `${x(index)},${y(value)}`).join(" ")} fill="none" stroke="#007d60" strokeWidth="3" />
         {chart.values.map((value, index) => <circle key={index} cx={x(index)} cy={y(value)} r="4.5" fill="white" stroke="#007d60" strokeWidth="2.5" />)}
       </svg>
-      <figcaption>{chart.caption}</figcaption>
+      <figcaption>{labels.caption}</figcaption>
     </figure>
   );
 }

@@ -3,9 +3,9 @@ import styles from "./guide.module.css";
 
 type ChapterLink = { href: string; title: string; label: string };
 
-export function ChapterNavigation({ previous, next }: { previous?: ChapterLink; next?: ChapterLink & { primary?: boolean } }) {
+export function ChapterNavigation({ previous, next, locale = "nl" }: { previous?: ChapterLink; next?: ChapterLink & { primary?: boolean }; locale?: "nl" | "fr" }) {
   return (
-    <nav className={styles.chapterNavigation} aria-label="Hoofdstuknavigatie">
+    <nav className={styles.chapterNavigation} aria-label={locale === "fr" ? "Navigation entre les chapitres" : "Hoofdstuknavigatie"}>
       {previous && (
         <Link href={previous.href}>
           <span>← {previous.label}</span>
