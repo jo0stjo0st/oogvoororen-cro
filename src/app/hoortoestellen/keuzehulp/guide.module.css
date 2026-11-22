@@ -348,3 +348,12 @@
 .section aside h3 {
   margin-top: 0;
 }
+
+.soundLegend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 16px;
+  list-style: none;
+  padding: 0;
+  margin: 10px 0;
+}

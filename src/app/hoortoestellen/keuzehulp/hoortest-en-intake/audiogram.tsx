@@ -42,8 +42,20 @@ const frenchLabels = {
   },
 };
 
+// Indicative positions from familiar-sounds audiograms, not fixed levels for real sounds.
+const familiarSounds = [
+  { icon: "💧", hz: 320, level: 15, nl: "Druppelende kraan", fr: "Robinet qui goutte" },
+  { icon: "🐕", hz: 350, level: 68, nl: "Blaffende hond", fr: "Chien qui aboie" },
+  { icon: "💬", hz: 1000, level: 46, nl: "Gesprek dichtbij", fr: "Conversation à proximité" },
+  { icon: "🧒", hz: 2000, level: 19, nl: "Kinderstem", fr: "Voix d’enfant" },
+  { icon: "🤫", hz: 4000, level: 20, nl: "Fluisteren", fr: "Chuchotement" },
+  { icon: "🐦", hz: 7500, level: 9, nl: "Vogelgekwetter", fr: "Chant d’oiseaux" },
+];
+
 export function Audiogram({ kind, locale = "nl" }: { kind: keyof typeof charts; locale?: "nl" | "fr" }) {
   const chart = charts[kind];
+  const isTone = kind === "tone";
+  const fr = locale === "fr";
   const labels = locale === "fr" ? frenchLabels[kind] : chart;
   const left = 72;
   const right = 424;
@@ -53,12 +65,15 @@ export function Audiogram({ kind, locale = "nl" }: { kind: keyof typeof charts; 
   const x = (index: number) => left + ((right - left) * index) / (chart.xTicks.length - 1);
   const y = (value: number) => top + ((bottom - top) * (value - upper)) / (lower - upper);
 
+  const curve = chart.values.map((value, index) => `${x(index)},${y(value)}`).join(" ");
+
   return (
     <figure className={styles.audiogram}>
       <div className={styles.audiogramHeading}><strong>{labels.title}</strong><span>{locale === "fr" ? "Mesure fictive · une oreille" : "Fictieve meting · één oor"}</span></div>
       <svg viewBox="0 0 460 252" role="img" aria-labelledby={`${kind}-title ${kind}-description`}>
         <title id={`${kind}-title`}>{labels.title}</title>
         <desc id={`${kind}-description`}>{labels.description}</desc>
+        {isTone && <polygon points={`${left},${top} ${right},${top} ${curve.split(" ").reverse().join(" ")}`} fill="#fce8cf" />}
         <g fill="currentColor" fontSize="14">
           {chart.yTicks.map(value => (
             <g key={value}>
@@ -76,10 +91,37 @@ export function Audiogram({ kind, locale = "nl" }: { kind: keyof typeof charts; 
           <text transform="translate(18 109) rotate(-90)" textAnchor="middle">{labels.yLabel}</text>
         </g>
         <path d={`M ${left} ${top} V ${bottom} H ${right}`} fill="none" stroke="currentColor" />
-        <polyline points={chart.values.map((value, index) => `${x(index)},${y(value)}`).join(" ")} fill="none" stroke="#007d60" strokeWidth="3" />
+        <polyline points={curve} fill="none" stroke="#007d60" strokeWidth="3" />
         {chart.values.map((value, index) => <circle key={index} cx={x(index)} cy={y(value)} r="4.5" fill="white" stroke="#007d60" strokeWidth="2.5" />)}
+        {isTone ? familiarSounds.map(sound => (
+          <g key={sound.nl} transform={`translate(${x(Math.log2(sound.hz / 250))} ${y(sound.level)})`} aria-hidden="true">
+            <title>{sound[locale]}</title>
+            <circle r="12" fill="white" stroke="#53665b" />
+            <text textAnchor="middle" dy=".35em" fontSize="15">{sound.icon}</text>
+          </g>
+        )) : [2, 3, 4].map(index => (
+          <g key={index} transform={`translate(${x(index)} ${y(chart.values[index])})`} aria-hidden="true">
+            <path d="M0 -5 V-12" stroke="#007d60" />
+            <rect x="-25" y="-31" width="50" height="19" rx="5" fill="white" stroke="#007d60" />
+            <text textAnchor="middle" y="-17" fontSize="12" fill="#17452e">{chart.values[index]} %</text>
+          </g>
+        ))}
       </svg>
-      <figcaption>{labels.caption}</figcaption>
+      <figcaption>
+        {labels.caption}
+        {isTone && (
+          <>
+            <ul className={styles.soundLegend} aria-label={fr ? "Exemples de sons" : "Voorbeeldgeluiden"}>
+              {familiarSounds.map(sound => (
+                <li key={sound.nl}><span aria-hidden="true">{sound.icon}</span> {sound[locale]}</li>
+              ))}
+            </ul>
+            <span>{fr
+              ? "Dans cet exemple, les sons dans la zone colorée, au-dessus de la courbe, risquent de passer inaperçus. Il peut aussi être plus difficile de comprendre un enfant. Les positions sont indicatives : un son réel varie selon la distance et la situation."
+              : "Geluiden in het gekleurde vlak boven de lijn kunnen in dit voorbeeld onopgemerkt blijven. Ook een kind verstaan kan lastiger worden. De plaats van elk icoon is indicatief: afstand en situatie maken verschil."}</span>
+          </>
+        )}
+      </figcaption>
     </figure>
   );
 }
