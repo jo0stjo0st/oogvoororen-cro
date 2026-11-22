@@ -14,7 +14,7 @@ export type GuideChapterContent = {
   next?: Parameters<typeof ChapterNavigation>[0]["next"];
 };
 
-export function GuideChapter({ chapter, locale = "nl" }: { chapter: GuideChapterContent; locale?: "nl" | "fr" }) {
+export function GuideChapter({ chapter, locale = "nl", guideHref }: { chapter: GuideChapterContent; locale?: "nl" | "fr"; guideHref?: string }) {
   const fr = locale === "fr";
   const faqHeading = fr ? "Questions fréquentes" : "Veelgestelde vragen";
   return (
@@ -22,7 +22,7 @@ export function GuideChapter({ chapter, locale = "nl" }: { chapter: GuideChapter
       <div className={styles.hero}>
         <div className={`${styles.wrap} ${styles.split}`}>
           <div>
-            <p><Link href={fr ? "/fr/guide-auditif" : "/hoortoestellen/keuzehulp"}>{fr ? "← Guide des premiers appareils auditifs" : "← Koopgids eerste hoortoestellen"}</Link></p>
+            <p><Link href={guideHref ?? (fr ? "/fr/guide-auditif" : "/hoortoestellen/keuzehulp")}>{fr ? "← Guide des premiers appareils auditifs" : guideHref ? "← Koopgids eerste hoorapparaten" : "← Koopgids eerste hoortoestellen"}</Link></p>
             <p className={styles.kicker}>{fr ? "Chapitre" : "Hoofdstuk"} {chapter.number} {fr ? "sur" : "van"} 5</p>
             <h1>{chapter.title}</h1>
             <p>{chapter.intro}</p>

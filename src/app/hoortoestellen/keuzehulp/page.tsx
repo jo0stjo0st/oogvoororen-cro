@@ -29,6 +29,7 @@ export default function Page() {
           <div className={styles.actions}>
             <a className={styles.action} href="#afspraak">Maak vrijblijvend een afspraak →</a>
             <a href="#hoofdstukken">Bekijk de hoofdstukken</a>
+            <Link href="/be/hoorapparaten/keuzehulp">Vlaanderen</Link>
             <Link href="/fr/guide-auditif" lang="fr">Lire en français</Link>
           </div>
           </div>

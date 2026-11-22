@@ -357,3 +357,8 @@
   padding: 0;
   margin: 10px 0;
 }
+
+.applicationSteps {
+  list-style: decimal;
+  padding-left: 24px;
+}
