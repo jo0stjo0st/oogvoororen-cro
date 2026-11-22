@@ -1,5 +1,6 @@
 import type { GuideChapterContent } from "@/app/hoortoestellen/keuzehulp/guide-chapter";
 import { Audiogram } from "@/app/hoortoestellen/keuzehulp/hoortest-en-intake/audiogram";
+import { DeviceStyles } from "@/app/hoortoestellen/keuzehulp/device-styles";
 import { guidePhotos } from "@/app/hoortoestellen/keuzehulp/visual";
 
 export const guidePath = "/fr/guide-auditif";
@@ -98,8 +99,9 @@ export const chapters: FrenchChapter[] = [
     intro: "Vous souhaitez mieux comprendre votre partenaire ou suivre les échanges en réunion ? Votre audiologue s’appuie sur votre bilan et votre quotidien pour choisir avec vous les appareils à essayer.",
     image: guidePhotos.device,
     sections: [
-      { id: "confort", title: "Quelle forme vous convient ?", image: guidePhotos.device, paragraphs: [
-        "Certains appareils se portent derrière l’oreille, avec un fil fin relié à un écouteur dans l’oreille. D’autres se placent entièrement dans l’oreille. Votre audition, la forme de votre oreille et la facilité de manipulation entrent dans ce choix.",
+      { id: "confort", title: "Quelle forme vous convient ?", illustration: <DeviceStyles locale="fr" />, paragraphs: [
+        "Votre audiogramme indique l’importance de votre perte auditive à chaque fréquence. L’audiologue s’en sert pour déterminer la puissance nécessaire et les formes qui peuvent fournir l’amplification dont vous avez besoin. La forme et la taille de votre conduit auditif jouent aussi un rôle.",
+        "Si plusieurs formes vous conviennent, vous pouvez choisir selon leur confort, leur discrétion et leur facilité de manipulation. Essayez-les, si possible, avec vos lunettes.",
         "Si vous portez des lunettes, gardez-les pendant l’essayage. Entraînez-vous à mettre, retirer et recharger l’appareil pour voir si ces gestes vous conviennent.",
       ] },
       { id: "fonctions", title: "Quelles fonctions vous seront utiles ?", image: guidePhotos.trial, paragraphs: [

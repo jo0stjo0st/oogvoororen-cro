@@ -385,3 +385,55 @@
 .reimbursementTable td {
   white-space: nowrap;
 }
+
+.deviceStyles {
+  margin: 20px 0 0;
+}
+
+.deviceStyles ol {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 8px;
+  padding: 0;
+  list-style: none;
+}
+
+.deviceStyles li {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+  padding: 8px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  font-size: .875rem;
+  line-height: 1.4;
+}
+
+.deviceStyles li + li {
+  margin: 0;
+}
+
+.deviceStyles img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10;
+  object-fit: contain;
+  background: white;
+}
+
+.deviceStyles small,
+.deviceStyles figcaption {
+  color: var(--muted);
+}
+
+.deviceStyles figcaption {
+  margin-top: 8px;
+  font-size: .875rem;
+}
+
+@media (max-width: 820px) {
+  .deviceStyles ol {
+    grid-template-columns: repeat(auto-fit, minmax(118px, 1fr));
+  }
+}

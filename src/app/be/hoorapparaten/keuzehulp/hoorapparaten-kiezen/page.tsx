@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { GuideChapter, type GuideChapterContent } from "@/app/hoortoestellen/keuzehulp/guide-chapter";
+import { DeviceStyles } from "@/app/hoortoestellen/keuzehulp/device-styles";
 import { guidePhotos } from "@/app/hoortoestellen/keuzehulp/visual";
 
 export const metadata: Metadata = {
@@ -16,9 +17,10 @@ const chapter: GuideChapterContent = {
     {
       id: "pasvorm",
       title: "Welke draagvorm zit prettig?",
-      image: guidePhotos.device,
+      illustration: <DeviceStyles />,
       paragraphs: [
-        "Bij veel toestellen zit een klein deel achter uw oor. Een dun draadje kan naar een luidspreker in het oor lopen. Er zijn ook toestellen die helemaal in het oor zitten. Welke draagvorm past, hangt af van uw gehoor, de vorm van uw oor en wat u zelf makkelijk kunt indoen en bedienen.",
+        "Uw audiogram laat zien hoeveel gehoorverlies u bij verschillende toonhoogtes hebt. De audioloog bepaalt daarmee hoeveel versterking u nodig hebt en welke draagvormen die kunnen leveren. Ook de vorm en de grootte van uw gehoorgang spelen mee.",
+        "Zijn meerdere draagvormen geschikt voor uw gehoor en uw oren? Dan kunt u kiezen op basis van wat prettig zit, hoe zichtbaar het toestel is en hoe makkelijk u het zelf kunt indoen en bedienen.",
         "Draagt u een bril? Zet die dan op tijdens het passen. Probeer ook zelf het toestel in en uit te doen en in de lader te zetten. Zo merkt u snel of het bij uw dagelijkse routine past.",
       ],
     },
