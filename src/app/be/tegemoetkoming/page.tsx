@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { rates } from "@/features/products/pricing";
 import styles from "@/app/hoortoestellen/keuzehulp/guide.module.css";
 
 export const metadata: Metadata = {
@@ -13,6 +14,14 @@ const sections = [
   ["eigen-opleg", "Wat betaalt u zelf?"],
   ["hernieuwing", "Wanneer kunt u opnieuw een tegemoetkoming krijgen?"],
 ];
+
+const ageGroups = [
+  { label: "Jonger dan 18 jaar", amounts: rates.child },
+  { label: "18 t/m 64 jaar", amounts: rates.adult },
+  { label: "65 jaar en ouder", amounts: rates.senior },
+];
+
+const euros = new Intl.NumberFormat("nl-BE", { style: "currency", currency: "EUR" });
 
 export default function Page() {
   return (
@@ -47,6 +56,21 @@ export default function Page() {
           <section id="eigen-opleg" className={styles.section}>
             <h2>{sections[2][1]}</h2>
             <p>De wettelijke tegemoetkoming volgt de Belgische RIZIV-tarieven. Het bedrag hangt onder meer af van uw leeftijd, of het om één of twee hoorapparaten gaat en de toepasselijke regeling. Uw mutualiteit kan daarnaast aanvullende voordelen bieden.</p>
+            <table className={styles.reimbursementTable}>
+              <caption>Standaardtegemoetkoming volgens de RIZIV-tarieven vanaf 1 januari 2026, bij een geconventioneerde audioloog en zonder voorkeurregeling.</caption>
+              <thead>
+                <tr><th scope="col">Leeftijd</th><th scope="col">1 hoorapparaat</th><th scope="col">2 hoorapparaten</th></tr>
+              </thead>
+              <tbody>
+                {ageGroups.map(({ label, amounts }) => (
+                  <tr key={label}>
+                    <th scope="row">{label}</th>
+                    {amounts.map(amount => <td key={amount}>{euros.format(amount)}</td>)}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+            <p>Bij Oogvoororen zijn er hoorapparaten met een eigen opleg vanaf circa € 50 per toestel na tegemoetkoming. Er zijn ook modellen met een hogere eigen opleg. Wat u zelf betaalt, hangt af van het model en uw recht op tegemoetkoming.</p>
             <div className={styles.callout}>
               <p><strong>Zo leest u uw offerte.</strong> Trek de toepasselijke tegemoetkoming af van de prijs van de hoorapparaten. Het verschil is uw eigen opleg. Laat ook vermelden welke accessoires, zoals een lader, inbegrepen zijn en of er nog aparte kosten zijn.</p>
             </div>

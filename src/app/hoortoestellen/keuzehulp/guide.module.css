@@ -362,3 +362,26 @@
   list-style: decimal;
   padding-left: 24px;
 }
+
+.reimbursementTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-block: 20px;
+  font-size: 0.9375rem;
+}
+
+.reimbursementTable caption {
+  text-align: left;
+  margin-bottom: 8px;
+}
+
+.reimbursementTable th,
+.reimbursementTable td {
+  padding: 8px 6px;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+}
+
+.reimbursementTable td {
+  white-space: nowrap;
+}

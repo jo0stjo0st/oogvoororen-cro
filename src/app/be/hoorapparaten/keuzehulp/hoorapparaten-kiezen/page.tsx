@@ -45,7 +45,7 @@ const chapter: GuideChapterContent = {
       id: "prijs",
       title: "Wat kost een hoorapparaat en wat kan een duurder model opleveren?",
       paragraphs: [
-        "Vergelijk de prijs per hoorapparaat en de eigen opleg. Dat is het bedrag dat u zelf betaalt nadat de tegemoetkoming van uw mutualiteit in mindering is gebracht. Tijdens uw adviesgesprek zetten we beide bedragen voor u op een rij.",
+        "Vergelijk de prijs per hoorapparaat en de eigen opleg. Dat is het bedrag dat u zelf betaalt nadat de tegemoetkoming van uw mutualiteit in mindering is gebracht. Bij Oogvoororen vindt u hoorapparaten met een eigen opleg vanaf circa € 50 per toestel na tegemoetkoming, en modellen met een hogere eigen opleg. Tijdens uw adviesgesprek zetten we de toestelprijs en uw eigen opleg voor u op een rij.",
         "Een hoger technologieniveau kan vooral iets toevoegen als u vaak in wisselende of drukke luistersituaties bent. Denk aan een toestel dat uitgebreider omgaat met stemmen en achtergrondgeluid. Vraag welk verschil de audioloog voor ú verwacht en probeer het in een situatie die voor u telt.",
         "Laat het bedrag voor uw complete keuze op een rij zetten, met eventuele vergoeding, lader of accessoires en de inbegrepen service. Zo weet u wat u zelf betaalt.",
       ],
