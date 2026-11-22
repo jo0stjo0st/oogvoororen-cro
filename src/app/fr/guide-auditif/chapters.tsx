@@ -97,14 +97,14 @@ export const chapters: FrenchChapter[] = [
     title: "Quels appareils auditifs vous conviennent ?",
     summary: "Comparez le confort, le son, les fonctions et les prix, puis choisissez ce qui mérite d’être essayé.",
     intro: "Vous souhaitez mieux comprendre votre partenaire ou suivre les échanges en réunion ? Votre audiologue s’appuie sur votre bilan et votre quotidien pour choisir avec vous les appareils à essayer.",
-    image: guidePhotos.device,
+    image: guidePhotos.deviceAdvice,
     sections: [
       { id: "confort", title: "Quelle forme vous convient ?", illustration: <DeviceStyles locale="fr" />, paragraphs: [
         "Votre audiogramme indique l’importance de votre perte auditive à chaque fréquence. L’audiologue s’en sert pour déterminer la puissance nécessaire et les formes qui peuvent fournir l’amplification dont vous avez besoin. La forme et la taille de votre conduit auditif jouent aussi un rôle.",
         "Si plusieurs formes vous conviennent, vous pouvez choisir selon leur confort, leur discrétion et leur facilité de manipulation. Essayez-les, si possible, avec vos lunettes.",
         "Si vous portez des lunettes, gardez-les pendant l’essayage. Entraînez-vous à mettre, retirer et recharger l’appareil pour voir si ces gestes vous conviennent.",
       ] },
-      { id: "fonctions", title: "Quelles fonctions vous seront utiles ?", image: guidePhotos.trial, paragraphs: [
+      { id: "fonctions", title: "Quelles fonctions vous seront utiles ?", image: guidePhotos.deviceAdvice, paragraphs: [
         "Dans un groupe, un appareil peut mettre davantage en avant la voix qui vient de la direction de votre interlocuteur. Autour d’une table ronde, vous souhaitez peut-être pouvoir suivre plusieurs personnes. Décrivez vos situations difficiles pour savoir quelle technologie peut vous aider.",
         "Si vous téléphonez souvent, vérifiez si les appels peuvent être transmis à vos appareils et si votre téléphone est compatible. Pour un modèle rechargeable, pensez aussi aux déplacements et aux week-ends.",
       ] },

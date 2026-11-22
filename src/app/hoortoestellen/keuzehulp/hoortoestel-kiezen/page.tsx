@@ -12,7 +12,7 @@ const chapter: GuideChapterContent = {
   number: 3,
   title: "Welke hoortoestellen passen bij u?",
   intro: "Wilt u vooral uw partner beter verstaan of juist meerdere mensen kunnen volgen in een overleg? Met uw hoortest en die dagelijkse situaties kiest u samen met de audicien welke toestellen u gaat uitproberen.",
-  image: guidePhotos.device,
+  image: guidePhotos.deviceAdvice,
   sections: [
     {
       id: "pasvorm",
@@ -29,7 +29,7 @@ const chapter: GuideChapterContent = {
     {
       id: "functies",
       title: "Welke functies gebruikt u echt?",
-      image: guidePhotos.trial,
+      image: guidePhotos.deviceAdvice,
       paragraphs: [
         "In gezelschap kan een toestel helpen door geluid uit de richting van uw gesprekspartner meer nadruk te geven. Aan een ronde tafel wilt u misschien juist meerdere stemmen rondom u kunnen volgen. Vertel de audicien hoe uw lastigste gesprekken verlopen en vraag welke instelling of techniek daarvoor bedoeld is.",
         "Belt u veel, bespreek dan of gesprekken rechtstreeks naar het toestel kunnen en of dat met uw telefoon werkt. Kiest u voor oplaadbaar, kijk dan hoe het opladen past bij uw werkdag, reizen of een weekend weg.",

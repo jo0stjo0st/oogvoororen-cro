@@ -4,6 +4,7 @@ import styles from "./guide.module.css";
 export const guidePhotos = {
   consult: "/assets/audicien.webp",
   test: "https://cdn.oogvoororen.nl/MFFSwTgW7xbsf2gcxH0UokxMywsFI72s4Mx9KKSB-800.webp",
+  deviceAdvice: "/images/audicien-aan-huis/hoorapparaat-bekijken.webp",
   device: "/assets/phonak-i90.webp",
   trial: "/images/homepage-hero.png",
   followup: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=900&q=80",

@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 const chapters = [
   { title: "Een audicien kiezen", image: guidePhotos.consult, text: "Vergelijk keuzevrijheid, afspraken aan huis of op locatie, de tijd voor begeleiding en wat u voor uw geld krijgt.", href: "/hoortoestellen/keuzehulp/audicien-kiezen" },
   { title: "De hoortest en het adviesgesprek", image: guidePhotos.test, text: "Van het eerste telefoongesprek tot de hoortest en persoonlijk hooradvies.", href: "/hoortoestellen/keuzehulp/hoortest-en-intake" },
-  { title: "Hoortoestellen kiezen", image: guidePhotos.device, text: "Leer welke functies in uw dagelijks leven verschil kunnen maken en waar u voor betaalt bij een duurder model.", href: "/hoortoestellen/keuzehulp/hoortoestel-kiezen" },
+  { title: "Hoortoestellen kiezen", image: guidePhotos.deviceAdvice, text: "Leer welke functies in uw dagelijks leven verschil kunnen maken en waar u voor betaalt bij een duurder model.", href: "/hoortoestellen/keuzehulp/hoortoestel-kiezen" },
   { title: "Uitproberen en wennen", image: guidePhotos.trial, text: "Weet waar u tijdens de proefperiode op kunt letten en wanneer u een instelling laat aanpassen.", href: "/hoortoestellen/keuzehulp/proefperiode-hoortoestellen" },
   { title: "Onderhoud, service en nazorg", image: guidePhotos.followup, text: "Lees wat u thuis kunt doen en waar u op let bij bijstellingen, reparaties en garantie.", href: "/hoortoestellen/keuzehulp/onderhoud-en-nazorg" },
 ];
