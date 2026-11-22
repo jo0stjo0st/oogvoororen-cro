@@ -22,6 +22,8 @@ const chapter: GuideChapterContent = {
         "Uw audiogram laat zien hoeveel gehoorverlies u bij verschillende toonhoogtes hebt. De audioloog bepaalt daarmee hoeveel versterking u nodig hebt en welke draagvormen die kunnen leveren. Ook de vorm en de grootte van uw gehoorgang spelen mee.",
         "Zijn meerdere draagvormen geschikt voor uw gehoor en uw oren? Dan kunt u kiezen op basis van wat prettig zit, hoe zichtbaar het toestel is en hoe makkelijk u het zelf kunt indoen en bedienen.",
         "Draagt u een bril? Zet die dan op tijdens het passen. Probeer ook zelf het toestel in en uit te doen en in de lader te zetten. Zo merkt u snel of het bij uw dagelijkse routine past.",
+        "Sport u vaak of werkt u veel buiten? Dan houden we rekening met zweet, regen en stof. Binnen de modellen die bij uw gehoor passen, zoeken we naar de hoogste IP-bescherming die past bij uw gebruik, bijvoorbeeld IP68. We kijken ook naar de instructies van de fabrikant voor het dragen en onderhouden.",
+        "Wilt u een discrete kleur? Dan kijken we vaak naar een tint die aansluit bij uw haar- of huidskleur. Ook de kleur van het jaar kan passen, als de fabrikant die aanbiedt en u die mooi vindt. Mag uw toestel juist opvallen? Dan kan knalroze ook, afhankelijk van het model.",
       ],
     },
     {
