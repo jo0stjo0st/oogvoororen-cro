@@ -38,7 +38,7 @@ const chapter: GuideChapterContent = {
     {
       id: "klank",
       title: "Hoe vergelijkt u merken en klank?",
-      image: guidePhotos.consult,
+      image: "/images/audicien-aan-huis/advies-aan-huis.webp",
       paragraphs: [
         "Bij Oogvoororen kunt u kiezen uit bekende A-merken zoals Oticon, Phonak, Signia en Widex. Toestellen kunnen stemmen en omgevingsgeluid verschillend laten klinken. Ook de afstelling en de manier waarop het toestel in uw oor zit beïnvloeden wat u hoort.",
         "Bij Oogvoororen testen we uw klankvoorkeur met Sound Preference. U luistert naar voorbeelden uit alledaagse situaties en vergelijkt hoe die klinken met verschillende manieren van geluidsverwerking. Misschien klinkt de ene versie voor u rustiger of zijn stemmen in de andere versie duidelijker. Uw voorkeur helpt de audicien om samen met u te kiezen welk toestel u gaat uitproberen.",

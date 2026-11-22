@@ -108,7 +108,7 @@ export const chapters: FrenchChapter[] = [
         "Dans un groupe, un appareil peut mettre davantage en avant la voix qui vient de la direction de votre interlocuteur. Autour d’une table ronde, vous souhaitez peut-être pouvoir suivre plusieurs personnes. Décrivez vos situations difficiles pour savoir quelle technologie peut vous aider.",
         "Si vous téléphonez souvent, vérifiez si les appels peuvent être transmis à vos appareils et si votre téléphone est compatible. Pour un modèle rechargeable, pensez aussi aux déplacements et aux week-ends.",
       ] },
-      { id: "son", title: "Comment comparer les marques et le son ?", image: guidePhotos.consult, paragraphs: [
+      { id: "son", title: "Comment comparer les marques et le son ?", image: "/images/audicien-aan-huis/advies-aan-huis.webp", paragraphs: [
         "Oogvoororen propose notamment Oticon, Phonak, Signia et Widex. Les appareils peuvent restituer différemment les voix et les bruits ambiants. Le réglage et la façon dont l’appareil se place dans l’oreille influencent aussi le résultat.",
         "Chez Oogvoororen, nous évaluons votre préférence sonore avec Sound Preference. Vous comparez des extraits de la vie quotidienne traités de différentes manières. Une version peut vous sembler plus douce, une autre rendre les voix plus nettes. Votre préférence aide l’audiologue à choisir avec vous un appareil à essayer.",
         "Dites ce que vous remarquez. Votre voix résonne-t-elle ? Le bruit des couverts est-il trop aigu ? Comprenez-vous mieux votre partenaire ? Ces observations aident à décider s’il faut ajuster les réglages ou essayer un autre modèle.",
