@@ -1,0 +1,26 @@
+.service-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+  gap: clamp(1.5rem, 4vw, 3.5rem);
+  align-items: center;
+  padding-block: clamp(2.5rem, 6vw, 5rem);
+}
+.service-hero h1 { max-width: 15ch; font-size: clamp(2.5rem, 5vw, 4.35rem); }
+.service-lead { max-width: 43ch; margin-block: 1.1rem 1.45rem; color: var(--muted); font-size: 1.05rem; }
+.service-hero img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 1.25rem; }
+.service-hero figcaption { margin-top: .65rem; font-size: .875rem; color: var(--muted); }
+.service-steps { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.service-budget {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: clamp(1.3rem, 4vw, 3rem);
+  align-items: center;
+  background: var(--cream);
+  border-radius: 1.35rem;
+  padding: clamp(1.4rem, 4vw, 3rem);
+}
+.service-budget h3 { font-size: 1.25rem; }
+.service-budget p { margin-top: .75rem; color: var(--muted); }
+@media (max-width: 720px) {
+  .service-hero, .service-budget, .service-steps { grid-template-columns: 1fr; }
+}
