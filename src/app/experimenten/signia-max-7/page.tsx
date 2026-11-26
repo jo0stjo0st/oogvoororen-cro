@@ -1,3 +1,5 @@
+import { ProductAccessories } from "@/features/products/product-accessories";
+import { ProductReviews } from "@/features/reviews/product-reviews";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -64,10 +66,11 @@ export default function SigniaMaxProduct(){
    </div>
   </section>
   <section className="cro-complete-reviews-section" id="reviews">
-   <div className="cro-reviews-card"><div className="cro-reviews-head"><div><p className="eyebrow">Ervaringen van klanten</p><h2>Reviews van de Signia Pure Charge&Go MaX 7</h2></div></div>
-    <div className="cro-reviews-summary"><div className="cro-reviews-score"><strong>9,7 <span>/ 10</span></strong><span className="encanta-stars" aria-hidden="true">★★★★★</span><small>32 beoordelingen op Oogvoororen</small></div><div><h3>Op een prettige manier fantastische hoortoestellen aanschaffen</h3><p>Jan licht in zijn beoordeling de heldere klank, prettige bediening en hulp bij het aanmeten uit.</p><small>Jan · 16 november 2026 · MaX 7</small></div></div>
-    <p className="mt-5"><a className="cro-complete-textlink" href={liveProduct+"#reviews"}>Lees alle beoordelingen bij Oogvoororen →</a></p>
-   </div>
+   <ProductReviews source={{
+    productName:maxName, average:9.7, scale:10, count:32, url:liveProduct+"#reviews",
+    summary:"In de uitgelichte review noemt Jan het heldere geluid, de prettige bediening en de begeleiding bij het aanmeten. Hij noemt ook dat hij de klankkleur niet in de app kon regelen.",
+    samples:[{id:1,name:"Jan",rating:10,date:"16 november 2026",topic:"Geluidskwaliteit en bediening",text:"Op een prettige manier fantastische hoortoestellen aanschaffen"}],
+   }}/>
   </section>
   <section className="cro-complete-section cro-complete-service"><div><p className="eyebrow">Waarom Oogvoororen?</p><h2>Probeer het toestel in uw eigen omgeving</h2><ol className="cro-complete-steps"><li><span>1</span><p>Plan een hoortest en adviesgesprek, aan huis of in een hoorcentrum.</p></li><li><span>2</span><p>Vergelijk samen hoortoestellen en technologieniveaus.</p></li><li><span>3</span><p>Probeer uw keuze vrijblijvend uit in gesprekken die voor u tellen.</p></li></ol><a href="#afspraak" className="cro-complete-textlink">Vraag persoonlijk hooradvies aan →</a></div><Image src="/images/audicien-aan-huis/advies-aan-huis.webp" alt="Een audicien bespreekt een hoortoestel tijdens een adviesgesprek" width={760} height={510}/></section>
   <section className="cro-complete-section" id="prijs"><p className="eyebrow">Prijs en vergoeding</p><h2>Wat kost de Signia MaX 7?</h2><PriceChoice/></section>
@@ -90,11 +93,14 @@ export default function SigniaMaxProduct(){
    <details><summary>Handleidingen en productdocumenten</summary><div className="download-links"><a href={manual}>Handleiding Pure Charge&amp;Go MaX (PDF) ↓</a><a href="/documents/signia-max-7-productbrochure.pdf" download>Consumentenbrochure MaX 7 (PDF) ↓</a></div></details>
    <div className="mt-3 border-t border-[#dfe8e1] pt-5"><div className="flex items-center gap-3"><Image unoptimized src={cdn+"sZTcZFko7xpct61F1IvJ1zKgrXe7n2jgZqUtdhWd.png"} width={48} height={48} alt=""/><h3>Signia One-app</h3></div><p>Pas het volume aan, wissel van luisterprogramma en controleer de batterijstatus op uw telefoon.</p><AppDownloads/><p className="mt-4"><Link className="underline" href={maxRoute+"/signia-one"}>Lees hoe Signia One werkt →</Link></p></div>
   </section>
-  <section className="cro-complete-section" id="accessoires"><p className="eyebrow">Aanvullingen voor uw hoortoestel</p><h2>Accessoires, onderhoud en onderdelen</h2>
-   <div className="cro-complete-accessories">{accessories.map(([name,description,price,path,photo])=><article key={name}><Image className="mb-4 h-36 w-full object-contain" unoptimized src={cdn+photo} width={180} height={150} alt={name}/><h3>{name}</h3><p>{description}</p><strong>{name.startsWith("Desktop")?"Inbegrepen":euros(price)}</strong><p className="!min-h-0"><a className="underline" href={"https://oogvoororen.nl/webshop/"+path}>Bekijk {name} →</a></p></article>)}</div>
-   <details className="mt-6"><summary>Onderhoud en vervangende onderdelen</summary><p>Zoek het juiste onderdeel in de webshop voor de Signia MaX 7. Uw audicien kan helpen controleren welke maat of uitvoering u draagt.</p><ul>{maintenance.map(([name,id])=><li key={name}><a className="underline" href={id.startsWith("https://")?id:liveProduct+"#bijproducten"}>{name}</a></li>)}</ul><a className="cro-complete-textlink" href="https://oogvoororen.nl/webshop/onderhoudsartikelen">Bekijk onderhoudsartikelen in de webshop →</a></details>
-   <details><summary>Instructievideo’s voor de Signia MaX</summary><p>Bekijk de productvideo’s voor hulp bij dagelijks gebruik en onderhoud.</p><a className="cro-complete-textlink" href={videos}>Bekijk de instructievideo’s →</a></details>
-  </section>
+  <ProductAccessories
+   title="Accessoires bij uw Signia MaX"
+   items={accessories.map(([name,note,price,path,photo])=>({name,note,href:"https://oogvoororen.nl/webshop/"+path,photo:cdn+photo,priceLabel:name.startsWith("Desktop")?"Inbegrepen bij het toestel":euros(price)}))}
+   maintenance={maintenance.map(([name,id])=>({name,href:id.startsWith("https://")?id:liveProduct+"#bijproducten"}))}
+   guidance="Controleer welk type filter, dome of receiver op uw toestel zit. Uw audicien kan u helpen bij de keuze."
+   videoLink={videos}
+   videoLabel="Bekijk de instructievideo’s voor de Signia MaX"
+  />
   <section className="cro-complete-section"><h2>Veelgestelde vragen</h2>
    <details><summary>Wat is het verschil tussen Signia MaX en Signia IX?</summary><p>MaX is het platform waarop vier netwerken de verwerking van onder meer stemmen, achtergrondgeluid en uw eigen stem op elkaar afstemmen. Deze serie gebruikt de Signia One-app.</p></details>
    <details><summary>Kan ik de MaX 7 aan huis uitproberen?</summary><p>Bij Oogvoororen kunt u een hoortest en adviesgesprek aan huis of in een hoorcentrum aanvragen. Samen bespreekt u of dit toestel bij uw gehoor en wensen past.</p></details>

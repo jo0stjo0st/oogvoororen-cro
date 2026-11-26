@@ -1,6 +1,6 @@
+import { ProductAccessories } from "./product-accessories";
 import type { ReactNode } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { euro, product } from "./data";
 
 const levels = [
@@ -132,34 +132,17 @@ const maintenance = [
 
 export function EncantaAccessories() {
   return (
-    <section className="cro-complete-section" id="accessoires">
-      <h2>Accessoires bij uw Encanta</h2>
-      <div className="cro-complete-accessories">
-        {accessories.map(({ name, path, photo, note }) => {
-          const accessory = product.accessories.find(item => item.name === name);
-          return (
-            <article key={name}>
-              <a href={store + path} className="encanta-accessory-link">
-                <Image unoptimized src={photos + photo} alt="" width={180} height={140} />
-                <h3>{name}</h3>
-              </a>
-              <p>{note}</p>
-              <strong>{name === "Desk Charger" ? "Inbegrepen bij het toestel" : accessory && euro(accessory.price)}</strong>
-            </article>
-          );
-        })}
-      </div>
-      <details>
-        <summary>Onderhoud en vervangende onderdelen</summary>
-        <h3>Bestellen in de webshop</h3>
-        <p>Controleer welk type filter, dome of receiver op uw toestel zit. Laat maatwerk-oorstukjes zo nodig door uw audioloog nakijken.</p>
-        <ul className="encanta-maintenance">
-          {maintenance.map(([name, path]) => <li key={name}><a href={store + path}>{name} →</a></li>)}
-        </ul>
-        <h3>Instructievideo’s</h3>
-        <p><a href="https://oogvoororen.be/video-cursus/oticon/onderhoud-oticon-ric-modellen">Bekijk de instructievideo’s voor de RIC-onderdelen →</a></p>
-      </details>
-    </section>
+    <ProductAccessories
+      title="Accessoires bij uw Encanta"
+      items={accessories.map(({name, path, photo, note}) => {
+        const accessory = product.accessories.find(item => item.name === name);
+        return {name, href: store + path, photo: photos + photo, note, priceLabel: name === "Desk Charger" ? "Inbegrepen bij het toestel" : accessory && euro(accessory.price)};
+      })}
+      maintenance={maintenance.map(([name, path]) => ({name, href: store + path}))}
+      guidance="Controleer welk type filter, dome of receiver op uw toestel zit. Laat maatwerk-oorstukjes zo nodig door uw audioloog nakijken."
+      videoLink="https://oogvoororen.be/video-cursus/oticon/onderhoud-oticon-ric-modellen"
+      videoLabel="Bekijk de instructievideo’s voor de RIC-onderdelen"
+    />
   );
 }
 
