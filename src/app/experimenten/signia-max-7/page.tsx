@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import {cdn,datasheet,euros,featureSheet,liveProduct,manual,maxFeatures,maxName,maxRoute,models,videos} from "@/features/products/signia-max";
+import {cdn,datasheet,euros,featureSheet,liveProduct,manual,maxName,maxRoute,models,videos} from "@/features/products/signia-max";
+import {specifications} from "@/features/products/signia-max-specifications";
 import {Gallery,PriceChoice,StickyAppointment,Visual} from "./interactive";
 import {AppDownloads,Appointment,MaxFooter,MaxHeader} from "./shared";
 import styles from "../bernafon-smart-directionality/page.module.css";
@@ -12,10 +13,16 @@ export const metadata: Metadata = {
  robots:{index:false,follow:true},
 };
 
+const highlights = [
+ {slug:"realtime-conversation-enhancement-ai",label:"Spraakverstaan in groepsgesprekken",text:"Volg het gesprek als meerdere mensen om de beurt aan het woord zijn.",mode:"voices"},
+ {slug:"dynamic-noise-control-ai",label:"Rumoeronderdrukking",text:"Versta uw gesprekspartner beter bij afleiding door achtergrondgeluid.",mode:"noise"},
+ {slug:"auto-echoshield",label:"Echoreductie",text:"Beperk de invloed van galm in ruimtes met harde vloeren en wanden.",mode:"echo"},
+] as const;
+
 const comparison = [
- ["MaX 7",5,2245,"Meeste ondersteuning in groepsgesprekken · drie AI-focusstromen · automatische galmreductie · Spatial SpeechFocus"],
- ["MaX 5",4,2045,"Eén AI-focusstroom · SpeechFocus · afzonderlijk luisterprogramma voor galmende ruimtes"],
- ["MaX 3",2,1700,"Conversation Booster · demping van plots contactgeluid · automatische omgevingsaanpassing"],
+ ["MaX 7",5,2245,"Meeste ondersteuning in groepsgesprekken · automatische galmreductie · richtinggevoelige ondersteuning tijdens wandelen en autoritten"],
+ ["MaX 5",4,2045,"Extra ondersteuning bij wisselende gesprekspartners · afzonderlijk luisterprogramma voor galmende ruimtes"],
+ ["MaX 3",2,1700,"Ondersteuning bij groepsgesprekken · demping van plots contactgeluid · automatische omgevingsaanpassing"],
 ] as const;
 
 const accessories = [
@@ -49,9 +56,9 @@ export default function SigniaMaxProduct(){
   <section className="cro-complete-section" id="technologie">
    <p className="eyebrow">Over dit toestel</p><h2>Wat maakt de Signia MaX 7 bijzonder?</h2>
    <p className="cro-complete-lead">Volg wisselende stemmen in een gesprek, beperk hinderlijk achtergrondgeluid en blijf verbonden met uw telefoon. Bekijk per functie hoe het toestel reageert.</p>
-   <div className="cro-complete-cards">{maxFeatures.filter(({slug})=>["acoustic-intelligence","realtime-conversation-enhancement-ai","oneconnect"].includes(slug)).map(feature=><article key={feature.slug}><Visual mode={feature.mode} stage={1}/><h3><Link className="underline" href={maxRoute+"/"+feature.slug}>{feature.name}</Link></h3><p>{feature.intro}</p></article>)}</div>
+   <div className="cro-complete-cards">{highlights.map(({slug,label,text,mode})=><article key={slug}><Visual mode={mode} stage={1}/><h3><Link className="underline" href={maxRoute+"/"+slug}>{label}</Link></h3><p>{text}</p></article>)}</div>
    <div className="mt-6">
-    <details><summary>Ontdek alle MaX-functies</summary><div className={styles.contents}>{maxFeatures.map(feature=><Link key={feature.slug} href={maxRoute+"/"+feature.slug}>{feature.name} →</Link>)}</div></details>
+    <p><a className="cro-complete-textlink" href="#specificaties">Vergelijk alle specificaties →</a></p>
     <details><summary>Omschrijving</summary><p>De Pure Charge&amp;Go MaX 7 is het topmodel van Signia MaX. Vier gespecialiseerde netwerken werken samen aan het verwerken van spraak, achtergrondgeluid, de luistersituatie en uw eigen stem. Zo kan het toestel de verwerking aanpassen als sprekers wisselen of als het drukker wordt om u heen.</p><p>Het toestel is oplaadbaar en wordt geleverd met een oplader. Via OneConnect kunt u met geschikte apparaten telefoneren en audio streamen. Er is ook een luisterspoel voor ringleidingen.</p></details>
     <details><summary>Plus- en minpunten</summary><ul className="cro-complete-benefits"><li><span aria-hidden="true">✓</span>Vier AI-netwerken werken samen</li><li><span aria-hidden="true">✓</span>Gericht op verstaan in drukke groepsgesprekken</li><li><span aria-hidden="true">✓</span>Winnaar Hearing Technology Innovator Award 2026</li><li><span aria-hidden="true">✓</span>Bluetooth Classic en LE Audio</li><li><span aria-hidden="true">−</span>Auracast vereist volgens de productinformatie een software-update</li></ul></details>
    </div>
@@ -68,16 +75,17 @@ export default function SigniaMaxProduct(){
    <p className="eyebrow">Vergelijk de MaX-serie</p><h2>Welke Signia MaX past bij u?</h2><p>De sterren geven aan hoe uitgebreid de ondersteuning voor groepsgesprekken is volgens Signia.</p>
    <div className="cro-complete-levels">{comparison.map(([name,score,price,description])=><article key={name}><h3>{name}</h3><span className="encanta-stars" role="img" aria-label={score+" van 5 sterren"}>{"★".repeat(score)}<span>{"☆".repeat(5-score)}</span></span><p>{description}</p><strong>{euros(price)} per toestel</strong></article>)}</div>
    <details><summary>Bekijk alle technische specificaties</summary>
-    <div className="cro-complete-table"><table><thead><tr><th scope="col">Specificatie</th>{models.map(model=><th scope="col" key={model}>{model}</th>)}</tr></thead><tbody>
-     <tr><th scope="row">Type en introductie</th><td colSpan={3}>Oplaadbaar RIC-hoortoestel · 2026</td></tr>
-     <tr><th scope="row">Accu en gebruiksduur</th><td colSpan={3}>Lithium-ion · tot 30 uur zonder streaming; tot 22 uur bij 5 uur Bluetooth Classic-streaming of tot 28 uur bij 5 uur LE Audio-streaming, volgens het datablad.</td></tr>
-     <tr><th scope="row">Connectiviteit</th><td colSpan={3}>Bluetooth Classic, LE Audio, luisterspoel en voorbereiding voor Auracast</td></tr>
-     <tr><th scope="row">Bediening</th><td colSpan={3}>Toestelknop, Signia One-app en optionele afstandsbediening</td></tr>
-     <tr><th scope="row">Kanalen / aanpasbanden (Connexx)</th><td>48 / 20</td><td>36 / 18</td><td>32 / 16</td></tr>
-     <tr><th scope="row">Instelbare luisterprogramma’s</th><td>6</td><td>6</td><td>6</td></tr>
-     <tr><th scope="row">Luidsprekers</th><td colSpan={3}>miniReceiver 3.0 · S, M, P en HP, afhankelijk van uw aanpassing</td></tr>
-     {maxFeatures.map(f=><tr key={f.slug}><th scope="row"><Link className="underline" href={maxRoute+"/"+f.slug}>{f.name}</Link></th>{f.levels.map((level,i)=><td key={models[i]}>{level}</td>)}</tr>)}
-    </tbody></table></div>
+    <p>Basis, Geavanceerd en Ultiem geven per functie het verschil tussen deze drie uitvoeringen aan. Klik op een specificatie met een link voor uitleg over de uitvoering van Signia.</p>
+    <div className="cro-complete-table"><table aria-label="Vergelijk de specificaties van Signia MaX 7, 5 en 3">
+     <thead><tr><th scope="col">Specificatie</th>{models.map(model=><th scope="col" key={model}>{model}</th>)}</tr></thead>
+     {specifications.map(group=><tbody key={group.label}>
+      <tr><th className="encanta-spec-group" scope="rowgroup" colSpan={4}>{group.label}</th></tr>
+      {group.rows.map(({label,values,detail})=><tr key={label}>
+       <th scope="row">{detail?<Link className="underline" href={maxRoute+"/"+detail}>{label}</Link>:label}</th>
+       {values.map((value,i)=><td key={models[i]}>{value}</td>)}
+      </tr>)}
+     </tbody>)}
+    </table></div>
    </details>
    <details><summary>Handleidingen en productdocumenten</summary><div className="download-links"><a href={manual}>Handleiding Pure Charge&amp;Go MaX (PDF) ↓</a><a href="/documents/signia-max-7-productbrochure.pdf" download>Consumentenbrochure MaX 7 (PDF) ↓</a></div></details>
    <div className="mt-3 border-t border-[#dfe8e1] pt-5"><div className="flex items-center gap-3"><Image unoptimized src={cdn+"sZTcZFko7xpct61F1IvJ1zKgrXe7n2jgZqUtdhWd.png"} width={48} height={48} alt=""/><h3>Signia One-app</h3></div><p>Pas het volume aan, wissel van luisterprogramma en controleer de batterijstatus op uw telefoon.</p><AppDownloads/><p className="mt-4"><Link className="underline" href={maxRoute+"/signia-one"}>Lees hoe Signia One werkt →</Link></p></div>

@@ -1,0 +1,48 @@
+// Cataloguswaarden van Oogvoororen, in de volgorde MaX 7, MaX 5, MaX 3.
+type Specification = { label: string; values: [string, string, string]; detail?: string };
+
+export const specifications: { label: string; rows: Specification[] }[] = [
+  { label: "Algemeen", rows: [
+    { label: "Reviews", values: ["4,5 van 5 sterren", "5 van 5 sterren", "4,5 van 5 sterren"] },
+    { label: "Releasejaar", values: ["2026", "2026", "2026"] },
+    { label: "Oplaadbaar", values: ["Ja", "Ja", "Ja"] },
+    { label: "Batterijtype", values: ["Lithium-ion · 5 jaar garantie op terugloop accucapaciteit", "Lithium-ion · 5 jaar garantie op terugloop accucapaciteit", "Lithium-ion · 5 jaar garantie op terugloop accucapaciteit"] },
+    { label: "Batterijduur", values: ["30 uur", "30 uur", "30 uur"] },
+    { label: "Volumeregelaar", values: ["Ja", "Ja", "Ja"] },
+    { label: "Programmaschakelaar", values: ["Ja", "Ja", "Ja"] },
+    { label: "Ringleiding", values: ["Ja", "Ja", "Ja"], detail: "oneconnect" },
+    { label: "Kanalen", values: ["48", "36", "36"] },
+    { label: "Banden", values: ["20", "18", "18"] },
+    { label: "Frequentie bereik", values: ["10 kHz", "8 kHz", "8 kHz"] },
+    { label: "Luisterprogramma's", values: ["6", "6", "6"] },
+    { label: "Vochtbestendig/ stofbestendig", values: ["Ja", "Ja", "Ja"] },
+    { label: "Geschikt voor Android", values: ["Ja", "Ja", "Ja"], detail: "signia-one" },
+    { label: "Geschikt voor Apple", values: ["Ja", "Ja", "Ja"], detail: "signia-one" },
+    { label: "Geschikt voor Bluetooth Auracast", values: ["Nee", "Nee", "Nee"], detail: "oneconnect" },
+  ] },
+  { label: "Audiologisch", rows: [
+    { label: "Adaptieve directionaliteit", values: ["Ja", "Ja", "Ja"], detail: "truear-360" },
+    { label: "Binaurale directionaliteit", values: ["Ja", "Ja", "Ja"], detail: "truear-360" },
+    { label: "Ruimtelijke oriëntatie", values: ["Ultiem", "Geavanceerd", "Basis"], detail: "truear-360" },
+    { label: "360 graden spraakverstaan", values: ["Ultiem", "Geavanceerd", "Basis"], detail: "realtime-conversation-enhancement-ai" },
+    { label: "Ruisonderdrukking", values: ["Ultiem", "Geavanceerd", "Basis"], detail: "dynamic-noise-control-ai" },
+    { label: "Rumoeronderdrukking", values: ["Ultiem", "Geavanceerd", "Basis"], detail: "dynamic-noise-control-ai" },
+    { label: "Spraakherkenning", values: ["Ultiem", "Geavanceerd", "Basis"], detail: "speechstabilizer" },
+    { label: "Zachte spraak versterking", values: ["Ultiem", "Geavanceerd", "Basis"] },
+    { label: "Omgevingsadaptie", values: ["Ultiem", "Geavanceerd", "Basis"], detail: "ambient-scene-adaptation-ai" },
+    { label: "Windruisonderdrukking", values: ["Ultiem", "Ultiem", "Geavanceerd"], detail: "ewindscreen-2-0" },
+    { label: "Muziek modus", values: ["Ultiem", "Ultiem", "Geavanceerd"], detail: "hd-music" },
+    { label: "Ear-to-ear communicatie", values: ["Ja", "Ja", "Ja"], detail: "e2e-wireless" },
+    { label: "Bewegingssensoren", values: ["Ja", "Ja", "Ja"], detail: "bewegingssensor" },
+    { label: "Echoreductie", values: ["Ja", "Nee", "Nee"], detail: "auto-echoshield" },
+    { label: "Eigen stem herkenning", values: ["Ja", "Ja", "Ja"], detail: "own-voice-processing-ai" },
+    { label: "Ruis/ tinnitusmaskeerder", values: ["Ultiem", "Geavanceerd", "Basis"], detail: "tinnitustherapie" },
+    { label: "Geschikt voor CROS", values: ["Ja", "Ja", "Ja"] },
+  ] },
+  { label: "Extra functies", rows: [
+    { label: "Online aanpasbaar", values: ["Ja", "Ja", "Ja"], detail: "telecare" },
+    { label: "Lokalisatie", values: ["Ja", "Ja", "Ja"] },
+    { label: "Tap Control", values: ["Ja", "Ja", "Ja"] },
+    { label: "Gezondheidsfuncties", values: ["Nee", "Nee", "Nee"] },
+  ] },
+];
