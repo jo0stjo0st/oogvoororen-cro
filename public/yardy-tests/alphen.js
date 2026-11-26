@@ -13,8 +13,6 @@ enquiry.addEventListener('submit', (event) => {
     'E-mailadres: ' + fields.get('email'),
     'Telefoon: ' + fields.get('telefoon'),
     'Plaats: ' + fields.get('plaats'),
-    '',
-    fields.get('wensen'),
   ].join('\r\n');
   window.location.href = 'mailto:info@yardy.nl?subject=' + encodeURIComponent(subject)
     + '&body=' + encodeURIComponent(body);
