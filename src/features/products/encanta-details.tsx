@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Image from "next/image";
 import { euro, product } from "./data";
 
@@ -60,7 +61,9 @@ export function EncantaTechnicalDetails() {
               <tbody key={group.title}>
                 <tr><th colSpan={2} className="encanta-spec-group">{group.title}</th></tr>
                 {group.rows.map(([label, value]) => (
-                  <tr key={label}><th scope="row">{label}</th><td>{value}</td></tr>
+                  <tr key={label}><th scope="row">{label}</th><td>{value === "Ja, met Smart Directionality" ? (
+                    <>Ja, met <Link href="/experimenten/bernafon-smart-directionality" className="underline">Smart Directionality</Link></>
+                  ) : value}</td></tr>
                 ))}
               </tbody>
             ))}
@@ -153,7 +156,7 @@ export function EncantaProfessionals() {
         </details>
         <details className="encanta-professional-faq">
           <summary>Wat kan ik aanpassen voor gesprekken in rumoer?</summary>
-          <p>Vergelijk de instellingen voor Smart Directionality en de Speech and Noise Balancer. Gebruik een herkenbare gesprekssituatie om samen te beoordelen hoeveel nadruk op spraak prettig is.</p>
+          <p>Vergelijk de instellingen voor <Link href="/experimenten/bernafon-smart-directionality">Smart Directionality</Link> en de Speech and Noise Balancer. Gebruik een herkenbare gesprekssituatie om samen te beoordelen hoeveel nadruk op spraak prettig is.</p>
         </details>
         <details className="encanta-professional-faq">
           <summary>Hoe maak ik een instelling voor muziekluisteraars?</summary>
