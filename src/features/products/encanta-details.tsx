@@ -143,22 +143,38 @@ export function EncantaProfessionals() {
           <a href="/downloads/bernafon-encanta-minirite-aanpasbereik.pdf" download>Aanpasbereik per receiver (PDF) ↓</a>
         </div>
         <h3>Tips &amp; tricks</h3>
-        <div className="encanta-professional-faq">
-          <h4>Welke receiver kies ik?</h4>
+        <details className="encanta-professional-faq">
+          <summary>Welke receiver kies ik?</summary>
           <p>Vergelijk het audiogram met het aanpasbereik van de 60-, 85-, 100- of 105-receiver. Houd rekening met de gekozen akoestische koppeling en verifieer de versterking op het oor.</p>
-        </div>
-        <div className="encanta-professional-faq">
-          <h4>Hoe stel ik de demping van plotse geluiden af?</h4>
+        </details>
+        <details className="encanta-professional-faq">
+          <summary>Hoe stel ik de demping van plotse geluiden af?</summary>
           <p>De 400 biedt zes instellingen voor Transient Noise Reduction. Bespreek bij welke geluiden de drager last ervaart en beoordeel bij een bijstelling het effect op comfort en verstaan.</p>
-        </div>
-        <div className="encanta-professional-faq">
-          <h4>Wat kan ik aanpassen voor gesprekken in rumoer?</h4>
+        </details>
+        <details className="encanta-professional-faq">
+          <summary>Wat kan ik aanpassen voor gesprekken in rumoer?</summary>
           <p>Vergelijk de instellingen voor Smart Directionality en de Speech and Noise Balancer. Gebruik een herkenbare gesprekssituatie om samen te beoordelen hoeveel nadruk op spraak prettig is.</p>
-        </div>
-        <div className="encanta-professional-faq">
-          <h4>Hoe maak ik een instelling voor muziekluisteraars?</h4>
+        </details>
+        <details className="encanta-professional-faq">
+          <summary>Hoe maak ik een instelling voor muziekluisteraars?</summary>
           <p>Probeer het programma Music Experience en laat de drager luisteren naar een bekend muziekfragment. Bespreek of de balans en het volume prettig zijn.</p>
-        </div>
+        </details>
+        <details className="encanta-professional-faq">
+          <summary>Hoe vergelijk ik twee instellingen bij hetzelfde luisterfragment? (Demo)</summary>
+          <p>In dit fictieve voorbeeld zet u de huidige instelling naast een proefinstelling. U speelt hetzelfde gespreksfragment voor beide af en noteert bij welke versie de drager de stem makkelijker volgt.</p>
+          <figure className="encanta-software-demo">
+            <div className="encanta-software-bar"><strong>Aanpasdemo</strong><span>Fictieve software</span></div>
+            <div className="encanta-software-content">
+              <h4>Luistervergelijking</h4>
+              <dl>
+                <div><dt>A · Huidige instelling</dt><dd>Standaard spraakfocus</dd></div>
+                <div><dt>B · Proefinstelling</dt><dd>Extra spraakfocus</dd></div>
+              </dl>
+              <p><strong>Luisterfragment</strong> · Gesprek aan tafel</p>
+            </div>
+            <figcaption>Schermmock-up met voorbeeldinstellingen. De namen en de werkwijze zijn verzonnen.</figcaption>
+          </figure>
+        </details>
         <div className="cro-complete-included encanta-jobs">
           <div>
             <h3>Nieuwsgierig of er vacatures bij ons beschikbaar zijn?</h3>

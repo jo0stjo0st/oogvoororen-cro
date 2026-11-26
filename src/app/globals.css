@@ -3387,11 +3387,60 @@ td {
   padding-block: 12px;
 }
 
-.encanta-professional-faq h4 {
-  font-weight: 700;
-  margin: 0 0 4px;
+.encanta-professional-faq > summary {
+  cursor: pointer;
 }
 
-.encanta-professional-faq p {
+.encanta-professional-faq > p {
+  margin: 8px 0 0;
+}
+
+.encanta-software-demo {
+  max-width: 680px;
+  margin: 16px 0 0;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  overflow: hidden;
+  background: #f2f6fa;
+}
+
+.encanta-software-bar {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 10px 16px;
+  color: white;
+  background: #23394f;
+}
+
+.encanta-software-content,
+.encanta-software-demo figcaption {
+  padding: 12px 16px;
+}
+
+.encanta-software-content dl {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr));
+  gap: 8px;
+  margin-block: 12px;
+}
+
+.encanta-software-content dl div {
+  padding: 10px;
+  background: white;
+  border: 1px solid #d8e5ef;
+  border-radius: 6px;
+}
+
+.encanta-software-content dt {
+  font-weight: 700;
+}
+
+.encanta-software-content dd {
   margin: 0;
+}
+
+.encanta-software-demo figcaption {
+  font-size: .875rem;
 }
