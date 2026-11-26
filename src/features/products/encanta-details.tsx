@@ -80,6 +80,33 @@ export function EncantaTechnicalDetails() {
           <a href={manual}>Handleiding Encanta miniRITE (PDF) ↓</a>
         </div>
       </details>
+      <div className="mt-3 border-t border-[#dfe8e1] pt-5">
+        <h3>Bernafon App</h3>
+        <p>Regel het volume van uw hoorapparaten, wissel van luisterprogramma en bekijk het batterijniveau op uw smartphone.</p>
+        <div className="flex flex-wrap gap-3">
+          <a
+            className="inline-flex min-h-11 items-center gap-2 rounded-lg border border-current px-4 py-2 font-semibold"
+            href="https://apps.apple.com/be/app/bernafon-app/id1597062293"
+          >
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
+              <path d="M17.1 12.3c0-2 1.6-3 1.7-3.1-1-1.5-2.6-1.7-3.2-1.7-1.3-.1-2.5.8-3.2.8s-1.7-.8-2.8-.7C7.2 7.6 5 9.5 5 12.9c0 2.5 1 5.1 2.2 6.7.6.8 1.2 1.6 2.1 1.6.9 0 1.3-.6 2.5-.6 1.3 0 1.7.6 2.7.6.9 0 1.5-.8 2.1-1.6.7-.9 1.2-2 1.5-3.1-.1 0-2.1-.8-2.1-3.2zM15 6.2c.5-.7.9-1.6.8-2.5-.8 0-1.8.6-2.4 1.2-.5.6-1 1.5-.9 2.4.9.1 1.8-.4 2.5-1.1z" />
+            </svg>
+            App Store (iOS)
+          </a>
+          <a
+            className="inline-flex min-h-11 items-center gap-2 rounded-lg border border-current px-4 py-2 font-semibold"
+            href="https://play.google.com/store/apps/details?id=com.bernafon.bernafonapp&hl=nl"
+          >
+            <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+              <path fill="#4285F4" d="M3 3v18l9-9z" />
+              <path fill="#34A853" d="M3 3l9 9 3.5-3.5L4.5 2.6a1 1 0 0 0-1.5.4z" />
+              <path fill="#FBBC04" d="m12 12 3.5 3.5 4.9-2.6a1 1 0 0 0 0-1.8l-4.9-2.6z" />
+              <path fill="#EA4335" d="m3 21 9-9 3.5 3.5-11 5.9A1 1 0 0 1 3 21z" />
+            </svg>
+            Google Play (Android)
+          </a>
+        </div>
+      </div>
     </section>
   );
 }
