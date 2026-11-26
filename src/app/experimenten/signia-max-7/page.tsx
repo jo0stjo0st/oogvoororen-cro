@@ -1,3 +1,4 @@
+import { productTechnologyHref } from "@/features/products/hearing-technology";
 import { ProductAccessories } from "@/features/products/product-accessories";
 import { ProductReviews } from "@/features/reviews/product-reviews";
 import type { Metadata } from "next";
@@ -58,7 +59,7 @@ export default function SigniaMaxProduct(){
   <section className="cro-complete-section" id="technologie">
    <p className="eyebrow">Over dit toestel</p><h2>Wat maakt de Signia MaX 7 bijzonder?</h2>
    <p className="cro-complete-lead">Volg wisselende stemmen in een gesprek, beperk hinderlijk achtergrondgeluid en blijf verbonden met uw telefoon. Bekijk per functie hoe het toestel reageert.</p>
-   <div className="cro-complete-cards">{highlights.map(({slug,label,text,mode})=><article key={slug}><Visual mode={mode} stage={1}/><h3><Link className="underline" href={maxRoute+"/"+slug}>{label}</Link></h3><p>{text}</p></article>)}</div>
+   <div className="cro-complete-cards">{highlights.map(({slug,label,text,mode})=><article key={slug}><Visual mode={mode} stage={1}/><h3><Link className="underline" href={label==="Rumoeronderdrukking" ? productTechnologyHref("pure-max-7","rumoeronderdrukking")! : maxRoute+"/"+slug}>{label}</Link></h3><p>{text}</p></article>)}</div>
    <div className="mt-6">
     <p><a className="cro-complete-textlink" href="#specificaties">Vergelijk alle specificaties →</a></p>
     <details><summary>Omschrijving</summary><p>De Pure Charge&amp;Go MaX 7 is het topmodel van Signia MaX. Vier gespecialiseerde netwerken werken samen aan het verwerken van spraak, achtergrondgeluid, de luistersituatie en uw eigen stem. Zo kan het toestel de verwerking aanpassen als sprekers wisselen of als het drukker wordt om u heen.</p><p>Het toestel is oplaadbaar en wordt geleverd met een oplader. Via OneConnect kunt u met geschikte apparaten telefoneren en audio streamen. Er is ook een luisterspoel voor ringleidingen.</p></details>
@@ -84,7 +85,7 @@ export default function SigniaMaxProduct(){
      {specifications.map(group=><tbody key={group.label}>
       <tr><th className="encanta-spec-group" scope="rowgroup" colSpan={4}>{group.label}</th></tr>
       {group.rows.map(({label,values,detail})=><tr key={label}>
-       <th scope="row">{detail?<Link className="underline" href={maxRoute+"/"+detail}>{label}</Link>:label}</th>
+       <th scope="row">{detail?<Link className="underline" href={label==="Rumoeronderdrukking" ? productTechnologyHref("pure-max-7","rumoeronderdrukking")! : maxRoute+"/"+detail}>{label}</Link>:label}</th>
        {values.map((value,i)=><td key={models[i]}>{value}</td>)}
       </tr>)}
      </tbody>)}

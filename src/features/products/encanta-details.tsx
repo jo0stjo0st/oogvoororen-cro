@@ -1,3 +1,4 @@
+import { productTechnologyHref } from "./hearing-technology";
 import { ProductAccessories } from "./product-accessories";
 import type { ReactNode } from "react";
 import Link from "next/link";
@@ -62,10 +63,10 @@ export function EncantaTechnicalDetails() {
               <tbody key={group.title}>
                 <tr><th colSpan={2} className="encanta-spec-group">{group.title}</th></tr>
                 {group.rows.map(([label, value]) => (
-                  <tr key={label}><th scope="row">{label}</th><td>{value === "Ja, met Smart Directionality" ? (
+                  <tr key={label}><th scope="row">{label === "Rumoeronderdrukking" ? <Link href={productTechnologyHref("encanta-400-pro", "rumoeronderdrukking")!} className="underline">{label}</Link> : label}</th><td>{value === "Ja, met Smart Directionality" ? (
                     <>Ja, met <Link href="/experimenten/bernafon-smart-directionality" className="underline">Smart Directionality</Link></>
                   ) : value === "Smart Noise Reduction, tot 12 dB" ? (
-                    <><Link href="/experimenten/bernafon-smart-noise-reduction" className="underline">Smart Noise Reduction</Link>, tot 12 dB</>
+                    <>Tot 12 dB</>
                   ) : value}</td></tr>
                 ))}
               </tbody>
