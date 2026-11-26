@@ -29,4 +29,4 @@ Een productopvolger erft geen techniek automatisch. Hergebruik dezelfde techniek
 
 ## Proefimplementatie
 
-De gegevens staan in `src/features/products/hearing-technology.ts`. Encanta 400 Pro en MaX 7 tonen een link op de generieke naam Rumoeronderdrukking. Dynamic Noise Control AI is ook expliciet gekoppeld aan MaX 5 en 3. AI Smart Noise Reduction is voor Revita alleen op familieniveau vastgelegd omdat de gebruikte bron de technieknaam niet eenduidig per toestel uitsplitst. De bestaande interactieve merkpagina’s blijven bereikbaar vanuit de nieuwe verdiepingspagina’s.
+De gegevens staan in `src/features/products/hearing-technology.ts`. Encanta 400 Pro en MaX 7 tonen een link op de generieke naam Rumoeronderdrukking. Dynamic Noise Control AI is ook expliciet gekoppeld aan MaX 5 en 3. AI Smart Noise Reduction is voor Revita alleen op familieniveau vastgelegd omdat de gebruikte bron de technieknaam niet eenduidig per toestel uitsplitst. De interactieve uitleg staat op de canonieke techniekpagina. De oude Bernafon- en Signia-experimentroutes verwijzen permanent door naar die pagina met het passende toestel in het kruimelpad.

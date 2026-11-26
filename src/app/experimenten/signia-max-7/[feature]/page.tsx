@@ -1,6 +1,6 @@
 import type {Metadata} from "next";
 import Link from "next/link";
-import {notFound} from "next/navigation";
+import {notFound,permanentRedirect} from "next/navigation";
 import {maxFeatures,maxName,maxRoute,models} from "@/features/products/signia-max";
 import {Scenes,Visual} from "../interactive";
 import {AppDownloads,Appointment,MaxFooter,MaxHeader} from "../shared";
@@ -46,6 +46,7 @@ export async function generateMetadata({params}:Props):Promise<Metadata>{
 
 export default async function SigniaFeature({params}:Props){
  const {feature}=await params;
+ if(feature==="dynamic-noise-control-ai") permanentRedirect("/hoorapparaat-technologie/rumoeronderdrukking/signia/dynamic-noise-control-ai?toestel=pure-max-7");
  const entry=maxFeatures.find(({slug})=>slug===feature);
  if(!entry) notFound();
  const related=maxFeatures.filter(candidate=>candidate.slug!==entry.slug && (candidate.mode===entry.mode || (entry.slug==="acoustic-intelligence" && ["realtime-conversation-enhancement-ai","dynamic-noise-control-ai","ambient-scene-adaptation-ai","own-voice-processing-ai"].includes(candidate.slug))));

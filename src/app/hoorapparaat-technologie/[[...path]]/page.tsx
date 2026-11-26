@@ -3,6 +3,11 @@ import Link from "next/link";
 import {notFound} from "next/navigation";
 import {ProductSiteHeader,ProductSiteFooter} from "@/components/product-site-shell";
 import {brands,families,familyEvidence,productReferences,specifications,specificationTechnologies,technologies,technologyHref,technologyRoot} from "@/features/products/hearing-technology";
+import {EncantaNoiseExplanation} from "../../experimenten/bernafon-smart-noise-reduction/explanation";
+import {NoiseScenes} from "../../experimenten/bernafon-smart-noise-reduction/noise-visuals";
+import {Scenes,Visual} from "../../experimenten/signia-max-7/interactive";
+import {maxFeatures,models} from "@/features/products/signia-max";
+import {CompactAppointmentForm} from "@/features/appointments/compact-form";
 import styles from "../../experimenten/bernafon-smart-directionality/page.module.css";
 
 type Props={params:Promise<{path?:string[]}>;searchParams:Promise<{toestel?:string|string[]}>};
@@ -35,6 +40,9 @@ export default async function TechnologyPage({params,searchParams}:Props){
   const source=usedBy.find(item=>item.id===toestel && item.href);
   const title=technology?.name ?? spec?.title ?? "Technologie in hoorapparaten";
 
+  const isEncanta = technology?.id==="smart-noise-reduction";
+  const signiaNoise = technology?.id==="dynamic-noise-control-ai" ? maxFeatures.find(item=>item.slug===technology.id) : undefined;
+
   return <><ProductSiteHeader hideBreadcrumb/><main id="main-content" className="wide cro-complete-page">
     <nav className="cro-complete-back" aria-label="Broodkruimel">
       {source?.href && <><Link href={source.href}>← {source.name}</Link>{" · "}</>}
@@ -42,12 +50,12 @@ export default async function TechnologyPage({params,searchParams}:Props){
       {spec && <>{" / "}{technology ? <Link href={technologyRoot+"/"+spec.id}>{spec.title}</Link> : <span aria-current="page">{spec.title}</span>}</>}
       {technology && <span aria-current="page">{" / "}{brands[technology.brand]} · {technology.name}</span>}
     </nav>
-    <section className="cro-complete-section">
+    {isEncanta ? <EncantaNoiseExplanation/> : <section className="cro-complete-section">
       <p className="eyebrow">{technology ? brands[technology.brand]+" · "+spec?.title : "Uitleg van Oogvoororen"}</p>
       <h1>{title}</h1>
       <p className="cro-complete-lead">{technology?.summary ?? spec?.summary ?? "Lees wat de specificaties van hoorapparaten betekenen. Merken kunnen dezelfde functie op verschillende manieren uitvoeren. Ook binnen één merk kan de uitvoering verschillen per toestel en generatie."}</p>
       {source?.href && <p><Link className="cro-complete-textlink" href={source.href}>Terug naar de specificaties van {source.name} →</Link></p>}
-    </section>
+    </section>}
     {!spec && <section className="cro-complete-section"><h2>Functies van hoorapparaten</h2><div className="cro-complete-cards">
       {specifications.map(item=><article key={item.id}><h3><Link className="underline" href={technologyRoot+"/"+item.id}>{item.title}</Link></h3><p>{item.summary}</p></article>)}
     </div></section>}
@@ -71,9 +79,32 @@ export default async function TechnologyPage({params,searchParams}:Props){
       </section>
     </>}
     {spec && technology && <>
-      <section className="cro-complete-section"><h2>Hoe werkt het?</h2><p>{technology.description}</p><div className={styles.note}><strong>Een voorbeeld</strong><p>{technology.example}</p></div>
-        {technology.illustration && <p className="mt-5"><Link className="cro-complete-textlink" href={technology.illustration}>Bekijk de interactieve uitleg →</Link></p>}
-      </section>
+      {!isEncanta && <>
+        <nav className={styles.contents} aria-label="Op deze pagina">
+          <a href="#werking">Hoe werkt het?</a>
+          <a href="#voorbeelden">Luistersituaties</a>
+          {signiaNoise && <><a href="#vergelijking">Per MaX-model</a><a href="#vragen">Veelgestelde vragen</a></>}
+          <a href="#afspraak">Afspraak</a>
+        </nav>
+        <section className="cro-complete-section" id="werking">
+          <h2>Hoe werkt het?</h2><p>{technology.description}</p>
+          {signiaNoise && <div className="cro-complete-cards">{signiaNoise.steps.map((step,i)=><article key={step}><Visual mode={signiaNoise.mode} stage={i}/><p>{step}</p></article>)}</div>}
+        </section>
+        <section className="cro-complete-section" id="voorbeelden">
+          <h2>Wat merkt u in de praktijk?</h2>
+          {signiaNoise ? <Scenes mode={signiaNoise.mode} examples={signiaNoise.examples}/> : <><p>{technology.example}</p><p>De illustratie laat het algemene principe van rumoeronderdrukking zien.</p><NoiseScenes/></>}
+        </section>
+        {signiaNoise && <>
+          <section className="cro-complete-section" id="vergelijking">
+            <h2>Uitvoering per MaX-model volgens Signia</h2>
+            <div className="cro-complete-table"><table><thead><tr><th scope="col">Signia Pure Charge&amp;Go</th><th scope="col">{signiaNoise.name}</th></tr></thead><tbody>{models.map((model,i)=><tr key={model}><th scope="row">{model}</th><td>{signiaNoise.levels[i]}</td></tr>)}</tbody></table></div>
+          </section>
+          <section className="cro-complete-section" id="vragen"><h2>Veelgestelde vragen</h2>
+            <details><summary>{signiaNoise.faq[0]}</summary><p>{signiaNoise.faq[1]}</p></details>
+            <details><summary>Hoe kan ik deze functie zelf uitproberen?</summary><p>Neem een herkenbare luistersituatie mee naar uw afspraak. Tijdens de proef kunt u het toestel in die situatie gebruiken en uw ervaringen met uw audioloog bespreken.</p></details>
+          </section>
+        </>}
+      </>}
       <section className="cro-complete-section"><h2>Welke hoorapparaten gebruiken deze techniek?</h2>
         {usedBy.length>0 && <ul className="grid gap-2">{usedBy.map(item=><li key={item.id}>{item.href ? <Link className="underline" href={item.href}>{item.name}</Link> : item.name}</li>)}</ul>}
         {Object.entries(familyEvidence).filter(([,ids])=>ids.includes(technology.id)).map(([id])=><p key={id}>Bernafon vermeldt deze techniek voor de <strong>{families[id as keyof typeof families].name}-familie</strong>.</p>)}
@@ -81,6 +112,9 @@ export default async function TechnologyPage({params,searchParams}:Props){
         <Link className="cro-complete-textlink" href={technologyRoot+"/"+spec.id}>Vergelijk de technieken voor {spec.title.toLowerCase()} →</Link>
       </section>
     </>}
-    <section className="cro-complete-section" id="afspraak"><h2>Bespreek wat u in rumoer wilt kunnen verstaan</h2><p>Uw audioloog helpt u hoorapparaten kiezen en de verschillen zelf ervaren tijdens een vrijblijvende proef.</p><Link className="cro-complete-cta" href="/experimenten/afspraak">Maak een afspraak voor hooradvies →</Link></section>
+    {!isEncanta && <section className="cro-complete-section cro-complete-appointment" id="afspraak">
+      <div><h2>Bespreek wat u in rumoer wilt kunnen verstaan</h2><p>Uw audioloog helpt u hoorapparaten kiezen en de verschillen zelf ervaren tijdens een vrijblijvende proef.</p><Link className="cro-complete-cta" href="/experimenten/afspraak">Maak een afspraak voor hooradvies →</Link></div>
+      {technology && <div className="cro-complete-form"><h3>Vraag uw afspraak aan</h3><CompactAppointmentForm interest={technology.name}/></div>}
+    </section>}
   </main><ProductSiteFooter/></>;
 }

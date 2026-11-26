@@ -19,7 +19,6 @@ type Technology = {
   description: string;
   example: string;
   evidence: string;
-  illustration?: string;
 };
 
 export const technologies = [
@@ -29,7 +28,6 @@ export const technologies = [
     description:"Bij de Encanta kan Bernafon storend geluid dempen terwijl de verwerking rekening houdt met spraak. Smart Directionality bepaalt uit welke richting geluid meer nadruk krijgt. Samen beïnvloeden die functies hoe duidelijk de stem van uw gesprekspartner boven het rumoer uitkomt.",
     example:"In een restaurant hoort u de stem tegenover u naast ventilatie en andere tafels. De toestellen kunnen het achtergrondgeluid minder nadruk geven.",
     evidence:"Bernafon Encanta miniRITE, technisch functieoverzicht.",
-    illustration:"/experimenten/bernafon-smart-noise-reduction",
   },
   {
     brand:"bernafon", id:"ai-smart-noise-reduction", name:"AI Smart Noise Reduction",
@@ -44,7 +42,6 @@ export const technologies = [
     description:"Signia verwerkt het type en de sterkte van achtergrondgeluid met een afzonderlijk AI-netwerk. Het netwerk werkt samen met de verwerking voor onder meer spraak en de luisteromgeving. Zo kan de demping veranderen wanneer het geroezemoes toe- of afneemt.",
     example:"U praat in een café en aan de tafel naast u begint een levendig gesprek. De demping kan meebewegen met het veranderende rumoer.",
     evidence:"Signia Pure C&G MaX, Feature overview en Signia White Paper over Multi-adaptive Xperience.",
-    illustration:"/experimenten/signia-max-7/dynamic-noise-control-ai",
   },
 ] satisfies Technology[];
 
