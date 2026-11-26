@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ProductSiteFooter, ProductSiteHeader } from "@/components/product-site-shell";
 import { CompactAppointmentForm } from "@/features/appointments/compact-form";
+import { DirectionalityIllustration } from "./directionality-illustration";
 import { ListeningScenes } from "./listening-scenes";
 import styles from "./page.module.css";
 
@@ -57,10 +58,11 @@ export default function Page() {
         <section className="cro-complete-section" id="werking">
           <h2>Van breed luisteren naar gerichte aandacht</h2>
           <div className="cro-complete-cards">
-            <article><h3>De microfoons vangen geluid op</h3><p>De microfoons van het hoorapparaat krijgen geluid uit verschillende richtingen binnen. Door hun signalen te combineren, kan het toestel geluid uit de ene richting meer nadruk geven dan geluid uit een andere richting.</p></article>
-            <article><h3>De richting kan mee veranderen</h3><p>Smart Directionality beoordeelt de richting van het storende geluid. Daardoor kan het hoorapparaat de microfoons gerichter inzetten wanneer rumoer een gesprek moeilijker maakt.</p></article>
-            <article><h3>Beweging geeft extra informatie</h3><p>Op de Encanta 300 en 400 gebruikt Smart Sensor ook hoofd- en lichaamsbeweging. Dat kan helpen om de instellingen aan te passen als u van één gesprekspartner naar een bredere groep overschakelt.</p></article>
+            <article><DirectionalityIllustration step={1} /><h3>De microfoons vangen geluid op</h3><p>De microfoons van het hoorapparaat krijgen geluid uit verschillende richtingen binnen. Door hun signalen te combineren, kan het toestel geluid uit de ene richting meer nadruk geven dan geluid uit een andere richting.</p></article>
+            <article><DirectionalityIllustration step={2} /><h3>De richting kan mee veranderen</h3><p>Smart Directionality beoordeelt de richting van het storende geluid. Daardoor kan het hoorapparaat de microfoons gerichter inzetten wanneer rumoer een gesprek moeilijker maakt.</p></article>
+            <article><DirectionalityIllustration step={3} /><h3>Beweging geeft extra informatie</h3><p>Op de Encanta 300 en 400 gebruikt Smart Sensor ook hoofd- en lichaamsbeweging. Dat kan helpen om de instellingen aan te passen als u van één gesprekspartner naar een bredere groep overschakelt.</p></article>
           </div>
+          <p className={styles.illustrationNote}>De beelden tonen het principe schematisch.</p>
           <div className={styles.note}>
             <h3>Directionaliteit en rumoeronderdrukking werken samen</h3>
             <p>Directionaliteit gaat over <strong>waar</strong> het geluid vandaan komt. Smart Noise Reduction helpt achtergrondgeluid te dempen. Smart Sensor kan op de 300 en 400 de instellingen van beide aanpassen op basis van beweging. Het zijn verschillende functies die elkaar aanvullen.</p>

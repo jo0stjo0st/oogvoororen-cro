@@ -114,3 +114,18 @@
     grid-template-columns: 1fr;
   }
 }
+
+.illustration {
+  display: block;
+  width: 100%;
+  margin-bottom: 16px;
+  border: 1px solid #d5e6da;
+  border-radius: 10px;
+  background: #f1f8f3;
+}
+
+.illustrationNote {
+  color: var(--muted);
+  font-size: .875rem;
+  margin-top: 8px;
+}
