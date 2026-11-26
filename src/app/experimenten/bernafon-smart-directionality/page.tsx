@@ -65,7 +65,7 @@ export default function Page() {
           <p className={styles.illustrationNote}>De beelden tonen het principe schematisch.</p>
           <div className={styles.note}>
             <h3>Directionaliteit en rumoeronderdrukking werken samen</h3>
-            <p>Directionaliteit gaat over <strong>waar</strong> het geluid vandaan komt. Smart Noise Reduction helpt achtergrondgeluid te dempen. Smart Sensor kan op de 300 en 400 de instellingen van beide aanpassen op basis van beweging. Het zijn verschillende functies die elkaar aanvullen.</p>
+            <p>Directionaliteit gaat over <strong>waar</strong> het geluid vandaan komt. <Link href="/experimenten/bernafon-smart-noise-reduction">Smart Noise Reduction</Link> helpt achtergrondgeluid te dempen. Smart Sensor kan op de 300 en 400 de instellingen van beide aanpassen op basis van beweging. Het zijn verschillende functies die elkaar aanvullen.</p>
           </div>
         </section>
 

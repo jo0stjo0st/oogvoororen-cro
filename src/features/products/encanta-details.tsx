@@ -63,6 +63,8 @@ export function EncantaTechnicalDetails() {
                 {group.rows.map(([label, value]) => (
                   <tr key={label}><th scope="row">{label}</th><td>{value === "Ja, met Smart Directionality" ? (
                     <>Ja, met <Link href="/experimenten/bernafon-smart-directionality" className="underline">Smart Directionality</Link></>
+                  ) : value === "Smart Noise Reduction, tot 12 dB" ? (
+                    <><Link href="/experimenten/bernafon-smart-noise-reduction" className="underline">Smart Noise Reduction</Link>, tot 12 dB</>
                   ) : value}</td></tr>
                 ))}
               </tbody>
