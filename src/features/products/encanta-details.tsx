@@ -132,9 +132,10 @@ export function EncantaAccessories() {
 
 export function EncantaProfessionals() {
   return (
-    <section className="cro-complete-section" id="voor-audiciens">
+    <section className="cro-complete-section" id="voor-audiciens" aria-labelledby="encanta-professionals-title">
+      <h2 id="encanta-professionals-title">Voor audiciens</h2>
       <details>
-        <summary>Voor audiciens</summary>
+        <summary>Bekijk downloads en tips voor de aanpassing</summary>
         <div className="download-links">
           <a href={datasheet}>Specsheet Encanta miniRITE (PDF) ↓</a>
           <a href="/downloads/bernafon-encanta-minirite-aanpasbereik.pdf" download>Aanpasbereik per receiver (PDF) ↓</a>
@@ -156,7 +157,12 @@ export function EncantaProfessionals() {
           <summary>Hoe maak ik een instelling voor muziekluisteraars?</summary>
           <p>Probeer het programma Music Experience en laat de drager luisteren naar een bekend muziekfragment. Bespreek of de balans en het volume prettig zijn.</p>
         </details>
-        <a className="cro-complete-cta encanta-jobs" href="https://oogvoororen.be/vacatures">Bekijk onze 8 vacatures →</a>
+        <div className="cro-complete-included encanta-jobs">
+          <div>
+            <h3>Nieuwsgierig of er vacatures bij ons beschikbaar zijn?</h3>
+            <a className="cro-complete-cta" href="https://oogvoororen.be/vacatures">Bekijk onze 8 vacatures →</a>
+          </div>
+        </div>
       </details>
     </section>
   );
