@@ -1,5 +1,5 @@
 import { FrenchGuideFooter, FrenchGuideHeader } from "./guide-site-shell";
-import { AppointmentRequest } from "@/features/appointments/appointment-request-nl";
+import { CompactAppointmentForm } from "@/features/appointments/compact-form";
 import styles from "../hoortoestellen/keuzehulp/guide.module.css";
 
 export default function FrenchLayout({ children }: { children: React.ReactNode }) {
@@ -27,7 +27,7 @@ export default function FrenchLayout({ children }: { children: React.ReactNode }
                 <h3>Demander un rendez-vous</h3>
                 <span>Nous vous rappelons pour fixer le rendez-vous avec vous.</span>
               </div>
-              <AppointmentRequest locale="fr" />
+              <div className={styles.callout}><CompactAppointmentForm interest="Guide auditif" locale="fr" country="NL" /></div>
             </div>
           </div>
         </section>

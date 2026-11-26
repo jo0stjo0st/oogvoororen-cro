@@ -1,4 +1,4 @@
-import { AppointmentRequest } from "@/features/appointments/appointment-request-nl";
+import { CompactAppointmentForm } from "@/features/appointments/compact-form";
 import styles from "./guide.module.css";
 
 export function GuideAppointment() {
@@ -21,7 +21,7 @@ export function GuideAppointment() {
             <h3>Vraag een afspraak aan</h3>
             <span>We bellen u om de afspraak samen in te plannen.</span>
           </div>
-          <AppointmentRequest />
+          <div className={styles.callout}><CompactAppointmentForm interest="Koopgids Nederland" country="NL" /></div>
         </div>
       </div>
     </section>
