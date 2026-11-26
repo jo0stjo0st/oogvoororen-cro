@@ -4,6 +4,8 @@ import {useEffect, useState} from "react";
 import {cdn, euros, maxName, onEar, packshot, type Mode} from "@/features/products/signia-max";
 import styles from "../bernafon-smart-directionality/page.module.css";
 
+const charger = cdn + "Uxm1nPysKjd0JS8e497LribzwS58UNYZpkJbrHdE-400.webp";
+
 const colors = [
  ["Silver Grey", "#a0a0a0", ""], ["Beige", "#cfb9a7", "qqAVZnAw3smAPbIGdXZ75UF23Guzm3uA72pf9Kw5dk.jpg"],
  ["Black", "#404040", "nMyLq7uzIdJLuFxuAH1agHGDpTGtVhOVD07laTgfbv.jpg"], ["Chestnut Brown", "#604040", "FaXoIgJacAXmB8MmRlMUOiI4sQsak5cxgGHugwOsXM.jpg"],
@@ -13,18 +15,27 @@ const colors = [
 
 export function Gallery(){
  const [selected,setSelected]=useState(0);
- const [worn,setWorn]=useState(false);
+ const [view,setView]=useState<"set" | "device" | "worn">("set");
+ const worn=view==="worn";
  const [name,, photo]=colors[selected];
  return <div className="cro-complete-image">
-  <div className="cro-complete-packshot"><Image unoptimized priority={!worn && selected===0} src={worn ? onEar : photo ? cdn+"products/9816/"+photo : packshot} width={600} height={600} alt={worn ? maxName+" achter het oor" : maxName+" in "+name}/></div>
+  <div className="cro-complete-packshot">
+   {view==="set" ? (
+    <div className="grid w-full max-w-[470px] grid-cols-[2fr_3fr] items-end" aria-label="Hoortoestel naast de meegeleverde oplader" role="group">
+     <Image unoptimized priority src={photo ? cdn+"products/9816/"+photo : packshot} width={600} height={600} alt={maxName+" in "+name} className="w-full scale-[1.25] mix-blend-multiply"/>
+     <Image unoptimized priority src={charger} width={400} height={400} alt="Desktop Charger Pure 2.0 met hoortoestellen" className="w-full mix-blend-multiply"/>
+    </div>
+   ) : <Image unoptimized src={worn ? onEar : photo ? cdn+"products/9816/"+photo : packshot} width={600} height={600} alt={worn ? maxName+" achter het oor" : maxName+" in "+name}/>}
+  </div>
   <div className={styles.sceneControls} role="group" aria-label="Productweergave">
-   <button type="button" aria-pressed={!worn} onClick={()=>setWorn(false)}>Toestel</button>
-   <button type="button" aria-pressed={worn} onClick={()=>setWorn(true)}>Gedragen</button>
+   <button type="button" aria-pressed={view==="set"} onClick={()=>setView("set")}>Toestel + lader</button>
+   <button type="button" aria-pressed={view==="device"} onClick={()=>setView("device")}>Toestel</button>
+   <button type="button" aria-pressed={worn} onClick={()=>setView("worn")}>Gedragen</button>
   </div>
   <div className="flex flex-wrap justify-center gap-1" role="group" aria-label="Kies een kleur">
-   {colors.map(([color,hex],i)=><button type="button" key={color} aria-label={color} title={color} aria-pressed={!worn && selected===i} className="grid h-10 w-10 place-items-center rounded-full border border-transparent aria-pressed:border-[#007d60]" onClick={()=>{setSelected(i);setWorn(false)}}><span className="h-5 w-5 rounded-full" style={{background:hex}}/></button>)}
+   {colors.map(([color,hex],i)=><button type="button" key={color} aria-label={color} title={color} aria-pressed={!worn && selected===i} className="grid h-10 w-10 place-items-center rounded-full border border-transparent aria-pressed:border-[#007d60]" onClick={()=>{setSelected(i);if(worn)setView("device")}}><span className="h-5 w-5 rounded-full" style={{background:hex}}/></button>)}
   </div>
-  <small aria-live="polite">{worn ? "Zo zit het toestel achter het oor" : name}</small>
+  <small aria-live="polite">{worn ? "Zo zit het toestel achter het oor" : view==="set" ? name+" · Desktop Charger Pure 2.0 inbegrepen" : name}</small>
  </div>;
 }
 
