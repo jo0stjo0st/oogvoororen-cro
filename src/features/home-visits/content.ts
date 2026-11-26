@@ -12,7 +12,7 @@ export const homeVisitServices = [
       "We onderzoeken uw gehoor en bespreken wat u in het dagelijks leven graag beter wilt horen.",
     image: {
       src: "/images/audicien-aan-huis/hoortest-aan-tafel.webp",
-      alt: "Audicien neemt aan tafel een hoortest af",
+      alt: "Audioloog neemt aan tafel een hoortest af",
       position: "center",
     },
   },
@@ -23,7 +23,7 @@ export const homeVisitServices = [
       "We bespreken de verschillen tussen merken en modellen en kiezen samen het hoorapparaat dat het beste bij u past.",
     image: {
       src: "/images/audicien-aan-huis/hoorapparaat-bekijken.webp",
-      alt: "Audicien toont een hoorapparaat aan een klant",
+      alt: "Audioloog toont een hoorapparaat aan een klant",
       position: "center",
     },
   },
@@ -31,10 +31,10 @@ export const homeVisitServices = [
     id: "bijstellingen-en-nazorg",
     title: "Bijstellingen en nazorg",
     description:
-      "Na aanschaf bij Oogvoororen verzorgen we ook bijstellingen, opvolging en nazorg. Voor kleine onderhoudshandelingen hoeft de audicien niet aan huis te komen.",
+      "Na aankoop bij Oogvoororen kunnen we uw hoorapparaten thuis bijstellen en verzorgen we ook de verdere nazorg.",
     image: {
       src: "/images/audicien-aan-huis/hoorapparaat-bijstellen.webp",
-      alt: "Audicien plaatst een hoorapparaat achter het oor van een klant",
+      alt: "Audioloog plaatst een hoorapparaat achter het oor van een klant",
       position: "center",
     },
   },
