@@ -24,3 +24,8 @@
 @media (max-width: 720px) {
   .service-hero, .service-budget, .service-steps { grid-template-columns: 1fr; }
 }
+
+.service-prep { padding-block: 0 clamp(2.25rem, 5vw, 4rem); }
+.service-prep ul { max-width: 76ch; margin: 1rem 0 0; padding-inline-start: 1.35rem; color: var(--muted); }
+.service-prep li + li { margin-top: .6rem; }
+.service-prep li::marker { color: var(--green); }
