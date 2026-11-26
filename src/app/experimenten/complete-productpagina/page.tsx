@@ -21,6 +21,7 @@ export default function CompleteProductPage(){
  const [eligible,setEligible]=useState(true);
  const [showSticky,setShowSticky]=useState(false);
 
+ const examplePrice=calculatePrice("senior",1,"standard");
  const result=calculatePrice(age,count,eligible?"standard":"own");
  useEffect(()=>{
   const update=()=>{const el=document.getElementById("complete-hero");setShowSticky(Boolean(el&&el.getBoundingClientRect().bottom<90))};
@@ -32,8 +33,8 @@ export default function CompleteProductPage(){
   <section id="complete-hero" className="cro-complete-hero">
    <div className="cro-complete-image"><div className="cro-complete-packshot"><Image unoptimized src="https://claso.net/image/catalog/productes-bernafon/bernafon-encanta-landing.png" alt="Bernafon Encanta miniRITE met oplader, voorbeeldpackshot" width={560} height={560}/></div><div className="cro-complete-image-choices"><span className="cro-complete-choice-active">Toestel + oplader</span><span>Toestel</span><span>Detail</span></div><small>Voorbeeldpackshot ter beoordeling · beeldrechten nog controleren</small></div>
    <div className="cro-complete-hero-copy"><p className="eyebrow">Bernafon · Encanta</p><h1>Bernafon Encanta 400 Pro miniRITE</h1><p>Oplaadbaar hoortoestel met het hoogste technologieniveau binnen de Encanta-serie.</p>
-    <div className="cro-complete-price"><span>Prijs per hoorapparaat</span><strong>{euro(product.price)}</strong><p>Indicatieve eigen opleg voor 65+: <b>€ 1.535,41</b></p><a href="#prijs">Bereken uw persoonlijke prijs ↓</a></div>
-    <ul className="cro-complete-benefits"><li><span aria-hidden="true">✓</span>Persoonlijk hooradvies en hoortest</li><li><span aria-hidden="true">✓</span>Vrijblijvend proberen na het advies</li><li><span aria-hidden="true">✓</span>5 jaar service en garantie volgens de voorwaarden</li></ul>
+    <div className="cro-complete-price"><span>Prijs per hoorapparaat</span><strong>{euro(product.price)}</strong><div className="cro-complete-own-payment"><span>Indicatieve eigen opleg voor 65+</span><b>{euro(examplePrice.net ?? examplePrice.total)}</b></div><a href="#prijs">Bereken uw persoonlijke prijs ↓</a></div>
+    <ul className="cro-complete-benefits"><li><span aria-hidden="true">✓</span>Persoonlijk hooradvies en hoortest</li><li><span aria-hidden="true">✓</span>Vrijblijvend proberen na het advies</li><li><span aria-hidden="true">✓</span>5 jaar service en garantie</li></ul>
     <a className="cro-complete-cta" href="#afspraak">Maak een afspraak voor persoonlijk hooradvies</a><p className="cro-complete-assurance">Persoonlijk advies · Geen aankoopverplichting</p>
    </div>
   </section>

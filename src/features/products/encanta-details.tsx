@@ -81,12 +81,12 @@ export function EncantaTechnicalDetails() {
 const store = "https://oogvoororen.be/webshop/";
 const photos = "https://cdn.oogvoororen.nl/";
 const accessories = [
-  { name: "TV-A Adapter", path: "tv-hulpmiddelen/bernafon/bernafon-tv-a-tv-adapter", photo: "49b6b35ff625296ea9eeb8e15a431aab-400.webp" },
-  { name: "SoundClip-A", path: "telefonie/bernafon/bernafon-soundclip-a", photo: "5004f0d7eaa1fbfa05a8d0c3f3d21681-400.webp" },
-  { name: "RC-A Remote Control", path: "afstandbedieningen/bernafon/bernafon-rc-a", photo: "d706e54920a7889699727e1062dc4b6b-400.webp" },
-  { name: "Desk Charger", path: "opladers/bernafon/desk-charger-1", photo: "UH0pGt7WsefYq5gVBAb7yB4QbHkVLhsHKBYMHigI-400.webp" },
-  { name: "Charger Plus miniRITE", path: "opladers/bernafon/charger-plus-minirite", photo: "wT6qIXOlzAKEsIahkFiJUi8cqAvpaFtppYuBDZLl-400.webp" },
-  { name: "Easy LE Adapter", path: "telefonie/bernafon/bernafon-easy-le-adapter", photo: "kwuigXBWAfXz981ih2wnmp2m8BXyxmBARoKLMM2V-400.webp" },
+  { name: "TV-A Adapter", note: "Stream het geluid van uw televisie rechtstreeks naar uw hoorapparaten, op het volume dat u prettig vindt.", path: "tv-hulpmiddelen/bernafon/bernafon-tv-a-tv-adapter", photo: "49b6b35ff625296ea9eeb8e15a431aab-400.webp" },
+  { name: "SoundClip-A", note: "Handig voor één-op-ééngesprekken met achtergrondgeluid, bijvoorbeeld onderweg op de fiets. Uw gesprekspartner draagt de clip en u hoort diens stem rechtstreeks in uw hoorapparaten.", path: "telefonie/bernafon/bernafon-soundclip-a", photo: "5004f0d7eaa1fbfa05a8d0c3f3d21681-400.webp" },
+  { name: "RC-A Remote Control", note: "Regel het volume en wissel van luisterprogramma met één druk op de knop. U hoeft uw telefoon er niet bij te pakken.", path: "afstandbedieningen/bernafon/bernafon-rc-a", photo: "d706e54920a7889699727e1062dc4b6b-400.webp" },
+  { name: "Desk Charger", note: "De standaardoplader voor uw Encanta miniRITE.", path: "opladers/bernafon/desk-charger-1", photo: "UH0pGt7WsefYq5gVBAb7yB4QbHkVLhsHKBYMHigI-400.webp" },
+  { name: "Charger Plus miniRITE", note: "Reisoplader met ingebouwde powerbank. Laad uw hoorapparaten ook onderweg op, zonder stopcontact.", path: "opladers/bernafon/charger-plus-minirite", photo: "wT6qIXOlzAKEsIahkFiJUi8cqAvpaFtppYuBDZLl-400.webp" },
+  { name: "Easy LE Adapter", note: "Stream audio rechtstreeks naar uw hoorapparaten vanaf een compatibel apparaat met een USB-C-aansluiting.", path: "telefonie/bernafon/bernafon-easy-le-adapter", photo: "kwuigXBWAfXz981ih2wnmp2m8BXyxmBARoKLMM2V-400.webp" },
 ];
 
 const maintenance = [
@@ -102,7 +102,7 @@ export function EncantaAccessories() {
     <section className="cro-complete-section" id="accessoires">
       <h2>Accessoires bij uw Encanta</h2>
       <div className="cro-complete-accessories">
-        {accessories.map(({ name, path, photo }) => {
+        {accessories.map(({ name, path, photo, note }) => {
           const accessory = product.accessories.find(item => item.name === name);
           return (
             <article key={name}>
@@ -110,7 +110,7 @@ export function EncantaAccessories() {
                 <Image unoptimized src={photos + photo} alt="" width={180} height={140} />
                 <h3>{name}</h3>
               </a>
-              <p>{accessory?.note}</p>
+              <p>{note}</p>
               <strong>{name === "Desk Charger" ? "Inbegrepen bij het toestel" : accessory && euro(accessory.price)}</strong>
             </article>
           );
