@@ -1,0 +1,20 @@
+.cost-table-wrap { margin-top: 1.5rem; overflow-x: auto; }
+.cost-table { width: 100%; min-width: 39rem; border-collapse: collapse; background: white; }
+.cost-table caption { text-align: left; color: var(--muted); padding: 0 0 .65rem; font-size: .875rem; }
+.cost-table th, .cost-table td { padding: .8rem 1rem; border: 1px solid var(--line); text-align: left; }
+.cost-table thead th { background: var(--cream); }
+.cost-table td:nth-child(2), .cost-table td:nth-child(3) { white-space: nowrap; }
+.cost-table a { color: var(--green-hover); }
+.cost-picker { display: grid; gap: .6rem; justify-items: start; }
+.cost-picker label { font-weight: 600; }
+.cost-picker select {
+  width: min(100%, 25rem);
+  appearance: none;
+  background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='m6 9 6 6 6-6' fill='none' stroke='%23151a17' stroke-width='2'/%3E%3C/svg%3E") right .65rem center / 1rem no-repeat;
+  font: inherit;
+  color: var(--ink);
+  border: 1px solid #78877c;
+  border-radius: .45rem;
+  padding: .65rem 2rem .65rem .65rem;
+}
+.cost-picker select:focus-visible { outline: 3px solid var(--green); outline-offset: 4px; }
