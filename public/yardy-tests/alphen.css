@@ -65,3 +65,29 @@
   .cards, .showroom { grid-template-columns: 1fr; }
   .landing-hero { background-position: center; }
 }
+
+.faq {
+  display: grid;
+  grid-template-columns: minmax(13rem, .8fr) minmax(0, 1.6fr);
+  gap: clamp(1.5rem, 5vw, 4rem);
+}
+.faq p { margin-top: .65rem; color: var(--muted); }
+.faq-list { display: grid; align-content: start; gap: .65rem; }
+.faq-list details { border: 1px solid var(--line); border-radius: .75rem; background: white; }
+.faq-list summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: .9rem 1.05rem;
+  list-style: none;
+  font-weight: 600;
+  cursor: pointer;
+}
+.faq-list summary::-webkit-details-marker { display: none; }
+.faq-list summary::after { content: "+"; color: var(--green); font-size: 1.4rem; line-height: 1; }
+.faq-list details[open] { background: var(--mint); }
+.faq-list details[open] summary::after { content: "−"; }
+.faq-list details p { margin: 0; padding: 0 1.05rem 1rem; }
+.faq-list a { color: var(--green-hover); }
+@media (max-width: 850px) { .faq { grid-template-columns: 1fr; } }
