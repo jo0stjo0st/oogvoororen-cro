@@ -3342,3 +3342,56 @@ td {
     grid-template-columns: 1fr;
   }
 }
+
+.cro-complete-section .encanta-professionals {
+  border-top: 0;
+  padding: 0;
+}
+
+.encanta-professionals > summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  list-style: none;
+}
+
+.encanta-professionals > summary::-webkit-details-marker {
+  display: none;
+}
+
+.encanta-professionals > summary h2 {
+  margin: 0;
+}
+
+.encanta-professionals-toggle {
+  flex-shrink: 0;
+  font-size: 24px;
+  line-height: 1;
+}
+
+.encanta-professionals-toggle::before {
+  content: "+";
+}
+
+.encanta-professionals[open] .encanta-professionals-toggle::before {
+  content: "−";
+}
+
+.encanta-professionals > .download-links {
+  margin-block: 16px 24px;
+}
+
+.encanta-professional-faq {
+  border-top: 1px solid var(--line);
+  padding-block: 12px;
+}
+
+.encanta-professional-faq h4 {
+  font-weight: 700;
+  margin: 0 0 4px;
+}
+
+.encanta-professional-faq p {
+  margin: 0;
+}

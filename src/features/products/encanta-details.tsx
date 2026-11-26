@@ -133,30 +133,32 @@ export function EncantaAccessories() {
 export function EncantaProfessionals() {
   return (
     <section className="cro-complete-section" id="voor-audiciens" aria-labelledby="encanta-professionals-title">
-      <h2 id="encanta-professionals-title">Voor audiciens</h2>
-      <details>
-        <summary>Bekijk downloads en tips voor de aanpassing</summary>
+      <details className="encanta-professionals">
+        <summary>
+          <h2 id="encanta-professionals-title">Voor audiciens</h2>
+          <span className="encanta-professionals-toggle" aria-hidden="true" />
+        </summary>
         <div className="download-links">
           <a href={datasheet}>Specsheet Encanta miniRITE (PDF) ↓</a>
           <a href="/downloads/bernafon-encanta-minirite-aanpasbereik.pdf" download>Aanpasbereik per receiver (PDF) ↓</a>
         </div>
         <h3>Tips &amp; tricks</h3>
-        <details>
-          <summary>Welke receiver kies ik?</summary>
+        <div className="encanta-professional-faq">
+          <h4>Welke receiver kies ik?</h4>
           <p>Vergelijk het audiogram met het aanpasbereik van de 60-, 85-, 100- of 105-receiver. Houd rekening met de gekozen akoestische koppeling en verifieer de versterking op het oor.</p>
-        </details>
-        <details>
-          <summary>Hoe stel ik de demping van plotse geluiden af?</summary>
+        </div>
+        <div className="encanta-professional-faq">
+          <h4>Hoe stel ik de demping van plotse geluiden af?</h4>
           <p>De 400 biedt zes instellingen voor Transient Noise Reduction. Bespreek bij welke geluiden de drager last ervaart en beoordeel bij een bijstelling het effect op comfort en verstaan.</p>
-        </details>
-        <details>
-          <summary>Wat kan ik aanpassen voor gesprekken in rumoer?</summary>
+        </div>
+        <div className="encanta-professional-faq">
+          <h4>Wat kan ik aanpassen voor gesprekken in rumoer?</h4>
           <p>Vergelijk de instellingen voor Smart Directionality en de Speech and Noise Balancer. Gebruik een herkenbare gesprekssituatie om samen te beoordelen hoeveel nadruk op spraak prettig is.</p>
-        </details>
-        <details>
-          <summary>Hoe maak ik een instelling voor muziekluisteraars?</summary>
+        </div>
+        <div className="encanta-professional-faq">
+          <h4>Hoe maak ik een instelling voor muziekluisteraars?</h4>
           <p>Probeer het programma Music Experience en laat de drager luisteren naar een bekend muziekfragment. Bespreek of de balans en het volume prettig zijn.</p>
-        </details>
+        </div>
         <div className="cro-complete-included encanta-jobs">
           <div>
             <h3>Nieuwsgierig of er vacatures bij ons beschikbaar zijn?</h3>
