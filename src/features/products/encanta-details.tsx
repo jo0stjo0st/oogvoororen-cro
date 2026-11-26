@@ -32,7 +32,7 @@ const specs = [
   ] },
 ];
 
-const brochure = "https://damcdn.demant.com/5aee8cba-4e36-4955-b8db-b1b000b49fab/279108NL_PBR_BE_Encanta%20Family%20Performance_24.2_Original%20file.pdf";
+const brochure = "https://damcdn.demant.com/4d8e5d6b-38ad-473a-b056-b108009df458/274504NL_BE_CBR_Encanta%20MNR%20T_24.1_Original%20file.pdf";
 const manual = "https://cdn.oogvoororen.nl/9QOYW1bxVofsYTIAML9vsBNseuWDXpaGR6lwNE2O.pdf";
 const datasheet = "https://cdn.oogvoororen.nl/J4UZ10kkl4T8X8fuYtfivcB4fY1KJmbeB3uKCNk3.pdf";
 
