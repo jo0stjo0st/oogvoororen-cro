@@ -1,3 +1,4 @@
+import {ProductSiteHeader,ProductSiteFooter} from "@/components/product-site-shell";
 import { productTechnologyHref } from "@/features/products/hearing-technology";
 import { ProductAccessories } from "@/features/products/product-accessories";
 import { ProductReviews } from "@/features/reviews/product-reviews";
@@ -7,7 +8,7 @@ import Link from "next/link";
 import {cdn,datasheet,euros,featureSheet,liveProduct,manual,maxName,maxRoute,models,videos} from "@/features/products/signia-max";
 import {specifications} from "@/features/products/signia-max-specifications";
 import {Gallery,PriceChoice,StickyAppointment,Visual} from "./interactive";
-import {AppDownloads,Appointment,MaxFooter,MaxHeader} from "./shared";
+import {AppDownloads,Appointment} from "./shared";
 import styles from "../bernafon-smart-directionality/page.module.css";
 
 export const metadata: Metadata = {
@@ -41,8 +42,7 @@ const maintenance = [
 ];
 
 export default function SigniaMaxProduct(){
- return <><MaxHeader/><main className="wide cro-complete-page" id="main-content">
-  <nav className="cro-complete-back" aria-label="Broodkruimel"><a href="https://oogvoororen.nl/hoortoestellen/signia">Signia-hoortoestellen</a><span> / Pure Charge&Go MaX 7</span></nav>
+ return <><ProductSiteHeader country="NL" productName={maxName} brand={{name:"Signia",href:"https://oogvoororen.nl/hoortoestellen/signia"}}/><main className="wide cro-complete-page" id="main-content">
   <section id="max-hero" className="cro-complete-hero">
    <Gallery/>
    <div className="cro-complete-hero-copy">
@@ -118,5 +118,5 @@ export default function SigniaMaxProduct(){
    <p className="mt-6"><strong>Nieuwsgierig of er vacatures bij ons beschikbaar zijn?</strong></p><a className="cro-complete-cta" href="https://oogvoororen.nl/vacatures">Bekijk onze vacatures →</a>
   </details></section>
   <StickyAppointment/>
- </main><MaxFooter/></>;
+ </main><ProductSiteFooter country="NL"/></>;
 }
