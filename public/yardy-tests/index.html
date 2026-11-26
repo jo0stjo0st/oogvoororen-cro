@@ -6,6 +6,7 @@
 <meta name="robots" content="noindex, nofollow">
 <title>Loungetuin met ronde borders en een houten pergola | Yardy test</title>
 <link rel="stylesheet" href="style.css">
+<script defer src="richtprijs.js"></script>
 </head>
 <body>
 <a class="skip" href="#content">Direct naar de inhoud</a>
@@ -24,12 +25,27 @@
       <h1 id="titel" class="font-poppins text-3xl font-semibold leading-tight tracking-tight text-gray-900 sm:text-4xl lg:text-[2.75rem] dark:text-white">Loungetuin met ronde borders en een houten pergola</h1>
       <p>Bij de woning ligt een ruim, licht betegeld terras met plek voor een loungebank en twee stoelen. De borders buigen om de zithoek heen. Een houten pergola markeert de overgang naar het achterste deel van de tuin, waar lange groene stroken de rechte bestrating onderbreken.</p>
       <p>Overdag tekenen de planten en de pergola schaduwen op het terras. ’s Avonds geven wandlampen bij de berging en licht tussen de planten de tuin een warm accent.</p>
-      <details><summary>Bekijk het uitgesneden tuinontwerp</summary><a href="assets/ontwerp.webp"><img src="assets/ontwerp.webp" alt="Linker ontwerpvariant uit de oorspronkelijke tekening, zonder maatvoering" width="386" height="611" loading="lazy"></a></details>
     </div>
   </section>
   <section id="richtprijs" class="price" aria-labelledby="prijs">
-    <div><h2 id="prijs">Richtprijs voor de aanleg</h2><p class="amount">€ 14.063,40 – € 14.766,57</p><p>Inclusief btw, exclusief schuttingen en het leeghalen van de tuin.</p></div>
-    <p>Gebaseerd op de referentieofferte uit 2021, met maximaal 5% opslag voor extra uitvoeringscomplexiteit. Uitgangspunt is een lege tuin met schoon zand en bestaande schuttingen. Het grondwerk voor de twee niveaus is inbegrepen.</p>
+    <div class="price-summary">
+      <h2 id="prijs">Richtprijs voor de aanleg</h2>
+      <output id="prijsbereik" class="amount" for="oppervlakte verlichting pergola leeghalen" aria-live="polite">€ 14.063 – € 14.767</output>
+      <p>Inclusief btw en aanleg. Schuttingen zijn uitgesloten.</p>
+      <p class="base">De basistuin omvat bestrating, vlonder, beplanting en het grondwerk voor de twee niveaus.</p>
+      <p class="price-note" id="prijsbasis">Indicatie op basis van de referentieofferte uit 2021. De bovengrens houdt rekening met 5% extra uitvoeringskosten. Bij leeghalen rekenen we met € 20–€ 35 per m² inclusief btw als indicatieve aanname.</p>
+    </div>
+    <form id="tuinopties" class="options" aria-describedby="prijsbasis">
+      <label class="area" for="oppervlakte"><span>Tuinoppervlakte</span><span class="area-input"><input type="number" id="oppervlakte" name="oppervlakte" min="15" max="250" step="any" value="54" required aria-describedby="oppervlakte-hulp"> m²</span></label>
+      <p id="oppervlakte-hulp" class="hint">Referentietuin ca. 54 m² · kies 15–250 m²</p>
+      <fieldset>
+        <legend>Losse extra’s</legend>
+        <label><input type="checkbox" id="verlichting" name="verlichting" checked><span>Tuinverlichting</span></label>
+        <label><input type="checkbox" id="pergola" name="pergola" checked><span>Houten pergola</span></label>
+        <label><input type="checkbox" id="leeghalen" name="leeghalen"><span>Tuin leeghalen en afvoeren</span></label>
+      </fieldset>
+      <noscript><p>Schakel JavaScript in om de richtprijs aan te passen.</p></noscript>
+    </form>
   </section>
   <section id="moodboard" class="mood">
     <h2>Moodboard</h2>
