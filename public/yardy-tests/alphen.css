@@ -91,3 +91,14 @@
 .faq-list details p { margin: 0; padding: 0 1.05rem 1rem; }
 .faq-list a { color: var(--green-hover); }
 @media (max-width: 850px) { .faq { grid-template-columns: 1fr; } }
+
+.alphen-hero {
+  background-image: linear-gradient(90deg,#102217f0,#10221780 70%,#10221745),
+    url("https://yardy-storage-bucket.s3.eu-north-1.amazonaws.com/29420/conversions/LLYZ1SuqLyrZ7oLPp4Pl0g9VdTni7GAxHcs7Cwen-webp.webp");
+}
+.alphen-project-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.related-alphen { margin-inline-start: 1rem; }
+@media (max-width: 690px) {
+  .alphen-project-cards { grid-template-columns: 1fr; }
+  .related-alphen { display: block; margin-inline-start: 0; }
+}
