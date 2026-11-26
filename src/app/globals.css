@@ -3446,13 +3446,11 @@ td {
 }
 
 .cro-complete-own-payment {
-  display: grid;
-  gap: 2px;
-  margin-block: 12px;
-  padding: 12px 16px;
-  background: #fff;
-  border: 1px solid #c9dfd0;
-  border-radius: 8px;
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 4px 10px;
+  margin-block: 8px;
 }
 
 .cro-complete-own-payment span {
@@ -3461,6 +3459,6 @@ td {
 
 .cro-complete-own-payment b {
   color: #17613e;
-  font-size: clamp(30px, 4vw, 42px);
-  line-height: 1.2;
+  font-size: 20px;
+  line-height: 1.3;
 }
