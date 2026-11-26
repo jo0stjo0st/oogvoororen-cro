@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { euro, product } from "./data";
@@ -8,7 +9,7 @@ const levels = [
   { name: "Encanta 200 Go", score: 2, description: "Voor rustige gesprekken en dagelijkse situaties · dempt plotse geluiden · tot 8 dB rumoerreductie" },
 ];
 
-const specs = [
+const specs: { title: string; rows: [string, ReactNode][] }[] = [
   { title: "Algemeen", rows: [
     ["Releasejaar", "2024"], ["Oplaadbaar", "Ja"], ["Batterijtype", "Lithium-ion"],
     ["Batterijduur", "Verwacht: circa 24 uur, afhankelijk van gebruik"],
@@ -23,9 +24,9 @@ const specs = [
     ["Ruimtelijke oriëntatie", "Ja"], ["360°-spraakverstaan", "Ja"], ["Ruisonderdrukking", "Ja"],
     ["Rumoeronderdrukking", "Smart Noise Reduction, tot 12 dB"],
     ["Spraakherkenning", "Ja"], ["Versterking van zachte spraak", "Ja"],
-    ["Aanpassing aan de luisteromgeving", "Ja, met Smart Sensor"], ["Windruisonderdrukking", "Ja"],
-    ["Demping van plotse geluiden", "Transient Noise Reduction"], ["Muziekprogramma", "Music Experience"],
-    ["Communicatie tussen beide toestellen", "Ja"], ["Tinnitusmaskeerder", "Tinnitus SoundSupport"],
+    ["Aanpassing aan de luisteromgeving", <>Ja, met <Link href="/experimenten/bernafon/smart-sensor" className="underline">Smart Sensor</Link></>], ["Windruisonderdrukking", "Ja"],
+    ["Demping van plotse geluiden", <Link href="/experimenten/bernafon/transient-noise-reduction" className="underline">Transient Noise Reduction</Link>], ["Muziekprogramma", <Link href="/experimenten/bernafon/music-experience" className="underline">Music Experience</Link>],
+    ["Communicatie tussen beide toestellen", "Ja"], ["Tinnitusmaskeerder", <Link href="/experimenten/bernafon/tinnitus-soundsupport" className="underline">Tinnitus SoundSupport</Link>],
     ["CROS-compatibiliteit", "Ja"],
   ] },
   { title: "Extra functies", rows: [
