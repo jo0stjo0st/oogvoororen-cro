@@ -13,11 +13,7 @@ const pergolaCost = 1573.94 * vatFactor;
 // Tile and paver supply and installation, grouting, and ground shaping.
 const areaDependentCost = 4698.30 * vatFactor;
 const fixedBaseCost = quoteTotal - lightingCost - pergolaCost - areaDependentCost;
-const locale = document.documentElement.lang === 'fr-FR' ? 'fr-FR' : 'nl-NL';
-const areaError = locale === 'fr-FR'
-  ? 'Saisissez une surface de 15 à 250 m²'
-  : 'Vul 15–250 m² in';
-const formatPrice = new Intl.NumberFormat(locale, {
+const formatPrice = new Intl.NumberFormat('nl-NL', {
   style: 'currency',
   currency: 'EUR',
   maximumFractionDigits: 0,
@@ -25,7 +21,7 @@ const formatPrice = new Intl.NumberFormat(locale, {
 
 function updatePrice() {
   if (!area.validity.valid) {
-    price.textContent = areaError;
+    price.textContent = 'Vul 15–250 m² in';
     return;
   }
 
